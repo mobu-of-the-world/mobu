@@ -4,11 +4,20 @@ import AppComponent from "./AppComponent";
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
+  const isTicking = React.useRef(false);
+
   const [tickCount, setTickCount] = React.useState(0);
   const [tickFunc, setTickFunc] = React.useState();
 
   const onStart = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
+      console.log(isTicking);
+      if (isTicking.current) {
+        return;
+      }
+
+      isTicking.current = true;
+
       setTickFunc(
         setInterval(() => {
           count.current += 1;
@@ -21,7 +30,10 @@ const AppContainer: React.FunctionComponent = () => {
 
   const onPause = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
-      clearInterval(tickFunc);
+      if (isTicking.current) {
+        clearInterval(tickFunc);
+        isTicking.current = false;
+      }
     },
     [tickFunc]
   );
