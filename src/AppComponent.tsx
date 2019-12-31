@@ -37,7 +37,7 @@ const AppComponent: React.FunctionComponent<{
       <div>
         <ul>
           {users.map(user => (
-            <li>hoge</li>
+            <li key={user}>{user}</li>
           ))}
         </ul>
       </div>
