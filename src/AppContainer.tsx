@@ -41,12 +41,18 @@ const AppContainer: React.FunctionComponent = () => {
 
   return (
     <AppComponent
-      count={tickCount}
+      elapsedTime={numberToTimeString(tickCount)}
       onStart={onStart}
       onPause={onPause}
       onReset={onReset}
     ></AppComponent>
   );
 };
+
+function numberToTimeString(count: number): string {
+  const elapsedTime = new Date(count);
+  elapsedTime.setSeconds(count);
+  return elapsedTime.toISOString().substr(11, 8);
+}
 
 export default AppContainer;
