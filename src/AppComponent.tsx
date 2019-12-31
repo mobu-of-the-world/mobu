@@ -3,14 +3,14 @@ import Button from "./atoms/Button";
 import Timer from "./atoms/Timer";
 
 const AppComponent: React.FunctionComponent<{
-  count: number;
+  elapsedTime: string;
   onStart: (event: React.MouseEvent<HTMLElement>) => void;
   onPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
-}> = ({ count, onStart, onPause, onReset }) => {
+}> = ({ elapsedTime, onStart, onPause, onReset }) => {
   return (
     <div>
-      <Timer count={count} />
+      <Timer elapsedTime={elapsedTime} />
       <Button onClick={onStart}>Start</Button>
       <Button onClick={onPause}>Pause</Button>
       <Button onClick={onReset}>Reset</Button>
