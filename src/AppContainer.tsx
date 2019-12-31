@@ -5,6 +5,8 @@ import AppComponent from "./AppComponent";
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
   const timerID = React.useRef<NodeJS.Timeout>();
+  const [users, setUsers] = React.useState<string[]>([]);
+  const [username, setUsername] = React.useState("");
 
   const [tickCount, setTickCount] = React.useState(0);
 
@@ -39,12 +41,31 @@ const AppContainer: React.FunctionComponent = () => {
     [count]
   );
 
+  const onChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setUsername(event.currentTarget.value);
+    },
+    []
+  );
+
+  const onUserRegist = React.useCallback(
+    (event: React.MouseEvent<HTMLElement>) => {
+      setUsers(prev => [...prev, username]);
+      setUsername("");
+    },
+    [username]
+  );
+
   return (
     <AppComponent
       elapsedTime={numberToTimeString(tickCount)}
       onStart={onStart}
       onPause={onPause}
       onReset={onReset}
+      onChange={onChange}
+      onUserRegist={onUserRegist}
+      username={username}
+      users={users}
     ></AppComponent>
   );
 };
