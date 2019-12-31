@@ -48,7 +48,7 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
-  const onUserRegist = React.useCallback(
+  const onUserRegister = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       setUsers(prev => [...prev, username]);
       setUsername("");
@@ -63,7 +63,7 @@ const AppContainer: React.FunctionComponent = () => {
       onPause={onPause}
       onReset={onReset}
       onChange={onChange}
-      onUserRegist={onUserRegist}
+      onUserRegister={onUserRegister}
       username={username}
       users={users}
     ></AppComponent>

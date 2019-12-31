@@ -9,7 +9,7 @@ const AppComponent: React.FunctionComponent<{
   onPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onUserRegist: (event: React.MouseEvent<HTMLElement>) => void;
+  onUserRegister: (event: React.MouseEvent<HTMLElement>) => void;
   username: string;
   users: string[];
 }> = ({
@@ -18,7 +18,7 @@ const AppComponent: React.FunctionComponent<{
   onPause,
   onReset,
   onChange,
-  onUserRegist,
+  onUserRegister,
   username,
   users
 }) => {
@@ -32,7 +32,7 @@ const AppComponent: React.FunctionComponent<{
       </div>
       <div>
         <TextInput onChange={onChange} value={username} />
-        <Button onClick={onUserRegist}>Regist</Button>
+        <Button onClick={onUserRegister}>Register</Button>
       </div>
       <div>
         <ul>
