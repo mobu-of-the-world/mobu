@@ -48,6 +48,13 @@ const AppContainer: React.FunctionComponent = () => {
     [count]
   );
 
+  const onShuffle = React.useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      setUsers(prev => shuffleArray([...prev]));
+    },
+    []
+  );
+
   const onChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setUsername(event.currentTarget.value);
@@ -77,6 +84,7 @@ const AppContainer: React.FunctionComponent = () => {
       onStart={onStart}
       onPause={onPause}
       onReset={onReset}
+      onShuffle={onShuffle}
       onChange={onChange}
       onUserRegister={onUserRegister}
       onUserRemove={onUserRemove}
@@ -92,5 +100,14 @@ function numberToTimeString(count: number): string {
   elapsedTime.setSeconds(count);
   return elapsedTime.toISOString().substr(11, 8);
 }
+
+function shuffleArray(array: string[]): string[] {
+  for (let i = array.length - 1; i > 0; i--){
+    const rand = Math.floor(Math.random() * ( i + 1 ));
+    [array[i], array[rand]] = [array[rand], array[i]]
+  }
+
+  return array
+} 
 
 export default AppContainer;

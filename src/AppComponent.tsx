@@ -8,6 +8,7 @@ const AppComponent: React.FunctionComponent<{
   onStart: (event: React.MouseEvent<HTMLElement>) => void;
   onPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
+  onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onUserRegister: (event: React.MouseEvent<HTMLElement>) => void;
   onUserRemove: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -19,6 +20,7 @@ const AppComponent: React.FunctionComponent<{
   onStart,
   onPause,
   onReset,
+  onShuffle,
   onChange,
   onUserRegister,
   onUserRemove,
@@ -33,6 +35,7 @@ const AppComponent: React.FunctionComponent<{
         <Button onClick={onStart}>Start</Button>
         <Button onClick={onPause}>Pause</Button>
         <Button onClick={onReset}>Reset</Button>
+        <Button onClick={onShuffle}>Shuffle</Button>
       </div>
       <div>
         <TextInput onChange={onChange} value={username} />
