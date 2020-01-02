@@ -10,6 +10,7 @@ const AppComponent: React.FunctionComponent<{
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onUserRegister: (event: React.MouseEvent<HTMLElement>) => void;
+  onUserRemove: (event: React.MouseEvent<HTMLButtonElement>) => void;
   username: string;
   users: string[];
   registerDisabled: boolean;
@@ -20,6 +21,7 @@ const AppComponent: React.FunctionComponent<{
   onReset,
   onChange,
   onUserRegister,
+  onUserRemove,
   username,
   users,
   registerDisabled
@@ -39,7 +41,7 @@ const AppComponent: React.FunctionComponent<{
       <div>
         <ul>
           {users.map(user => (
-            <li key={user}>{user}</li>
+            <li key={user}>{user}<Button onClick={onUserRemove} value={user}>Remove</Button></li>
           ))}
         </ul>
       </div>
