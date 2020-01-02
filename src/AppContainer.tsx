@@ -3,7 +3,7 @@ import React from "react";
 import AppComponent from "./AppComponent";
 
 const emptyUsername = "";
-const blankStrings = new RegExp(/^\s*$/);
+const blankStringsPattern = new RegExp(/^\s*$/);
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
@@ -14,7 +14,7 @@ const AppContainer: React.FunctionComponent = () => {
   const [tickCount, setTickCount] = React.useState(0);
 
   const registerDisabled = () => (
-    username === emptyUsername || blankStrings.test(username) || users.includes(username)
+    username === emptyUsername || blankStringsPattern.test(username) || users.includes(username)
   )
 
   const onStart = React.useCallback(
