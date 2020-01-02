@@ -66,6 +66,7 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRegister={onUserRegister}
       username={username}
       users={users}
+      registerDisabled={username === ""}
     ></AppComponent>
   );
 };
