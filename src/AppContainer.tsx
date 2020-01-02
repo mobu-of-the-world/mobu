@@ -2,6 +2,9 @@ import React from "react";
 
 import AppComponent from "./AppComponent";
 
+const emptyUsername = "";
+const blankStringsPattern = new RegExp(/^\s*$/);
+
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
   const timerID = React.useRef<NodeJS.Timeout>();
@@ -9,6 +12,10 @@ const AppContainer: React.FunctionComponent = () => {
   const [username, setUsername] = React.useState("");
 
   const [tickCount, setTickCount] = React.useState(0);
+
+  const registerDisabled = () => (
+    username === emptyUsername || blankStringsPattern.test(username) || users.includes(username)
+  )
 
   const onStart = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
@@ -51,7 +58,7 @@ const AppContainer: React.FunctionComponent = () => {
   const onUserRegister = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       setUsers(prev => [...prev, username]);
-      setUsername("");
+      setUsername(emptyUsername);
     },
     [username]
   );
@@ -75,7 +82,7 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRemove={onUserRemove}
       username={username}
       users={users}
-      registerDisabled={username === ""}
+      registerDisabled={registerDisabled()}
     ></AppComponent>
   );
 };
