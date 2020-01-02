@@ -2,6 +2,8 @@ import React from "react";
 
 import AppComponent from "./AppComponent";
 
+const emptyUsername = "";
+
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
   const timerID = React.useRef<NodeJS.Timeout>();
@@ -51,7 +53,7 @@ const AppContainer: React.FunctionComponent = () => {
   const onUserRegister = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       setUsers(prev => [...prev, username]);
-      setUsername("");
+      setUsername(emptyUsername);
     },
     [username]
   );
@@ -75,7 +77,7 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRemove={onUserRemove}
       username={username}
       users={users}
-      registerDisabled={username === ""}
+      registerDisabled={username === emptyUsername}
     ></AppComponent>
   );
 };
