@@ -3,6 +3,7 @@ import React from "react";
 import AppComponent from "./AppComponent";
 
 const emptyUsername = "";
+const blankStrings = new RegExp(/^\s*$/);
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
@@ -11,6 +12,10 @@ const AppContainer: React.FunctionComponent = () => {
   const [username, setUsername] = React.useState("");
 
   const [tickCount, setTickCount] = React.useState(0);
+
+  const registerDisabled = () => (
+    username === emptyUsername || blankStrings.test(username) || users.includes(username)
+  )
 
   const onStart = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
@@ -77,7 +82,7 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRemove={onUserRemove}
       username={username}
       users={users}
-      registerDisabled={username === emptyUsername}
+      registerDisabled={registerDisabled()}
     ></AppComponent>
   );
 };
