@@ -12,6 +12,7 @@ const AppComponent: React.FunctionComponent<{
   onUserRegister: (event: React.MouseEvent<HTMLElement>) => void;
   username: string;
   users: string[];
+  registerDisabled: boolean;
 }> = ({
   elapsedTime,
   onStart,
@@ -20,7 +21,8 @@ const AppComponent: React.FunctionComponent<{
   onChange,
   onUserRegister,
   username,
-  users
+  users,
+  registerDisabled
 }) => {
   return (
     <>
@@ -32,7 +34,7 @@ const AppComponent: React.FunctionComponent<{
       </div>
       <div>
         <TextInput onChange={onChange} value={username} />
-        <Button onClick={onUserRegister}>Register</Button>
+        <Button onClick={onUserRegister} disabled={registerDisabled}>Register</Button>
       </div>
       <div>
         <ul>

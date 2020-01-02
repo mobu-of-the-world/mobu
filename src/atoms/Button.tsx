@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button: React.FunctionComponent<React.HTMLAttributes<HTMLElement>> = ({
+const Button: React.FunctionComponent<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
   ...rest
 }) => {
