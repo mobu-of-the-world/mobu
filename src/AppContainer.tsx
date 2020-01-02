@@ -56,6 +56,14 @@ const AppContainer: React.FunctionComponent = () => {
     [username]
   );
 
+  const onUserRemove = React.useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      const removeItem = event.currentTarget.value
+      setUsers(prev => prev.filter((item) => item !== removeItem));
+    },
+    []
+  );
+
   return (
     <AppComponent
       elapsedTime={numberToTimeString(tickCount)}
@@ -64,6 +72,7 @@ const AppContainer: React.FunctionComponent = () => {
       onReset={onReset}
       onChange={onChange}
       onUserRegister={onUserRegister}
+      onUserRemove={onUserRemove}
       username={username}
       users={users}
       registerDisabled={username === ""}
