@@ -39,12 +39,19 @@ const AppComponent: React.FunctionComponent<{
       </div>
       <div>
         <TextInput onChange={onChange} value={username} />
-        <Button onClick={onUserRegister} disabled={registerDisabled}>Register</Button>
+        <Button onClick={onUserRegister} disabled={registerDisabled}>
+          Register
+        </Button>
       </div>
       <div>
         <ul>
           {users.map(user => (
-            <li key={user}>{user}<Button onClick={onUserRemove} value={user}>Remove</Button></li>
+            <li key={user}>
+              {user}
+              <Button onClick={onUserRemove} value={user}>
+                Remove
+              </Button>
+            </li>
           ))}
         </ul>
       </div>

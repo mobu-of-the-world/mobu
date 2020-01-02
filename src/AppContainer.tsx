@@ -4,7 +4,7 @@ import AppComponent from "./AppComponent";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
-const interval = 60 * 30 // second
+const interval = 60 * 30; // second
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
@@ -14,9 +14,10 @@ const AppContainer: React.FunctionComponent = () => {
 
   const [tickCount, setTickCount] = React.useState(0);
 
-  const registerDisabled = () => (
-    username === emptyUsername || blankStringsPattern.test(username) || users.includes(username)
-  )
+  const registerDisabled = () =>
+    username === emptyUsername ||
+    blankStringsPattern.test(username) ||
+    users.includes(username);
 
   const onStart = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
@@ -26,10 +27,10 @@ const AppContainer: React.FunctionComponent = () => {
       timerID.current = setInterval(() => {
         count.current += 1;
         setTickCount(count.current);
-        if ((count.current % interval) === 0) {
-          setUsers(prev => (
+        if (count.current % interval === 0) {
+          setUsers(prev =>
             prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev
-          ))
+          );
         }
       }, 1000);
     },
@@ -78,8 +79,8 @@ const AppContainer: React.FunctionComponent = () => {
 
   const onUserRemove = React.useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      const removeItem = event.currentTarget.value
-      setUsers(prev => prev.filter((item) => item !== removeItem));
+      const removeItem = event.currentTarget.value;
+      setUsers(prev => prev.filter(item => item !== removeItem));
     },
     []
   );
@@ -108,12 +109,12 @@ function numberToTimeString(count: number): string {
 }
 
 function shuffleArray(array: string[]): string[] {
-  for (let i = array.length - 1; i > 0; i--){
-    const rand = Math.floor(Math.random() * ( i + 1 ));
-    [array[i], array[rand]] = [array[rand], array[i]]
+  for (let i = array.length - 1; i > 0; i--) {
+    const rand = Math.floor(Math.random() * (i + 1));
+    [array[i], array[rand]] = [array[rand], array[i]];
   }
 
-  return array
-} 
+  return array;
+}
 
 export default AppContainer;
