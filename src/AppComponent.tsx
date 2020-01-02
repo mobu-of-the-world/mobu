@@ -9,11 +9,13 @@ const AppComponent: React.FunctionComponent<{
   onPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onUserRegister: (event: React.MouseEvent<HTMLElement>) => void;
   onUserRemove: (event: React.MouseEvent<HTMLButtonElement>) => void;
   username: string;
   users: string[];
+  interval: number;
   registerDisabled: boolean;
 }> = ({
   elapsedTime,
@@ -21,11 +23,13 @@ const AppComponent: React.FunctionComponent<{
   onPause,
   onReset,
   onShuffle,
-  onChange,
+  onUsernameChange,
+  onIntervalChange,
   onUserRegister,
   onUserRemove,
   username,
   users,
+  interval,
   registerDisabled
 }) => {
   return (
@@ -36,15 +40,31 @@ const AppComponent: React.FunctionComponent<{
         <Button onClick={onPause}>Pause</Button>
         <Button onClick={onReset}>Reset</Button>
         <Button onClick={onShuffle}>Shuffle</Button>
+        <p>
+          Interval(sec)
+          <TextInput
+            onChange={onIntervalChange}
+            type="number"
+            value={interval}
+          />
+        </p>
       </div>
       <div>
-        <TextInput onChange={onChange} value={username} />
-        <Button onClick={onUserRegister} disabled={registerDisabled}>Register</Button>
+        Username
+        <TextInput onChange={onUsernameChange} value={username} />
+        <Button onClick={onUserRegister} disabled={registerDisabled}>
+          Register
+        </Button>
       </div>
       <div>
         <ul>
           {users.map(user => (
-            <li key={user}>{user}<Button onClick={onUserRemove} value={user}>Remove</Button></li>
+            <li key={user}>
+              {user}
+              <Button onClick={onUserRemove} value={user}>
+                Remove
+              </Button>
+            </li>
           ))}
         </ul>
       </div>
