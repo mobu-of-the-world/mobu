@@ -4,13 +4,15 @@ import AppComponent from "./AppComponent";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
-const interval = 60 * 30; // second
+const initialIntervalSec = 60 * 30;
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
   const timerID = React.useRef<NodeJS.Timeout>();
+  const intervalSecRef = React.useRef(initialIntervalSec);
   const [users, setUsers] = React.useState<string[]>([]);
   const [username, setUsername] = React.useState("");
+  const [intervalSec, setIntervalSec] = React.useState(initialIntervalSec);
 
   const [tickCount, setTickCount] = React.useState(0);
 
@@ -27,7 +29,7 @@ const AppContainer: React.FunctionComponent = () => {
       timerID.current = setInterval(() => {
         count.current += 1;
         setTickCount(count.current);
-        if (count.current % interval === 0) {
+        if (count.current % intervalSecRef.current === 0) {
           setUsers(prev =>
             prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev
           );
@@ -62,9 +64,18 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
-  const onChange = React.useCallback(
+  const onUsernameChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setUsername(event.currentTarget.value);
+    },
+    []
+  );
+
+  const onIntervalChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newInterval = parseInt(event.currentTarget.value);
+      setIntervalSec(newInterval);
+      intervalSecRef.current = newInterval;
     },
     []
   );
@@ -92,11 +103,13 @@ const AppContainer: React.FunctionComponent = () => {
       onPause={onPause}
       onReset={onReset}
       onShuffle={onShuffle}
-      onChange={onChange}
+      onUsernameChange={onUsernameChange}
+      onIntervalChange={onIntervalChange}
       onUserRegister={onUserRegister}
       onUserRemove={onUserRemove}
       username={username}
       users={users}
+      interval={intervalSec}
       registerDisabled={registerDisabled()}
     ></AppComponent>
   );
