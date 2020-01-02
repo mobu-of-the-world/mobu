@@ -4,6 +4,7 @@ import AppComponent from "./AppComponent";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
+const interval = 60 * 30 // second
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
@@ -25,6 +26,11 @@ const AppContainer: React.FunctionComponent = () => {
       timerID.current = setInterval(() => {
         count.current += 1;
         setTickCount(count.current);
+        if ((count.current % interval) === 0) {
+          setUsers(prev => (
+            prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev
+          ))
+        }
       }, 1000);
     },
     [count]
