@@ -6,6 +6,11 @@ const Emoji: React.FunctionComponent<{
   return <>{emojiByName(name)}</>;
 };
 
+export enum EmojiName {
+  Car,
+  Speaker
+}
+
 function emojiByName(name: EmojiName): string {
   switch (name) {
     case EmojiName.Car:
@@ -15,11 +20,6 @@ function emojiByName(name: EmojiName): string {
     default:
       return "";
   }
-}
-
-export enum EmojiName {
-  Car,
-  Speaker
 }
 
 export default Emoji;
