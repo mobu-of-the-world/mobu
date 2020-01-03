@@ -81,7 +81,8 @@ const AppContainer: React.FunctionComponent = () => {
   );
 
   const onUserRegister = React.useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
       setUsers(prev => [...prev, username]);
       setUsername(emptyUsername);
     },
