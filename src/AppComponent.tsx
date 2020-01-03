@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./atoms/Button";
 import Timer from "./atoms/Timer";
 import TextInput from "./atoms/TextInput";
+import Form from "./atoms/Form";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
@@ -11,7 +12,7 @@ const AppComponent: React.FunctionComponent<{
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onUserRegister: (event: React.MouseEvent<HTMLElement>) => void;
+  onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
   onUserRemove: (event: React.MouseEvent<HTMLButtonElement>) => void;
   username: string;
   users: string[];
@@ -50,11 +51,13 @@ const AppComponent: React.FunctionComponent<{
         </p>
       </div>
       <div>
-        Username
-        <TextInput onChange={onUsernameChange} value={username} />
-        <Button onClick={onUserRegister} disabled={registerDisabled}>
-          Register
-        </Button>
+        <Form onSubmit={onUserRegister}>
+          Username
+          <TextInput onChange={onUsernameChange} value={username} />
+          <Button type="submit" disabled={registerDisabled}>
+            Register
+          </Button>
+        </Form>
       </div>
       <div>
         <ul>
