@@ -3,6 +3,7 @@ import Button from "./atoms/Button";
 import Timer from "./atoms/Timer";
 import TextInput from "./atoms/TextInput";
 import Form from "./atoms/Form";
+import User from "./molecules/User";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
@@ -63,7 +64,7 @@ const AppComponent: React.FunctionComponent<{
         <ul>
           {users.map((user, index) => (
             <li key={user}>
-              {index === 0 ? <>&#x1F697;{user}</> : <>&#x1F5E3;{user}</>}
+              <User isDriver={index === 0} user={user} />
               <Button onClick={onUserRemove} value={user}>
                 Remove
               </Button>
