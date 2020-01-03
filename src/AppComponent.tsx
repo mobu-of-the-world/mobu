@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./atoms/Button";
 import Timer from "./atoms/Timer";
 import TextInput from "./atoms/TextInput";
+import Form from "./atoms/Form";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
@@ -50,13 +51,13 @@ const AppComponent: React.FunctionComponent<{
         </p>
       </div>
       <div>
-        <form onSubmit={onUserRegister}>
+        <Form onSubmit={onUserRegister}>
           Username
           <TextInput onChange={onUsernameChange} value={username} />
           <Button type="submit" disabled={registerDisabled}>
             Register
           </Button>
-        </form>
+        </Form>
       </div>
       <div>
         <ul>
