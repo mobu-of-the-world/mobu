@@ -61,9 +61,9 @@ const AppComponent: React.FunctionComponent<{
       </div>
       <div>
         <ul>
-          {users.map(user => (
+          {users.map((user, index) => (
             <li key={user}>
-              {user}
+              {index === 0 ? <>&#x1F697;{user}</> : <>&#x1F5E3;{user}</>}
               <Button onClick={onUserRemove} value={user}>
                 Remove
               </Button>
