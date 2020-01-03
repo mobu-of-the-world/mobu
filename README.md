@@ -1,6 +1,7 @@
 # mobu
 
 Application to manage participants and timer for mob-programming!
+
 Visit here to enjoy: [https://mobu-waiwai.netlify.com](https://mobu-waiwai.netlify.com)
 
 ## How to start development
