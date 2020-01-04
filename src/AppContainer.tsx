@@ -30,6 +30,10 @@ const AppContainer: React.FunctionComponent = () => {
         count.current += 1;
         setTickCount(count.current);
         if (count.current % intervalSecRef.current === 0) {
+          if (timerID.current) {
+            clearInterval(timerID.current);
+            timerID.current = undefined;
+          }
           setUsers(prev =>
             prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev
           );
