@@ -26,6 +26,23 @@ const AppContainer: React.FunctionComponent = () => {
       if (timerID.current) {
         return;
       }
+
+      if (window.Notification && Notification.permission !== "granted") {
+        Notification.requestPermission(function(result) {
+          switch (result) {
+            case "granted":
+              alert("Thanks to accept the notification :)");
+              break;
+            case "denied":
+              alert("You rejected the notification :(　Please accept it.");
+              break;
+            default:
+              alert("Can not judge to use notification :(　Please accept it.");
+              break;
+          }
+        });
+      }
+
       timerID.current = setInterval(() => {
         count.current += 1;
         setTickCount(count.current);
@@ -33,6 +50,9 @@ const AppContainer: React.FunctionComponent = () => {
           setUsers(prev =>
             prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev
           );
+          if (window.Notification) {
+            new Notification("Change the driver!");
+          }
         }
       }, 1000);
     },
