@@ -21,9 +21,11 @@ const AppContainer: React.FunctionComponent = () => {
     blankStringsPattern.test(username) ||
     users.includes(username);
 
-  const onStart = React.useCallback(
+  const onStartOrPause = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       if (timerID.current) {
+        clearInterval(timerID.current);
+        timerID.current = undefined;
         return;
       }
       timerID.current = setInterval(() => {
@@ -36,17 +38,7 @@ const AppContainer: React.FunctionComponent = () => {
         }
       }, 1000);
     },
-    [count]
-  );
-
-  const onPause = React.useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
-      if (timerID.current) {
-        clearInterval(timerID.current);
-        timerID.current = undefined;
-      }
-    },
-    [timerID]
+    [count, timerID]
   );
 
   const onReset = React.useCallback(
@@ -100,8 +92,7 @@ const AppContainer: React.FunctionComponent = () => {
   return (
     <AppComponent
       elapsedTime={numberToTimeString(tickCount)}
-      onStart={onStart}
-      onPause={onPause}
+      onStartOrPause={onStartOrPause}
       onReset={onReset}
       onShuffle={onShuffle}
       onUsernameChange={onUsernameChange}

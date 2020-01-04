@@ -7,8 +7,7 @@ import User from "./molecules/User";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
-  onStart: (event: React.MouseEvent<HTMLElement>) => void;
-  onPause: (event: React.MouseEvent<HTMLElement>) => void;
+  onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,8 +20,7 @@ const AppComponent: React.FunctionComponent<{
   registerDisabled: boolean;
 }> = ({
   elapsedTime,
-  onStart,
-  onPause,
+  onStartOrPause,
   onReset,
   onShuffle,
   onUsernameChange,
@@ -38,8 +36,7 @@ const AppComponent: React.FunctionComponent<{
     <>
       <div>
         <Timer elapsedTime={elapsedTime} />
-        <Button onClick={onStart}>Start</Button>
-        <Button onClick={onPause}>Pause</Button>
+        <Button onClick={onStartOrPause}>Start/Pause</Button>
         <Button onClick={onReset}>Reset</Button>
         <Button onClick={onShuffle}>Shuffle</Button>
         <p>
