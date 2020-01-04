@@ -38,7 +38,9 @@ const AppComponent: React.FunctionComponent<{
         <Timer elapsedTime={elapsedTime} />
         <Button onClick={onStartOrPause}>Start/Pause</Button>
         <Button onClick={onReset}>Reset</Button>
-        <Button onClick={onShuffle}>Shuffle</Button>
+        <Button onClick={onShuffle} disabled={users.length < 2}>
+          Shuffle
+        </Button>
         <p>
           Interval(sec)
           <TextInput
