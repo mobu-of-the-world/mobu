@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "./atoms/Button";
-import Timer from "./atoms/Timer";
-import TextInput from "./atoms/TextInput";
-import Form from "./atoms/Form";
-import User from "./molecules/User";
+import Button from "../atoms/Button";
+import Timer from "../atoms/Timer";
+import TextInput from "../atoms/TextInput";
+import Form from "../atoms/Form";
+import User from "../molecules/User";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
