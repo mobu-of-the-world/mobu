@@ -1,9 +1,7 @@
 import React from "react";
-import Button from "../atoms/Button";
-import Timer from "../atoms/Timer";
-import TextInput from "../atoms/TextInput";
-import Form from "../atoms/Form";
-import User from "../molecules/User";
+
+import UserList from "../organisms/UserList";
+import Session from "../organisms/Session";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
@@ -34,43 +32,22 @@ const AppComponent: React.FunctionComponent<{
 }) => {
   return (
     <>
-      <div>
-        <Timer elapsedTime={elapsedTime} />
-        <Button onClick={onStartOrPause}>Start/Pause</Button>
-        <Button onClick={onReset}>Reset</Button>
-        <p>
-          Interval(sec)
-          <TextInput
-            onChange={onIntervalChange}
-            type="number"
-            value={interval}
-          />
-        </p>
-      </div>
-      <div>
-        <Form onSubmit={onUserRegister}>
-          Username
-          <TextInput onChange={onUsernameChange} value={username} />
-          <Button type="submit" disabled={registerDisabled}>
-            Register
-          </Button>
-        </Form>
-      </div>
-      <div>
-        <Button onClick={onShuffle} disabled={users.length < 2}>
-          Shuffle
-        </Button>
-        <ul>
-          {users.map((user, index) => (
-            <li key={user}>
-              <User isDriver={index === 0} user={user} />
-              <Button onClick={onUserRemove} value={user}>
-                Remove
-              </Button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Session
+        elapsedTime={elapsedTime}
+        onStartOrPause={onStartOrPause}
+        onReset={onReset}
+        onIntervalChange={onIntervalChange}
+        interval={interval}
+      />
+      <UserList
+        onUserRegister={onUserRegister}
+        onUsernameChange={onUsernameChange}
+        username={username}
+        registerDisabled={registerDisabled}
+        onShuffle={onShuffle}
+        users={users}
+        onUserRemove={onUserRemove}
+      />
     </>
   );
 };
