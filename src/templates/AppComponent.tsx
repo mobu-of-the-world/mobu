@@ -38,9 +38,6 @@ const AppComponent: React.FunctionComponent<{
         <Timer elapsedTime={elapsedTime} />
         <Button onClick={onStartOrPause}>Start/Pause</Button>
         <Button onClick={onReset}>Reset</Button>
-        <Button onClick={onShuffle} disabled={users.length < 2}>
-          Shuffle
-        </Button>
         <p>
           Interval(sec)
           <TextInput
@@ -60,6 +57,9 @@ const AppComponent: React.FunctionComponent<{
         </Form>
       </div>
       <div>
+        <Button onClick={onShuffle} disabled={users.length < 2}>
+          Shuffle
+        </Button>
         <ul>
           {users.map((user, index) => (
             <li key={user}>
