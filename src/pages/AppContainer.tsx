@@ -1,6 +1,6 @@
 import React from "react";
 
-import AppComponent from "./AppComponent";
+import AppComponent from "../templates/AppComponent";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
