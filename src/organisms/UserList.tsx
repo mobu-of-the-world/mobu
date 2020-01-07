@@ -5,6 +5,8 @@ import Form from "../atoms/Form";
 import TextInput from "../atoms/TextInput";
 import User from "../molecules/User";
 
+import "./UserList.css";
+
 const UserList: React.FunctionComponent<{
   onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -23,7 +25,7 @@ const UserList: React.FunctionComponent<{
   onUserRemove
 }) => {
   return (
-    <div>
+    <div className="userlist">
       <Form onSubmit={onUserRegister}>
         Username
         <TextInput onChange={onUsernameChange} value={username} />

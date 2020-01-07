@@ -3,6 +3,8 @@ import React from "react";
 import Timer from "../molecules/Timer";
 import Interval from "../molecules/Interval";
 
+import "./Session.css";
+
 const Session: React.FunctionComponent<{
   elapsedTime: string;
   onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
@@ -11,7 +13,7 @@ const Session: React.FunctionComponent<{
   interval: number;
 }> = ({ elapsedTime, onStartOrPause, onReset, onIntervalChange, interval }) => {
   return (
-    <div>
+    <div className="session">
       <Timer
         elapsedTime={elapsedTime}
         onStartOrPause={onStartOrPause}

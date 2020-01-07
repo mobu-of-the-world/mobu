@@ -1,0 +1,9 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.divider {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
