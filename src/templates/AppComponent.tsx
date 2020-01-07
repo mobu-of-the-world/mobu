@@ -3,6 +3,8 @@ import React from "react";
 import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";
 
+import "./AppComponent.css";
+
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
   onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
@@ -31,14 +33,7 @@ const AppComponent: React.FunctionComponent<{
   registerDisabled
 }) => {
   return (
-    <>
-      <Session
-        elapsedTime={elapsedTime}
-        onStartOrPause={onStartOrPause}
-        onReset={onReset}
-        onIntervalChange={onIntervalChange}
-        interval={interval}
-      />
+    <div className="main">
       <UserList
         onUserRegister={onUserRegister}
         onUsernameChange={onUsernameChange}
@@ -48,7 +43,15 @@ const AppComponent: React.FunctionComponent<{
         users={users}
         onUserRemove={onUserRemove}
       />
-    </>
+      <div className="divider"></div>
+      <Session
+        elapsedTime={elapsedTime}
+        onStartOrPause={onStartOrPause}
+        onReset={onReset}
+        onIntervalChange={onIntervalChange}
+        interval={interval}
+      />
+    </div>
   );
 };
 
