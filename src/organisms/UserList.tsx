@@ -3,6 +3,7 @@ import React from "react";
 import Button from "../atoms/Button";
 import Form from "../atoms/Form";
 import TextInput from "../atoms/TextInput";
+import Emoji, { EmojiName } from "../atoms/Emoji";
 import User from "../molecules/User";
 
 import "./UserList.css";
@@ -27,8 +28,11 @@ const UserList: React.FunctionComponent<{
   return (
     <div className="userlist">
       <Form onSubmit={onUserRegister}>
-        Username
-        <TextInput onChange={onUsernameChange} value={username} />
+        <TextInput
+          placeholder="Username"
+          onChange={onUsernameChange}
+          value={username}
+        />
         <Button type="submit" disabled={registerDisabled}>
           Register
         </Button>
@@ -36,12 +40,12 @@ const UserList: React.FunctionComponent<{
       <Button onClick={onShuffle} disabled={users.length < 2}>
         Shuffle
       </Button>
-      <ul>
+      <ul className="userlist__list">
         {users.map((user, index) => (
-          <li key={user}>
+          <li className="userlist__listitem" key={user}>
             <User isDriver={index === 0} user={user} />
             <Button onClick={onUserRemove} value={user}>
-              Remove
+              <Emoji name={EmojiName.Wastebasket} />
             </Button>
           </li>
         ))}
