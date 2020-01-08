@@ -1,0 +1,14 @@
+
+.menuicon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.menuicon--line {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  width: 2rem;
+}

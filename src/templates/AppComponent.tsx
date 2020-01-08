@@ -2,6 +2,7 @@ import React from "react";
 
 import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";
+import Header from "../molecules/Header";
 
 import "./AppComponent.css";
 
@@ -33,25 +34,28 @@ const AppComponent: React.FunctionComponent<{
   registerDisabled
 }) => {
   return (
-    <div className="main">
-      <UserList
-        onUserRegister={onUserRegister}
-        onUsernameChange={onUsernameChange}
-        username={username}
-        registerDisabled={registerDisabled}
-        onShuffle={onShuffle}
-        users={users}
-        onUserRemove={onUserRemove}
-      />
-      <div className="divider"></div>
-      <Session
-        elapsedTime={elapsedTime}
-        onStartOrPause={onStartOrPause}
-        onReset={onReset}
-        onIntervalChange={onIntervalChange}
-        interval={interval}
-      />
-    </div>
+    <>
+      <Header />
+      <div className="main">
+        <UserList
+          onUserRegister={onUserRegister}
+          onUsernameChange={onUsernameChange}
+          username={username}
+          registerDisabled={registerDisabled}
+          onShuffle={onShuffle}
+          users={users}
+          onUserRemove={onUserRemove}
+        />
+        <div className="divider"></div>
+        <Session
+          elapsedTime={elapsedTime}
+          onStartOrPause={onStartOrPause}
+          onReset={onReset}
+          onIntervalChange={onIntervalChange}
+          interval={interval}
+        />
+      </div>
+    </>
   );
 };
 
