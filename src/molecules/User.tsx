@@ -1,16 +1,19 @@
 import React from "react";
 
 import Emoji, { EmojiName } from "../atoms/Emoji";
+import Text from "../atoms/Text";
+
+import "./User.css";
 
 const User: React.FunctionComponent<{
   isDriver: boolean;
   user: string;
 }> = ({ isDriver, user }) => {
   return (
-    <span>
+    <div className="user">
       <Emoji name={emojiNameByRole(isDriver)} />
-      {user}
-    </span>
+      <Text>{user}</Text>
+    </div>
   );
 };
 

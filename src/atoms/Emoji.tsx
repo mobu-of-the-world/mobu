@@ -1,14 +1,17 @@
 import React from "react";
 
+import "./Emoji.css";
+
 const Emoji: React.FunctionComponent<{
   name: EmojiName;
 }> = ({ name }) => {
-  return <>{emojiByName(name)}</>;
+  return <div className="emoji">{emojiByName(name)}</div>;
 };
 
 export enum EmojiName {
   Car,
-  Speaker
+  Speaker,
+  Wastebasket
 }
 
 function emojiByName(name: EmojiName): string {
@@ -17,6 +20,8 @@ function emojiByName(name: EmojiName): string {
       return "🚗";
     case EmojiName.Speaker:
       return "🗣";
+    case EmojiName.Wastebasket:
+      return "🗑";
     default:
       return "";
   }
