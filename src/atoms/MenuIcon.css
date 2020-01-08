@@ -1,0 +1,12 @@
+.menuicon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+}
+
+.menuicon--line {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  width: 1.5rem;
+}

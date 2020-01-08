@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: #aaaaaa;
+  margin-bottom: 1rem;
+}
+
+.header--container {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.header--logo {
+  font-size: xx-large;
+  align-self: center;
+}
+
+.header--menu {
+  font-size: xx-large;
+  align-self: center;
+}
