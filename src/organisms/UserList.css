@@ -1,8 +1,8 @@
 .userlist {
-  width: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .userlist__list {
