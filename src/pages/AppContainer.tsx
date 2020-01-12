@@ -123,8 +123,8 @@ const AppContainer: React.FunctionComponent = () => {
   );
 
   const onUserRemove = React.useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      const removeItem = event.currentTarget.value;
+    (event: React.MouseEvent<HTMLDivElement, React.MouseEvent>) => {
+      const removeItem = event.currentTarget.getAttribute("value");
       setUsers(prev => {
         const newUsers = prev.filter(item => item !== removeItem);
         Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers));

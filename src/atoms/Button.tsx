@@ -4,9 +4,11 @@ import "./Button.css";
 
 const Button: React.FunctionComponent<React.ButtonHTMLAttributes<
   HTMLButtonElement
->> = ({ children, ...rest }) => {
+>> = ({ children, className, disabled, ...rest }) => {
+  className = "button " + className;
+  className += disabled ? " button--disabled" : "";
   return (
-    <button className="button" {...rest}>
+    <button className={className} {...rest}>
       {children}
     </button>
   );

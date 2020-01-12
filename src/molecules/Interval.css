@@ -1,0 +1,14 @@
+@media screen and (max-width: 649px) {
+  .interval {
+  }
+}
+@media screen and (min-width: 650px) {
+  .interval {
+    display: flex;
+    white-space: nowrap;
+  }
+}
+
+.interval--text {
+  font-size: 1.5rem;
+}

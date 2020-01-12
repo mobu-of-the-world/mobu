@@ -6,9 +6,20 @@
   margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 649px) {
+  .header--width {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .header--width {
+    width: 70%;
+  }
+}
+
 .header--container {
   display: flex;
-  width: 70%;
   justify-content: space-between;
   margin: auto;
 }

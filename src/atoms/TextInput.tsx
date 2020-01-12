@@ -4,8 +4,9 @@ import "./TextInput.css";
 
 const TextInput: React.FunctionComponent<React.InputHTMLAttributes<
   HTMLInputElement
->> = ({ ...rest }) => {
-  return <input className="textinput" {...rest} />;
+>> = ({ className, ...rest }) => {
+  className = "textinput" + (className != null ? " " + className : "");
+  return <input className={className} {...rest} />;
 };
 
 export default TextInput;

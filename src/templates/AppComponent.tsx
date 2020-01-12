@@ -14,7 +14,7 @@ const AppComponent: React.FunctionComponent<{
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUserRemove: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onUserRemove: (event: any) => void;
   username: string;
   users: string[];
   interval: number;
@@ -36,24 +36,26 @@ const AppComponent: React.FunctionComponent<{
   return (
     <>
       <Header />
-      <div className="main">
-        <UserList
-          onUserRegister={onUserRegister}
-          onUsernameChange={onUsernameChange}
-          username={username}
-          registerDisabled={registerDisabled}
-          onShuffle={onShuffle}
-          users={users}
-          onUserRemove={onUserRemove}
-        />
-        <div className="divider"></div>
-        <Session
-          elapsedTime={elapsedTime}
-          onStartOrPause={onStartOrPause}
-          onReset={onReset}
-          onIntervalChange={onIntervalChange}
-          interval={interval}
-        />
+      <div className="main--container">
+        <div className="main">
+          <UserList
+            onUserRegister={onUserRegister}
+            onUsernameChange={onUsernameChange}
+            username={username}
+            registerDisabled={registerDisabled}
+            onShuffle={onShuffle}
+            users={users}
+            onUserRemove={onUserRemove}
+          />
+          <div className="divider"></div>
+          <Session
+            elapsedTime={elapsedTime}
+            onStartOrPause={onStartOrPause}
+            onReset={onReset}
+            onIntervalChange={onIntervalChange}
+            interval={interval}
+          />
+        </div>
       </div>
     </>
   );
