@@ -1,7 +1,6 @@
 import React from "react";
 
 import TextInput from "../atoms/TextInput";
-import Text from "../atoms/Text";
 
 import "./Interval.css";
 
