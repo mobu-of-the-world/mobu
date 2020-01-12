@@ -1,6 +1,9 @@
 .session {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
+}
+
+.session--divider {
+  margin-bottom: 1rem;
 }

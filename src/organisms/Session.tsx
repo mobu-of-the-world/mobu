@@ -19,6 +19,7 @@ const Session: React.FunctionComponent<{
         onStartOrPause={onStartOrPause}
         onReset={onReset}
       />
+      <div className="session--divider" />
       <Interval onIntervalChange={onIntervalChange} interval={interval} />
     </div>
   );

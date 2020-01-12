@@ -10,6 +10,11 @@
     justify-content: center;
     flex-direction: column-reverse;
     align-items: center;
+    width: 90%;
+  }
+  .divider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -18,9 +23,8 @@
     display: flex;
     width: 80%;
   }
-}
-
-.divider {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  .divider {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }

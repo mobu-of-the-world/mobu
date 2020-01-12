@@ -11,7 +11,7 @@ const User: React.FunctionComponent<{
 }> = ({ isDriver, user }) => {
   return (
     <div className="user">
-      <Emoji name={emojiNameByRole(isDriver)} />
+      <Emoji emojiName={emojiNameByRole(isDriver)} />
       <Text>{user}</Text>
     </div>
   );

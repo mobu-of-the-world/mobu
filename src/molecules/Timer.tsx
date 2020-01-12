@@ -3,6 +3,9 @@ import React from "react";
 import Text from "../atoms/Text";
 import Button from "../atoms/Button";
 
+import "./Timer.css";
+import "../atoms/Button.css";
+
 const Timer: React.FunctionComponent<{
   elapsedTime: string;
   onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
@@ -11,8 +14,14 @@ const Timer: React.FunctionComponent<{
   return (
     <>
       <Text>Elapsed time: {elapsedTime}</Text>
-      <Button onClick={onStartOrPause}>Start/Pause</Button>
-      <Button onClick={onReset}>Reset</Button>
+      <div className="timer--divider" />
+      <Button className="button--width-max" onClick={onStartOrPause}>
+        Start/Pause
+      </Button>
+      <div className="timer--divider" />
+      <Button className="button--width-max" onClick={onReset}>
+        Reset
+      </Button>
     </>
   );
 };

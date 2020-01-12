@@ -1,0 +1,12 @@
+.userregister {
+}
+
+.userregister--form {
+  display: flex;
+}
+
+.userregister--button {
+  font-size: 1.5rem;
+  border: 0px;
+  border-radius: 0px;
+}

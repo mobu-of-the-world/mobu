@@ -3,15 +3,24 @@ import React from "react";
 import "./Emoji.css";
 
 const Emoji: React.FunctionComponent<{
-  name: EmojiName;
-}> = ({ name }) => {
-  return <div className="emoji">{emojiByName(name)}</div>;
+  emojiName: EmojiName;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  rest?: React.HTMLAttributes<HTMLDivElement>;
+}> = ({ emojiName, onClick, ...rest }) => {
+  const className = "emoji" + (onClick != null ? " emoji--clickable" : "");
+  return (
+    <div className={className} onClick={onClick} {...rest}>
+      {emojiByName(emojiName)}
+    </div>
+  );
 };
 
 export enum EmojiName {
   Car,
   Speaker,
-  Wastebasket
+  Wastebasket,
+  Plus,
+  CrossMark
 }
 
 function emojiByName(name: EmojiName): string {
@@ -22,6 +31,10 @@ function emojiByName(name: EmojiName): string {
       return "🗣";
     case EmojiName.Wastebasket:
       return "🗑";
+    case EmojiName.Plus:
+      return "➕";
+    case EmojiName.CrossMark:
+      return "❌";
     default:
       return "";
   }

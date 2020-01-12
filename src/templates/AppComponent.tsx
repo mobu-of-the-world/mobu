@@ -14,7 +14,7 @@ const AppComponent: React.FunctionComponent<{
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUserRemove: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onUserRemove: (event: any) => void;
   username: string;
   users: string[];
   interval: number;

@@ -1,17 +1,21 @@
 .userlist {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
 .userlist__list {
   list-style-type: none;
-  width: 70%;
 }
 
 .userlist__listitem {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid;
+}
+
+.userlist--divider {
+  margin-bottom: 1rem;
 }

@@ -1,12 +1,12 @@
 import React from "react";
 
 import Button from "../atoms/Button";
-import Form from "../atoms/Form";
-import TextInput from "../atoms/TextInput";
 import Emoji, { EmojiName } from "../atoms/Emoji";
 import User from "../molecules/User";
+import UserRegister from "../molecules/UserRegister";
 
 import "./UserList.css";
+import "../atoms/Button.css";
 
 const UserList: React.FunctionComponent<{
   onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -15,7 +15,7 @@ const UserList: React.FunctionComponent<{
   registerDisabled: boolean;
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   users: string[];
-  onUserRemove: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onUserRemove: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }> = ({
   onUserRegister,
   onUsernameChange,
@@ -27,26 +27,29 @@ const UserList: React.FunctionComponent<{
 }) => {
   return (
     <div className="userlist">
-      <Form onSubmit={onUserRegister}>
-        <TextInput
-          placeholder="Username"
-          onChange={onUsernameChange}
-          value={username}
-        />
-        <Button type="submit" disabled={registerDisabled}>
-          Register
-        </Button>
-      </Form>
-      <Button onClick={onShuffle} disabled={users.length < 2}>
+      <UserRegister
+        onUserRegister={onUserRegister}
+        onUsernameChange={onUsernameChange}
+        username={username}
+        registerDisabled={registerDisabled}
+      />
+      <div className="userlist--divider" />
+      <Button
+        className="button--width-max"
+        onClick={onShuffle}
+        disabled={users.length < 2}
+      >
         Shuffle
       </Button>
+      <div className="userlist--divider" />
       <ul className="userlist__list">
         {users.map((user, index) => (
           <li className="userlist__listitem" key={user}>
             <User isDriver={index === 0} user={user} />
-            <Button onClick={onUserRemove} value={user}>
-              <Emoji name={EmojiName.Wastebasket} />
-            </Button>
+            <Emoji
+              emojiName={EmojiName.CrossMark}
+              {...{ onClick: onUserRemove, value: user }}
+            />
           </li>
         ))}
       </ul>
