@@ -2,18 +2,23 @@
   position: absolute;
   display: flex;
   width: 100%;
-  justify-content: flex-end;
   font-size: 1.5rem;
   margin-top: 1rem;
-  padding-right: 6rem;
+  justify-content: center;
 }
 
 .menu--container.visible {
-  visibility: hidden;
+  visibility: visible;
 }
 
 .menu--container.hidden {
   visibility: hidden;
+}
+
+.menu--container-place-adjuster {
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
 }
 
 .menu--content-container {

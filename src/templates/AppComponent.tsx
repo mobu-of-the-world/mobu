@@ -17,6 +17,7 @@ const AppComponent: React.FunctionComponent<{
   onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
   onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   username: string;
   users: string[];
   interval: number;
@@ -31,15 +32,21 @@ const AppComponent: React.FunctionComponent<{
   onIntervalChange,
   onUserRegister,
   onUserRemove,
+  onHamburgerMenuClick,
+  onHamburgerMenuCloseClick,
   username,
   users,
   interval,
-  registerDisabled
+  registerDisabled,
+  showMenu
 }) => {
   return (
     <>
-      <Menu />
-      <Header />
+      <Menu
+        menuVisibility={showMenu}
+        onMenuCloseClick={onHamburgerMenuCloseClick}
+      />
+      <Header onHamburgerMenuClick={onHamburgerMenuClick} />
       <div className="main--container">
         <div className="main">
           <UserList

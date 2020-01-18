@@ -19,7 +19,6 @@ const AppContainer: React.FunctionComponent = () => {
   const [intervalSec, setIntervalSec] = React.useState(initialIntervalSec);
 
   const [tickCount, setTickCount] = React.useState(0);
-
   const [showMenu, setShowMenu] = React.useState(false);
 
   const registerDisabled = () =>
@@ -138,10 +137,14 @@ const AppContainer: React.FunctionComponent = () => {
 
   const onHamburgerMenuClick = React.useCallback(
     (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      setShowMenu(prev => {
-        console.log(prev);
-        return !prev;
-      });
+      setShowMenu(true);
+    },
+    []
+  );
+
+  const onHamburgerMenuCloseClick = React.useCallback(
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      setShowMenu(false);
     },
     []
   );
@@ -157,6 +160,7 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRegister={onUserRegister}
       onUserRemove={onUserRemove}
       onHamburgerMenuClick={onHamburgerMenuClick}
+      onHamburgerMenuCloseClick={onHamburgerMenuCloseClick}
       username={username}
       users={users}
       interval={intervalSec}
