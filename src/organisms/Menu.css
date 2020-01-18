@@ -2,8 +2,9 @@
   position: absolute;
   display: flex;
   width: 100%;
+  height: 100%;
   font-size: 1.5rem;
-  margin-top: 1rem;
+  padding-top: 1rem;
   justify-content: center;
 }
 
@@ -26,7 +27,11 @@
     display: flex;
     flex-direction: column;
     width: 80%;
+    height: fit-content;
     background: #cccccc;
+    border: solid 1px;
+    border-radius: 20px;
+    padding-bottom: 1rem;
   }
 }
 @media screen and (min-width: 650px) {
@@ -34,7 +39,11 @@
     display: flex;
     flex-direction: column;
     width: 40%;
+    height: fit-content;
     background: #cccccc;
+    border: solid 1px;
+    border-radius: 20px;
+    padding-bottom: 1rem;
   }
 }
 

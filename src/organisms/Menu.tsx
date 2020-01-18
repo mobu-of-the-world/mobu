@@ -8,9 +8,17 @@ const Menu: React.FunctionComponent<{
 }> = ({ menuVisibility, onMenuCloseClick }) => {
   const containerClassName = "menu--container " + visibility(menuVisibility);
   return (
-    <div className={containerClassName}>
+    <div className={containerClassName} onClick={onMenuCloseClick}>
       <div className="menu--container-place-adjuster">
-        <div className="menu--content-container">
+        <div
+          className="menu--content-container"
+          // Don't close the opened menu if clicked point is
+          // within the menu container. Otherwise (clicked point
+          // is out of menu container) close the menu.
+          onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+            event.stopPropagation();
+          }}
+        >
           <div className="menu--content-item-header">
             <div
               className="menu--content-item-header-close"
