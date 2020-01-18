@@ -15,7 +15,7 @@ const UserList: React.FunctionComponent<{
   registerDisabled: boolean;
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   users: string[];
-  onUserRemove: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
 }> = ({
   onUserRegister,
   onUsernameChange,

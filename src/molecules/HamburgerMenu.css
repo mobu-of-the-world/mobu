@@ -1,7 +1,8 @@
-.menu {
+.hamburger-menu {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding-top: 0.2rem;
+  cursor: pointer;
 }

@@ -21,7 +21,7 @@
 @media screen and (min-width: 650px) {
   .main {
     display: flex;
-    width: 80%;
+    width: 60%;
   }
   .divider {
     margin-left: 1rem;

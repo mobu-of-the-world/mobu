@@ -3,6 +3,7 @@ import React from "react";
 import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";
 import Header from "../molecules/Header";
+import Menu from "../organisms/Menu";
 
 import "./AppComponent.css";
 
@@ -14,11 +15,14 @@ const AppComponent: React.FunctionComponent<{
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUserRemove: (event: any) => void;
+  onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   username: string;
   users: string[];
   interval: number;
   registerDisabled: boolean;
+  showMenu: boolean;
 }> = ({
   elapsedTime,
   onStartOrPause,
@@ -28,14 +32,21 @@ const AppComponent: React.FunctionComponent<{
   onIntervalChange,
   onUserRegister,
   onUserRemove,
+  onHamburgerMenuClick,
+  onHamburgerMenuCloseClick,
   username,
   users,
   interval,
-  registerDisabled
+  registerDisabled,
+  showMenu
 }) => {
   return (
     <>
-      <Header />
+      <Menu
+        menuVisibility={showMenu}
+        onMenuCloseClick={onHamburgerMenuCloseClick}
+      />
+      <Header onHamburgerMenuClick={onHamburgerMenuClick} />
       <div className="main--container">
         <div className="main">
           <UserList
