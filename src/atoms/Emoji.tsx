@@ -4,7 +4,7 @@ import "./Emoji.css";
 
 const Emoji: React.FunctionComponent<{
   emojiName: EmojiName;
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   rest?: React.HTMLAttributes<HTMLDivElement>;
 }> = ({ emojiName, onClick, ...rest }) => {
   const className = "emoji" + (onClick != null ? " emoji--clickable" : "");

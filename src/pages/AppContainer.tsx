@@ -20,6 +20,8 @@ const AppContainer: React.FunctionComponent = () => {
 
   const [tickCount, setTickCount] = React.useState(0);
 
+  const [showMenu, setShowMenu] = React.useState(false);
+
   const registerDisabled = () =>
     username === emptyUsername ||
     blankStringsPattern.test(username) ||
@@ -123,12 +125,22 @@ const AppContainer: React.FunctionComponent = () => {
   );
 
   const onUserRemove = React.useCallback(
-    (event: React.MouseEvent<HTMLDivElement, React.MouseEvent>) => {
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       const removeItem = event.currentTarget.getAttribute("value");
       setUsers(prev => {
         const newUsers = prev.filter(item => item !== removeItem);
         Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers));
         return newUsers;
+      });
+    },
+    []
+  );
+
+  const onHamburgerMenuClick = React.useCallback(
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      setShowMenu(prev => {
+        console.log(prev);
+        return !prev;
       });
     },
     []
@@ -144,10 +156,12 @@ const AppContainer: React.FunctionComponent = () => {
       onIntervalChange={onIntervalChange}
       onUserRegister={onUserRegister}
       onUserRemove={onUserRemove}
+      onHamburgerMenuClick={onHamburgerMenuClick}
       username={username}
       users={users}
       interval={intervalSec}
       registerDisabled={registerDisabled()}
+      showMenu={showMenu}
     ></AppComponent>
   );
 };

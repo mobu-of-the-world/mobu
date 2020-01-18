@@ -15,11 +15,13 @@ const AppComponent: React.FunctionComponent<{
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUserRemove: (event: any) => void;
+  onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   username: string;
   users: string[];
   interval: number;
   registerDisabled: boolean;
+  showMenu: boolean;
 }> = ({
   elapsedTime,
   onStartOrPause,
