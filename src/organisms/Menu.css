@@ -21,11 +21,21 @@
   justify-content: flex-end;
 }
 
-.menu--content-container {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  background: #cccccc;
+@media screen and (max-width: 649px) {
+  .menu--content-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background: #cccccc;
+  }
+}
+@media screen and (min-width: 650px) {
+  .menu--content-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background: #cccccc;
+  }
 }
 
 .menu--content-item-header {
