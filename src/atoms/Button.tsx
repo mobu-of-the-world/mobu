@@ -7,8 +7,9 @@ const Button: React.FunctionComponent<React.ButtonHTMLAttributes<
 >> = ({ children, className, disabled, ...rest }) => {
   className = "button " + className;
   className += disabled ? " button--disabled" : "";
+
   return (
-    <button className={className} {...rest}>
+    <button className={className} disabled={disabled} {...rest}>
       {children}
     </button>
   );
