@@ -3,6 +3,7 @@ import React from "react";
 import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";
 import Header from "../molecules/Header";
+import Menu from "../organisms/Menu";
 
 import "./AppComponent.css";
 
@@ -35,6 +36,7 @@ const AppComponent: React.FunctionComponent<{
 }) => {
   return (
     <>
+      <Menu />
       <Header />
       <div className="main--container">
         <div className="main">

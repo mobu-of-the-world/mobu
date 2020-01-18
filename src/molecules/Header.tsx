@@ -1,6 +1,6 @@
 import React from "react";
 
-import Menu from "./Menu";
+import HamburgerMenu from "./HamburgerMenu";
 
 import "./Header.css";
 
@@ -9,7 +9,7 @@ const Header: React.FunctionComponent = () => {
     <div className="header">
       <div className="header--container header--width">
         <div className="header--logo">mobu</div>
-        <Menu />
+        <HamburgerMenu />
       </div>
     </div>
   );
