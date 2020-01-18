@@ -28,9 +28,11 @@ const Menu: React.FunctionComponent<{
             </div>
           </div>
           <div className="menu--content-item-container">
-            <div className="menu--content-item">menu 1</div>
-            <div className="menu--content-item">menu 2</div>
-            <div className="menu--content-item">menu 3</div>
+            <div className="menu--content-item">
+              <a href="https://github.com/pankona/mobu" target="blank">
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
       </div>
