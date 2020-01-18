@@ -16,13 +16,13 @@
   visibility: hidden;
 }
 
-.menu--container-place-adjuster {
-  display: flex;
-  width: 80%;
-  justify-content: flex-end;
-}
-
 @media screen and (max-width: 649px) {
+  .menu--container-place-adjuster {
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+  }
+
   .menu--content-container {
     display: flex;
     flex-direction: column;
@@ -35,6 +35,12 @@
   }
 }
 @media screen and (min-width: 650px) {
+  .menu--container-place-adjuster {
+    display: flex;
+    width: 60%;
+    justify-content: flex-end;
+  }
+
   .menu--content-container {
     display: flex;
     flex-direction: column;
