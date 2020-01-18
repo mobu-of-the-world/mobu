@@ -1,8 +1,8 @@
-@media screen and (max-width: 649px) {
+@media screen and (max-width: 799px) {
   .interval {
   }
 }
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 800px) {
   .interval {
     display: flex;
     white-space: nowrap;

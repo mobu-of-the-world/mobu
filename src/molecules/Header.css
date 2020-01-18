@@ -6,13 +6,13 @@
   margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 649px) {
+@media screen and (max-width: 799px) {
   .header--width {
     width: 90%;
   }
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 800px) {
   .header--width {
     width: 60%;
   }

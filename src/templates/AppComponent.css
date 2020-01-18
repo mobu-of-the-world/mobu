@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 649px) {
+@media screen and (max-width: 799px) {
   .main {
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
   }
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 800px) {
   .main {
     display: flex;
     width: 60%;
