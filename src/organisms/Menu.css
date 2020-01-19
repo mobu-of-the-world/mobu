@@ -8,12 +8,50 @@
   justify-content: center;
 }
 
+@keyframes fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
 .menu--container.visible {
   visibility: visible;
+  animation-duration: 0.1s;
+  animation-name: fade-in;
 }
 
 .menu--container.hidden {
   visibility: hidden;
+  animation-duration: 0.1s;
+  animation-name: fade-out;
 }
 
 @media screen and (max-width: 799px) {
@@ -34,6 +72,7 @@
     padding-bottom: 1rem;
   }
 }
+
 @media screen and (min-width: 800px) {
   .menu--container-place-adjuster {
     display: flex;
