@@ -1,5 +1,7 @@
 # mobu
 
+[![Actions Status](https://github.com/pankona/mobu/workflows/CI/badge.svg)](https://github.com/pankona/mobu/actions)
+
 Application to manage participants and timer for mob-programming!
 
 Visit here to enjoy: [https://mobu-waiwai.netlify.com](https://mobu-waiwai.netlify.com)
