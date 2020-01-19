@@ -26,7 +26,9 @@
     "test:ci": "CI=true react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "prettier-check": "prettier --list-different \"src/**/*.{ts,tsx,css,scss}\"",
-    "prettier:fix": "prettier --write \"src/**/*.{ts,tsx,css,scss}\""
+    "prettier:fix": "prettier --write \"src/**/*.{ts,tsx,css,scss}\"",
+    "eslint": "eslint \"src/**/*.{ts,tsx}\"",
+    "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\""
   },
   "eslintConfig": {
     "extends": "react-app"
