@@ -65,6 +65,7 @@ const AppComponent: React.FunctionComponent<{
             onReset={onReset}
             onIntervalChange={onIntervalChange}
             interval={interval}
+            disableStartOrPause={users.length < 2}
           />
         </div>
       </div>

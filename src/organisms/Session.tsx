@@ -11,13 +11,22 @@ const Session: React.FunctionComponent<{
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   interval: number;
-}> = ({ elapsedTime, onStartOrPause, onReset, onIntervalChange, interval }) => {
+  disableStartOrPause: boolean;
+}> = ({
+  elapsedTime,
+  onStartOrPause,
+  onReset,
+  onIntervalChange,
+  interval,
+  disableStartOrPause
+}) => {
   return (
     <div className="session">
       <Timer
         elapsedTime={elapsedTime}
         onStartOrPause={onStartOrPause}
         onReset={onReset}
+        disableStartOrPause={disableStartOrPause}
       />
       <div className="session--divider" />
       <Interval onIntervalChange={onIntervalChange} interval={interval} />
