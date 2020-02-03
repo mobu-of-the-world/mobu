@@ -11,7 +11,12 @@ const Interval: React.FunctionComponent<{
   return (
     <div className="interval">
       <div className="interval--text">Interval (sec)&nbsp;:&nbsp;</div>
-      <TextInput onChange={onIntervalChange} type="number" value={interval} />
+      <TextInput
+        onChange={onIntervalChange}
+        type="number"
+        value={interval}
+        min={1}
+      />
     </div>
   );
 };
