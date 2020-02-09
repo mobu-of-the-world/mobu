@@ -26,73 +26,62 @@ const AppContainer: React.FunctionComponent = () => {
     blankStringsPattern.test(username) ||
     users.includes(username);
 
-  const onStartOrPause = React.useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
-      if (timerID.current) {
-        clearInterval(timerID.current);
-        timerID.current = undefined;
-        return;
-      }
+  const onStartOrPause = React.useCallback(() => {
+    if (timerID.current) {
+      clearInterval(timerID.current);
+      timerID.current = undefined;
+      return;
+    }
 
-      if (window.Notification && Notification.permission !== "granted") {
-        Notification.requestPermission(function(result) {
-          switch (result) {
-            case "granted":
-              alert("Thanks to accept the notification :)");
-              break;
-            case "denied":
-              alert("You rejected the notification :(　Please accept it.");
-              break;
-            default:
-              alert("Can not judge to use notification :(　Please accept it.");
-              break;
-          }
-        });
-      }
-
-      timerID.current = setInterval(() => {
-        count.current += 1;
-        setTickCount(count.current);
-        if (count.current % intervalSecRef.current === 0) {
-          if (timerID.current) {
-            clearInterval(timerID.current);
-            timerID.current = undefined;
-          }
-          setUsers(prev => {
-            const newUsers =
-              prev.length >= 2
-                ? [...prev.slice(1, prev.length), prev[0]]
-                : prev;
-            Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers));
-            return newUsers;
-          });
-          if (window.Notification) {
-            new Notification("Change the driver!");
-          }
+    if (window.Notification && Notification.permission !== "granted") {
+      Notification.requestPermission(function(result) {
+        switch (result) {
+          case "granted":
+            alert("Thanks to accept the notification :)");
+            break;
+          case "denied":
+            alert("You rejected the notification :(　Please accept it.");
+            break;
+          default:
+            alert("Can not judge to use notification :(　Please accept it.");
+            break;
         }
-      }, 1000);
-    },
-    [count, timerID]
-  );
-
-  const onReset = React.useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
-      count.current = 0;
-      setTickCount(count.current);
-    },
-    [count]
-  );
-
-  const onShuffle = React.useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      setUsers(prev => {
-        const newUsers = shuffleArray<string>([...prev]);
-        Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers));
-        return newUsers;
       });
-    },
-    []
-  );
+    }
+
+    timerID.current = setInterval(() => {
+      count.current += 1;
+      setTickCount(count.current);
+      if (count.current % intervalSecRef.current === 0) {
+        if (timerID.current) {
+          clearInterval(timerID.current);
+          timerID.current = undefined;
+        }
+        setUsers(prev => {
+          const newUsers =
+            prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev;
+          Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers));
+          return newUsers;
+        });
+        if (window.Notification) {
+          new Notification("Change the driver!");
+        }
+      }
+    }, 1000);
+  }, [count, timerID]);
+
+  const onReset = React.useCallback(() => {
+    count.current = 0;
+    setTickCount(count.current);
+  }, [count]);
+
+  const onShuffle = React.useCallback(() => {
+    setUsers(prev => {
+      const newUsers = shuffleArray<string>([...prev]);
+      Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers));
+      return newUsers;
+    });
+  }, []);
 
   const onUsernameChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -135,19 +124,13 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
-  const onHamburgerMenuClick = React.useCallback(
-    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      setShowMenu(true);
-    },
-    []
-  );
+  const onHamburgerMenuClick = React.useCallback(() => {
+    setShowMenu(true);
+  }, []);
 
-  const onHamburgerMenuCloseClick = React.useCallback(
-    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      setShowMenu(false);
-    },
-    []
-  );
+  const onHamburgerMenuCloseClick = React.useCallback(() => {
+    setShowMenu(false);
+  }, []);
 
   return (
     <AppComponent
