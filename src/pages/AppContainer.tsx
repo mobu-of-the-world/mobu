@@ -1,19 +1,18 @@
 import React from "react";
-import Cookies from "js-cookie";
 
 import AppComponent from "../templates/AppComponent";
+import { setCookieUsers, getCookieUsers } from "../utils/cookie";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
 const initialIntervalSec = 60 * 30;
-const COOKIE_KEY_USERS = "users";
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
   const timerID = React.useRef<NodeJS.Timeout>();
   const intervalSecRef = React.useRef(initialIntervalSec);
   const [users, setUsers] = React.useState<string[]>(
-    JSON.parse(Cookies.get(COOKIE_KEY_USERS) || "[]")
+    JSON.parse(getCookieUsers())
   );
   const [username, setUsername] = React.useState("");
   const [intervalSec, setIntervalSec] = React.useState(initialIntervalSec);
@@ -57,12 +56,10 @@ const AppContainer: React.FunctionComponent = () => {
           clearInterval(timerID.current);
           timerID.current = undefined;
         }
-        setUsers((prev) => {
+        setUsers(prev => {
           const newUsers =
             prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev;
-          Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers), {
-            expires: 365,
-          });
+          setCookieUsers(newUsers);
           return newUsers;
         });
         if (window.Notification) {
@@ -78,11 +75,9 @@ const AppContainer: React.FunctionComponent = () => {
   }, [count]);
 
   const onShuffle = React.useCallback(() => {
-    setUsers((prev) => {
+    setUsers(prev => {
       const newUsers = shuffleArray<string>([...prev]);
-      Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers), {
-        expires: 365,
-      });
+      setCookieUsers(newUsers);
       return newUsers;
     });
   }, []);
@@ -106,11 +101,9 @@ const AppContainer: React.FunctionComponent = () => {
   const onUserRegister = React.useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      setUsers((prev) => {
+      setUsers(prev => {
         const newUsers = [...prev, username];
-        Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers), {
-          expires: 365,
-        });
+        setCookieUsers(newUsers);
         return newUsers;
       });
       setUsername(emptyUsername);
@@ -121,11 +114,9 @@ const AppContainer: React.FunctionComponent = () => {
   const onUserRemove = React.useCallback(
     (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       const removeItem = event.currentTarget.getAttribute("value");
-      setUsers((prev) => {
-        const newUsers = prev.filter((item) => item !== removeItem);
-        Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers), {
-          expires: 365,
-        });
+      setUsers(prev => {
+        const newUsers = prev.filter(item => item !== removeItem);
+        setCookieUsers(newUsers);
         return newUsers;
       });
     },
