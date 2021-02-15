@@ -6,15 +6,15 @@ import "./Interval.css";
 
 const Interval: React.FunctionComponent<{
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  interval: number;
-}> = ({ onIntervalChange, interval }) => {
+  intervalMinutes: number;
+}> = ({ onIntervalChange, intervalMinutes }) => {
   return (
     <div className="interval">
-      <div className="interval--text">Interval (sec)&nbsp;:&nbsp;</div>
+      <div className="interval--text">Interval (minutes)&nbsp;:&nbsp;</div>
       <TextInput
         onChange={onIntervalChange}
         type="number"
-        value={interval}
+        value={intervalMinutes}
         min={1}
       />
     </div>
