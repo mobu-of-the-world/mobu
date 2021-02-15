@@ -20,7 +20,7 @@ const AppComponent: React.FunctionComponent<{
   onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   username: string;
   users: string[];
-  interval: number;
+  intervalMinutes: number;
   registerDisabled: boolean;
   showMenu: boolean;
 }> = ({
@@ -36,7 +36,7 @@ const AppComponent: React.FunctionComponent<{
   onHamburgerMenuCloseClick,
   username,
   users,
-  interval,
+  intervalMinutes,
   registerDisabled,
   showMenu
 }) => {
@@ -64,7 +64,7 @@ const AppComponent: React.FunctionComponent<{
             onStartOrPause={onStartOrPause}
             onReset={onReset}
             onIntervalChange={onIntervalChange}
-            interval={interval}
+            intervalMinutes={intervalMinutes}
             disableStartOrPause={users.length < 2}
           />
         </div>

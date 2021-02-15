@@ -5,17 +5,19 @@ import { setCookieUsers, getCookieUsers } from "../utils/cookie";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
-const initialIntervalSec = 60 * 30;
+const initialIntervalSeconds = 60 * 30;
 
 const AppContainer: React.FunctionComponent = () => {
   const count = React.useRef(0);
   const timerID = React.useRef<NodeJS.Timeout>();
-  const intervalSecRef = React.useRef(initialIntervalSec);
+  const intervalSecondsRef = React.useRef(initialIntervalSeconds);
   const [users, setUsers] = React.useState<string[]>(
     JSON.parse(getCookieUsers())
   );
   const [username, setUsername] = React.useState("");
-  const [intervalSec, setIntervalSec] = React.useState(initialIntervalSec);
+  const [intervalSeconds, setIntervalSeconds] = React.useState(
+    initialIntervalSeconds
+  );
 
   const [tickCount, setTickCount] = React.useState(0);
   const [showMenu, setShowMenu] = React.useState(false);
@@ -51,7 +53,7 @@ const AppContainer: React.FunctionComponent = () => {
     timerID.current = setInterval(() => {
       count.current += 1;
       setTickCount(count.current);
-      if (count.current % intervalSecRef.current === 0) {
+      if (count.current % intervalSecondsRef.current === 0) {
         if (timerID.current) {
           clearInterval(timerID.current);
           timerID.current = undefined;
@@ -91,9 +93,10 @@ const AppContainer: React.FunctionComponent = () => {
 
   const onIntervalChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newInterval = parseInt(event.currentTarget.value);
-      setIntervalSec(newInterval);
-      intervalSecRef.current = newInterval;
+      const newIntervalMinutes = parseInt(event.currentTarget.value);
+      const newIntervalSeconds = newIntervalMinutes * 60;
+      setIntervalSeconds(newIntervalSeconds);
+      intervalSecondsRef.current = newIntervalSeconds;
     },
     []
   );
@@ -145,7 +148,7 @@ const AppContainer: React.FunctionComponent = () => {
       onHamburgerMenuCloseClick={onHamburgerMenuCloseClick}
       username={username}
       users={users}
-      interval={intervalSec}
+      intervalMinutes={Math.ceil(intervalSeconds / 60)}
       registerDisabled={registerDisabled()}
       showMenu={showMenu}
     ></AppComponent>
