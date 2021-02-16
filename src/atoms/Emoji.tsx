@@ -20,7 +20,7 @@ export enum EmojiName {
   Speaker,
   Wastebasket,
   Plus,
-  CrossMark
+  CrossMark,
 }
 
 function emojiByName(name: EmojiName): string {

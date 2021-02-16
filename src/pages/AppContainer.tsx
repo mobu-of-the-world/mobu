@@ -35,7 +35,7 @@ const AppContainer: React.FunctionComponent = () => {
     }
 
     if (window.Notification && Notification.permission !== "granted") {
-      Notification.requestPermission(function(result) {
+      Notification.requestPermission(function (result) {
         switch (result) {
           case "granted":
             alert("Thanks to accept the notification :)");
@@ -58,7 +58,7 @@ const AppContainer: React.FunctionComponent = () => {
           clearInterval(timerID.current);
           timerID.current = undefined;
         }
-        setUsers(prev => {
+        setUsers((prev) => {
           const newUsers =
             prev.length >= 2 ? [...prev.slice(1, prev.length), prev[0]] : prev;
           setCookieUsers(newUsers);
@@ -77,7 +77,7 @@ const AppContainer: React.FunctionComponent = () => {
   }, [count]);
 
   const onShuffle = React.useCallback(() => {
-    setUsers(prev => {
+    setUsers((prev) => {
       const newUsers = shuffleArray<string>([...prev]);
       setCookieUsers(newUsers);
       return newUsers;
@@ -104,7 +104,7 @@ const AppContainer: React.FunctionComponent = () => {
   const onUserRegister = React.useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      setUsers(prev => {
+      setUsers((prev) => {
         const newUsers = [...prev, username];
         setCookieUsers(newUsers);
         return newUsers;
@@ -117,8 +117,8 @@ const AppContainer: React.FunctionComponent = () => {
   const onUserRemove = React.useCallback(
     (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       const removeItem = event.currentTarget.getAttribute("value");
-      setUsers(prev => {
-        const newUsers = prev.filter(item => item !== removeItem);
+      setUsers((prev) => {
+        const newUsers = prev.filter((item) => item !== removeItem);
         setCookieUsers(newUsers);
         return newUsers;
       });
