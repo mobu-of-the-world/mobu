@@ -38,7 +38,7 @@ const AppComponent: React.FunctionComponent<{
   users,
   intervalMinutes,
   registerDisabled,
-  showMenu
+  showMenu,
 }) => {
   return (
     <>

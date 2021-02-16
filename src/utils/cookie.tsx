@@ -9,6 +9,6 @@ export function getCookieUsers(): string {
 
 export function setCookieUsers(newUsers: string[]): void {
   Cookies.set(COOKIE_KEY_USERS, JSON.stringify(newUsers), {
-    expires: EXPIRE_DAYS
+    expires: EXPIRE_DAYS,
   });
 }

@@ -23,7 +23,7 @@ const UserList: React.FunctionComponent<{
   registerDisabled,
   onShuffle,
   users,
-  onUserRemove
+  onUserRemove,
 }) => {
   return (
     <div className="userlist">

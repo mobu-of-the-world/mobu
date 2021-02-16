@@ -18,7 +18,7 @@ const Session: React.FunctionComponent<{
   onReset,
   onIntervalChange,
   intervalMinutes,
-  disableStartOrPause
+  disableStartOrPause,
 }) => {
   return (
     <div className="session">
