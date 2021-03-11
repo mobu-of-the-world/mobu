@@ -9,6 +9,7 @@ import "./AppComponent.css";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
+  iterationCount: number;
   onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -25,6 +26,7 @@ const AppComponent: React.FunctionComponent<{
   showMenu: boolean;
 }> = ({
   elapsedTime,
+  iterationCount,
   onStartOrPause,
   onReset,
   onShuffle,
@@ -61,6 +63,7 @@ const AppComponent: React.FunctionComponent<{
           <div className="divider"></div>
           <Session
             elapsedTime={elapsedTime}
+            iterationCount={iterationCount}
             onStartOrPause={onStartOrPause}
             onReset={onReset}
             onIntervalChange={onIntervalChange}

@@ -20,6 +20,7 @@ const AppContainer: React.FunctionComponent = () => {
   );
 
   const [tickCount, setTickCount] = React.useState(0);
+  const [iterationCount, setIterationCount] = React.useState(1);
   const [showMenu, setShowMenu] = React.useState(false);
 
   const registerDisabled = () =>
@@ -54,6 +55,7 @@ const AppContainer: React.FunctionComponent = () => {
       count.current += 1;
       setTickCount(count.current);
       if (count.current % intervalSecondsRef.current === 0) {
+        setIterationCount(count.current / intervalSecondsRef.current + 1);
         if (timerID.current) {
           clearInterval(timerID.current);
           timerID.current = undefined;
@@ -74,6 +76,7 @@ const AppContainer: React.FunctionComponent = () => {
   const onReset = React.useCallback(() => {
     count.current = 0;
     setTickCount(count.current);
+    setIterationCount(1);
   }, [count]);
 
   const onShuffle = React.useCallback(() => {
@@ -137,6 +140,7 @@ const AppContainer: React.FunctionComponent = () => {
   return (
     <AppComponent
       elapsedTime={numberToTimeString(tickCount)}
+      iterationCount={iterationCount}
       onStartOrPause={onStartOrPause}
       onReset={onReset}
       onShuffle={onShuffle}

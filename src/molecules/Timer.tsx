@@ -8,13 +8,21 @@ import "../atoms/Button.css";
 
 const Timer: React.FunctionComponent<{
   elapsedTime: string;
+  iterationCount: number;
   onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   disableStartOrPause: boolean;
-}> = ({ elapsedTime, onStartOrPause, onReset, disableStartOrPause }) => {
+}> = ({
+  elapsedTime,
+  iterationCount,
+  onStartOrPause,
+  onReset,
+  disableStartOrPause,
+}) => {
   return (
     <>
-      <Text>Elapsed time: {elapsedTime}</Text>
+      <Text>elapsed time: {elapsedTime}</Text>
+      <Text>(iteration: {iterationCount})</Text>
       <div className="timer--divider" />
       <Button
         className="button--width-max"

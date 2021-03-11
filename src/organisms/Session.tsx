@@ -6,6 +6,7 @@ import Interval from "../molecules/Interval";
 import "./Session.css";
 
 const Session: React.FunctionComponent<{
+  iterationCount: number;
   elapsedTime: string;
   onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
@@ -13,6 +14,7 @@ const Session: React.FunctionComponent<{
   intervalMinutes: number;
   disableStartOrPause: boolean;
 }> = ({
+  iterationCount,
   elapsedTime,
   onStartOrPause,
   onReset,
@@ -23,6 +25,7 @@ const Session: React.FunctionComponent<{
   return (
     <div className="session">
       <Timer
+        iterationCount={iterationCount}
         elapsedTime={elapsedTime}
         onStartOrPause={onStartOrPause}
         onReset={onReset}
