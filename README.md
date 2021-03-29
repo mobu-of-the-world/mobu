@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/pankona/mobu/workflows/CI/badge.svg)](https://github.com/pankona/mobu/actions)
 
-Application to manage participants and timer for mob-programming!
+A web application to manage participants and timer for mob-programming!
 
 Visit here to enjoy: [https://mobu-waiwai.netlify.com](https://mobu-waiwai.netlify.com)
 
@@ -11,10 +11,10 @@ Visit here to enjoy: [https://mobu-waiwai.netlify.com](https://mobu-waiwai.netli
 ### `yarn start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The page will reload when you make changes.<br />
+You may also see any lint errors in the console.
 
 ### `yarn test`
 
