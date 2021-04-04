@@ -140,7 +140,7 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
-  const onChangeSoundConfig = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeSoundConfig = () => {
     setCookieSoundEnabled(!soundEnabled);
     setSoundEnabled(!soundEnabled);
   };

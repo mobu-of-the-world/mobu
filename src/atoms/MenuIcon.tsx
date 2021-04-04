@@ -2,7 +2,7 @@ import React from "react";
 
 import "./MenuIcon.css";
 
-const MenuIcon: React.FunctionComponent<{}> = () => {
+const MenuIcon: React.FunctionComponent = () => {
   return (
     <div className="menuicon">
       <span className="menuicon--line"></span>

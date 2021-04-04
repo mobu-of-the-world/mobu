@@ -11,7 +11,7 @@ const Checkbox: FC<Props> = ({
   className,
   name,
   defaultChecked = false,
-  onChange = (event) => {},
+  onChange = () => undefined,
 }) => {
   return (
     <input
