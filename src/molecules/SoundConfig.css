@@ -3,7 +3,7 @@
   align-items: center;
 }
 .sound-config-checkbox {
-  transform:scale(1.5);
+  transform: scale(1.5);
 }
 .sound-config-label {
   max-width: 160px;
