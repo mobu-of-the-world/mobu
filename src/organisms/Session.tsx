@@ -2,6 +2,7 @@ import React from "react";
 
 import Timer from "../molecules/Timer";
 import Interval from "../molecules/Interval";
+import SoundConfig from "../molecules/SoundConfig";
 
 import "./Session.css";
 
@@ -13,6 +14,8 @@ const Session: React.FunctionComponent<{
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   intervalMinutes: number;
   disableStartOrPause: boolean;
+  soundEnabled: boolean;
+  onChangeSoundConfing: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }> = ({
   iterationCount,
   elapsedTime,
@@ -21,6 +24,8 @@ const Session: React.FunctionComponent<{
   onIntervalChange,
   intervalMinutes,
   disableStartOrPause,
+  soundEnabled,
+  onChangeSoundConfing,
 }) => {
   return (
     <div className="session">
@@ -35,6 +40,10 @@ const Session: React.FunctionComponent<{
       <Interval
         onIntervalChange={onIntervalChange}
         intervalMinutes={intervalMinutes}
+      />
+      <SoundConfig
+        defaultChecked={soundEnabled}
+        onChange={onChangeSoundConfing}
       />
     </div>
   );

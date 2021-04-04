@@ -19,11 +19,13 @@ const AppComponent: React.FunctionComponent<{
   onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onChangeSoundConfing: (event: React.ChangeEvent<HTMLInputElement>) => void;
   username: string;
   users: string[];
   intervalMinutes: number;
   registerDisabled: boolean;
   showMenu: boolean;
+  soundEnabled: boolean;
 }> = ({
   elapsedTime,
   iterationCount,
@@ -36,11 +38,13 @@ const AppComponent: React.FunctionComponent<{
   onUserRemove,
   onHamburgerMenuClick,
   onHamburgerMenuCloseClick,
+  onChangeSoundConfing,
   username,
   users,
   intervalMinutes,
   registerDisabled,
   showMenu,
+  soundEnabled,
 }) => {
   return (
     <>
@@ -69,6 +73,8 @@ const AppComponent: React.FunctionComponent<{
             onIntervalChange={onIntervalChange}
             intervalMinutes={intervalMinutes}
             disableStartOrPause={users.length < 2}
+            soundEnabled={soundEnabled}
+            onChangeSoundConfing={onChangeSoundConfing}
           />
         </div>
       </div>

@@ -1,0 +1,11 @@
+.sound-config {
+  display: flex;
+  align-items: center;
+}
+.sound-config-checkbox {
+  transform: scale(1.5);
+}
+.sound-config-label {
+  max-width: 160px;
+  margin: 8px 16px 8px 0px;
+}
