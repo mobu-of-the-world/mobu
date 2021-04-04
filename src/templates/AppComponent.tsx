@@ -19,7 +19,7 @@ const AppComponent: React.FunctionComponent<{
   onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onChangeSoundConfing: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeSoundConfig: (event: React.ChangeEvent<HTMLInputElement>) => void;
   username: string;
   users: string[];
   intervalMinutes: number;
@@ -38,7 +38,7 @@ const AppComponent: React.FunctionComponent<{
   onUserRemove,
   onHamburgerMenuClick,
   onHamburgerMenuCloseClick,
-  onChangeSoundConfing,
+  onChangeSoundConfig,
   username,
   users,
   intervalMinutes,
@@ -74,7 +74,7 @@ const AppComponent: React.FunctionComponent<{
             intervalMinutes={intervalMinutes}
             disableStartOrPause={users.length < 2}
             soundEnabled={soundEnabled}
-            onChangeSoundConfing={onChangeSoundConfing}
+            onChangeSoundConfig={onChangeSoundConfig}
           />
         </div>
       </div>

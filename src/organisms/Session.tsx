@@ -15,7 +15,7 @@ const Session: React.FunctionComponent<{
   intervalMinutes: number;
   disableStartOrPause: boolean;
   soundEnabled: boolean;
-  onChangeSoundConfing: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeSoundConfig: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }> = ({
   iterationCount,
   elapsedTime,
@@ -25,7 +25,7 @@ const Session: React.FunctionComponent<{
   intervalMinutes,
   disableStartOrPause,
   soundEnabled,
-  onChangeSoundConfing,
+  onChangeSoundConfig,
 }) => {
   return (
     <div className="session">
@@ -43,7 +43,7 @@ const Session: React.FunctionComponent<{
       />
       <SoundConfig
         defaultChecked={soundEnabled}
-        onChange={onChangeSoundConfing}
+        onChange={onChangeSoundConfig}
       />
     </div>
   );

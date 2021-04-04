@@ -135,7 +135,7 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
-  const onChangeSoundConfing = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeSoundConfig = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSoundEnabled(!soundEnabled);
   };
 
@@ -160,7 +160,7 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRemove={onUserRemove}
       onHamburgerMenuClick={onHamburgerMenuClick}
       onHamburgerMenuCloseClick={onHamburgerMenuCloseClick}
-      onChangeSoundConfing={onChangeSoundConfing}
+      onChangeSoundConfig={onChangeSoundConfig}
       username={username}
       users={users}
       intervalMinutes={Math.ceil(intervalSeconds / 60)}
