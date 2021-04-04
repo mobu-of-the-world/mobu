@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 import AppComponent from "../templates/AppComponent";
 import { setCookieUsers, getCookieUsers } from "../utils/cookie";
+import audiofile from "../assets/audio/bell.mp3";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
@@ -22,6 +23,7 @@ const AppContainer: React.FunctionComponent = () => {
   const [tickCount, setTickCount] = React.useState(0);
   const [iterationCount, setIterationCount] = React.useState(1);
   const [showMenu, setShowMenu] = React.useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(false);
 
   const registerDisabled = () =>
     username === emptyUsername ||
@@ -66,12 +68,16 @@ const AppContainer: React.FunctionComponent = () => {
           setCookieUsers(newUsers);
           return newUsers;
         });
+        if (soundEnabled) {
+          const bell = new Audio(audiofile);
+          bell.play();
+        }
         if (window.Notification) {
           new Notification("Change the driver!");
         }
       }
     }, 1000);
-  }, [count, timerID]);
+  }, [count, timerID, soundEnabled]);
 
   const onReset = React.useCallback(() => {
     count.current = 0;
@@ -129,6 +135,10 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
+  const onChangeSoundConfing = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSoundEnabled(!soundEnabled);
+  };
+
   const onHamburgerMenuClick = React.useCallback(() => {
     setShowMenu(true);
   }, []);
@@ -150,11 +160,13 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRemove={onUserRemove}
       onHamburgerMenuClick={onHamburgerMenuClick}
       onHamburgerMenuCloseClick={onHamburgerMenuCloseClick}
+      onChangeSoundConfing={onChangeSoundConfing}
       username={username}
       users={users}
       intervalMinutes={Math.ceil(intervalSeconds / 60)}
       registerDisabled={registerDisabled()}
       showMenu={showMenu}
+      soundEnabled={soundEnabled}
     ></AppComponent>
   );
 };
