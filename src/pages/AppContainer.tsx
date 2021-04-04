@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 
 import AppComponent from "../templates/AppComponent";
-import { setCookieUsers, getCookieUsers } from "../utils/cookie";
+import {
+  setCookieUsers,
+  getCookieUsers,
+  setCookieSoundEnabled,
+  getCookieSoundEnabled,
+} from "../utils/cookie";
 import audiofile from "../assets/audio/bell.mp3";
 
 const emptyUsername = "";
@@ -23,7 +28,7 @@ const AppContainer: React.FunctionComponent = () => {
   const [tickCount, setTickCount] = React.useState(0);
   const [iterationCount, setIterationCount] = React.useState(1);
   const [showMenu, setShowMenu] = React.useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(getCookieSoundEnabled);
 
   const registerDisabled = () =>
     username === emptyUsername ||
@@ -136,6 +141,7 @@ const AppContainer: React.FunctionComponent = () => {
   );
 
   const onChangeSoundConfig = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCookieSoundEnabled(!soundEnabled);
     setSoundEnabled(!soundEnabled);
   };
 
