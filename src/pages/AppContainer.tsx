@@ -43,7 +43,7 @@ const AppContainer: React.FunctionComponent = () => {
     }
 
     if (window.Notification && Notification.permission !== "granted") {
-      Notification.requestPermission(function (result) {
+      Notification.requestPermission((result) => {
         switch (result) {
           case "granted":
             alert("Thanks to accept the notification :)");
@@ -140,7 +140,7 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
-  const onChangeSoundConfig = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeSoundConfig = (_event: React.ChangeEvent<HTMLInputElement>) => {
     setCookieSoundEnabled(!soundEnabled);
     setSoundEnabled(!soundEnabled);
   };
@@ -177,19 +177,19 @@ const AppContainer: React.FunctionComponent = () => {
   );
 };
 
-function numberToTimeString(count: number): string {
+const numberToTimeString = (count: number): string => {
   const elapsedTime = new Date(count);
   elapsedTime.setSeconds(count);
   return elapsedTime.toISOString().substr(11, 8);
-}
+};
 
-function shuffleArray<T>(array: T[]): T[] {
+const shuffleArray = <T extends unknown>(array: T[]): T[] => {
   for (let i = array.length - 1; i > 0; i--) {
     const rand = Math.floor(Math.random() * (i + 1));
     [array[i], array[rand]] = [array[rand], array[i]];
   }
 
   return array;
-}
+};
 
 export default AppContainer;
