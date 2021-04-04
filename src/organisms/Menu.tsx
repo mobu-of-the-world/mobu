@@ -40,11 +40,11 @@ const Menu: React.FunctionComponent<{
   );
 };
 
-function visibility(menuVisibility: boolean): string {
+const visibility = (menuVisibility: boolean): string => {
   if (menuVisibility) {
     return "visible";
   }
   return "hidden";
-}
+};
 
 export default Menu;

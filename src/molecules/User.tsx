@@ -17,11 +17,11 @@ const User: React.FunctionComponent<{
   );
 };
 
-function emojiNameByRole(isDriver: boolean): EmojiName {
+const emojiNameByRole = (isDriver: boolean): EmojiName => {
   if (isDriver) {
     return EmojiName.Car;
   }
   return EmojiName.Speaker;
-}
+};
 
 export default User;

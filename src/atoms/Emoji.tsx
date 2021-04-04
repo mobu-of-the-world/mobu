@@ -23,7 +23,7 @@ export enum EmojiName {
   CrossMark,
 }
 
-function emojiByName(name: EmojiName): string {
+const emojiByName = (name: EmojiName): string => {
   switch (name) {
     case EmojiName.Car:
       return "🚗";
@@ -38,6 +38,6 @@ function emojiByName(name: EmojiName): string {
     default:
       return "";
   }
-}
+};
 
 export default Emoji;
