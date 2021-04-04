@@ -1,23 +1,23 @@
 import React, { FC } from "react";
 
 type Props = {
+  className?: string;
   name: string;
-  value: string;
   defaultChecked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Checkbox: FC<Props> = ({
+  className,
   name,
-  value,
   defaultChecked = false,
   onChange = (event) => {},
 }) => {
   return (
     <input
+      className={className}
       type="checkbox"
       name={name}
-      value={value}
       defaultChecked={defaultChecked}
       onChange={onChange}
     />
