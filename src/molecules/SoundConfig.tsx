@@ -1,26 +1,27 @@
-import React, { FC, ChangeEvent } from "react";
+import { FC } from "react";
 import Checkbox from "../atoms/Checkbox";
 import Text from "../atoms/Text";
 
 import "./SoundConfig.css";
 
-type Props = {
-  defaultChecked: boolean;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+export type SoundConfigProps = {
+  soundEnabled: boolean;
+  onChangeSoundConfig: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SoundConfig: FC<Props> = ({ defaultChecked, onChange }) => {
+const SoundConfig: FC<SoundConfigProps> = (props) => {
+  const inputProps: JSX.IntrinsicElements["input"] = {
+    className: "sound-config-checkbox",
+    name: "BellCheckbox",
+    defaultChecked: props.soundEnabled,
+    onChange: props.onChangeSoundConfig,
+  };
   return (
     <div className="sound-config">
       <span className={"sound-config-label"}>
         <Text>Bell 🛎 : </Text>
       </span>
-      <Checkbox
-        className={"sound-config-checkbox"}
-        name={"BellCheckbox"}
-        defaultChecked={defaultChecked}
-        onChange={onChange}
-      />
+      <Checkbox {...inputProps} />
     </div>
   );
 };
