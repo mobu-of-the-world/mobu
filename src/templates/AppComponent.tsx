@@ -6,6 +6,7 @@ import Header from "../molecules/Header";
 import Menu from "../organisms/Menu";
 
 import "./AppComponent.css";
+import { SoundConfigProps } from "../molecules/SoundConfig";
 
 const AppComponent: React.FunctionComponent<{
   elapsedTime: string;
@@ -19,13 +20,12 @@ const AppComponent: React.FunctionComponent<{
   onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onChangeSoundConfig: (event: React.ChangeEvent<HTMLInputElement>) => void;
   username: string;
   users: string[];
   intervalMinutes: number;
   registerDisabled: boolean;
   showMenu: boolean;
-  soundEnabled: boolean;
+  soundConfigProps: SoundConfigProps;
 }> = ({
   elapsedTime,
   iterationCount,
@@ -38,13 +38,12 @@ const AppComponent: React.FunctionComponent<{
   onUserRemove,
   onHamburgerMenuClick,
   onHamburgerMenuCloseClick,
-  onChangeSoundConfig,
   username,
   users,
   intervalMinutes,
   registerDisabled,
   showMenu,
-  soundEnabled,
+  soundConfigProps,
 }) => {
   return (
     <>
@@ -73,8 +72,7 @@ const AppComponent: React.FunctionComponent<{
             onIntervalChange={onIntervalChange}
             intervalMinutes={intervalMinutes}
             disableStartOrPause={users.length < 2}
-            soundEnabled={soundEnabled}
-            onChangeSoundConfig={onChangeSoundConfig}
+            soundConfigProps={soundConfigProps}
           />
         </div>
       </div>

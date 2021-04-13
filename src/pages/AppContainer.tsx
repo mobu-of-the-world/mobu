@@ -8,6 +8,7 @@ import {
   getCookieSoundEnabled,
 } from "../utils/cookie";
 import audiofile from "../assets/audio/bell.mp3";
+import { SoundConfigProps } from "../molecules/SoundConfig";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
@@ -140,9 +141,12 @@ const AppContainer: React.FunctionComponent = () => {
     []
   );
 
-  const onChangeSoundConfig = (_event: React.ChangeEvent<HTMLInputElement>) => {
-    setCookieSoundEnabled(!soundEnabled);
-    setSoundEnabled(!soundEnabled);
+  const soundConfigProps: SoundConfigProps = {
+    onChangeSoundConfig: (_event: React.ChangeEvent<HTMLInputElement>) => {
+      setCookieSoundEnabled(!soundEnabled);
+      setSoundEnabled(!soundEnabled);
+    },
+    soundEnabled: soundEnabled,
   };
 
   const onHamburgerMenuClick = React.useCallback(() => {
@@ -166,13 +170,12 @@ const AppContainer: React.FunctionComponent = () => {
       onUserRemove={onUserRemove}
       onHamburgerMenuClick={onHamburgerMenuClick}
       onHamburgerMenuCloseClick={onHamburgerMenuCloseClick}
-      onChangeSoundConfig={onChangeSoundConfig}
       username={username}
       users={users}
       intervalMinutes={Math.ceil(intervalSeconds / 60)}
       registerDisabled={registerDisabled()}
       showMenu={showMenu}
-      soundEnabled={soundEnabled}
+      soundConfigProps={soundConfigProps}
     ></AppComponent>
   );
 };
