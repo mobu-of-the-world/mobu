@@ -1,16 +1,14 @@
-import React from "react";
+import { FC } from "react";
 
 import "./Button.css";
 
-const Button: React.FunctionComponent<
-  React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ children, className, disabled, ...rest }) => {
-  className = "button " + className;
-  className += disabled ? " button--disabled" : "";
-
+const Button: FC<JSX.IntrinsicElements["button"]> = ({
+  className,
+  ...props
+}) => {
   return (
-    <button className={className} disabled={disabled} {...rest}>
-      {children}
+    <button className={"button " + className} {...props}>
+      {props.children}
     </button>
   );
 };

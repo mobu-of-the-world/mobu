@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import Text from "../atoms/Text";
 import Button from "../atoms/Button";
@@ -6,33 +6,29 @@ import Button from "../atoms/Button";
 import "./Timer.css";
 import "../atoms/Button.css";
 
-const Timer: React.FunctionComponent<{
+export type TimerProps = {
   elapsedTime: string;
   iterationCount: number;
   onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
   onReset: (event: React.MouseEvent<HTMLElement>) => void;
   disableStartOrPause: boolean;
-}> = ({
-  elapsedTime,
-  iterationCount,
-  onStartOrPause,
-  onReset,
-  disableStartOrPause,
-}) => {
+};
+
+const Timer: FC<TimerProps> = (props) => {
   return (
     <>
-      <Text>elapsed time: {elapsedTime}</Text>
-      <Text>(iteration: {iterationCount})</Text>
+      <Text>elapsed time: {props.elapsedTime}</Text>
+      <Text>(iteration: {props.iterationCount})</Text>
       <div className="timer--divider" />
       <Button
         className="button--width-max"
-        onClick={onStartOrPause}
-        disabled={disableStartOrPause}
+        onClick={props.onStartOrPause}
+        disabled={props.disableStartOrPause}
       >
         Start/Pause
       </Button>
       <div className="timer--divider" />
-      <Button className="button--width-max" onClick={onReset}>
+      <Button className="button--width-max" onClick={props.onReset}>
         Reset
       </Button>
     </>
