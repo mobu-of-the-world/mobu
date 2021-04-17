@@ -7,12 +7,10 @@ import Menu from "../organisms/Menu";
 
 import "./AppComponent.css";
 import { SoundConfigProps } from "../molecules/SoundConfig";
+import { TimerProps } from "../molecules/Timer";
 
 const AppComponent: React.FunctionComponent<{
-  elapsedTime: string;
-  iterationCount: number;
-  onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
-  onReset: (event: React.MouseEvent<HTMLElement>) => void;
+  timerProps: TimerProps;
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -27,10 +25,7 @@ const AppComponent: React.FunctionComponent<{
   showMenu: boolean;
   soundConfigProps: SoundConfigProps;
 }> = ({
-  elapsedTime,
-  iterationCount,
-  onStartOrPause,
-  onReset,
+  timerProps,
   onShuffle,
   onUsernameChange,
   onIntervalChange,
@@ -65,13 +60,9 @@ const AppComponent: React.FunctionComponent<{
           />
           <div className="divider"></div>
           <Session
-            elapsedTime={elapsedTime}
-            iterationCount={iterationCount}
-            onStartOrPause={onStartOrPause}
-            onReset={onReset}
+            timerProps={timerProps}
             onIntervalChange={onIntervalChange}
             intervalMinutes={intervalMinutes}
-            disableStartOrPause={users.length < 2}
             soundConfigProps={soundConfigProps}
           />
         </div>

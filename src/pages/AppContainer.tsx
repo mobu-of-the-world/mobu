@@ -9,6 +9,7 @@ import {
 } from "../utils/cookie";
 import audiofile from "../assets/audio/bell.mp3";
 import { SoundConfigProps } from "../molecules/SoundConfig";
+import { TimerProps } from "../molecules/Timer";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
@@ -157,12 +158,17 @@ const AppContainer: React.FunctionComponent = () => {
     setShowMenu(false);
   }, []);
 
+  const timerProps: TimerProps = {
+    elapsedTime: numberToTimeString(tickCount),
+    iterationCount: iterationCount,
+    onReset: onReset,
+    onStartOrPause: onStartOrPause,
+    disableStartOrPause: users.length < 2,
+  };
+
   return (
     <AppComponent
-      elapsedTime={numberToTimeString(tickCount)}
-      iterationCount={iterationCount}
-      onStartOrPause={onStartOrPause}
-      onReset={onReset}
+      timerProps={timerProps}
       onShuffle={onShuffle}
       onUsernameChange={onUsernameChange}
       onIntervalChange={onIntervalChange}

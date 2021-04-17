@@ -1,39 +1,20 @@
 import React from "react";
 
-import Timer from "../molecules/Timer";
+import Timer, { TimerProps } from "../molecules/Timer";
 import Interval from "../molecules/Interval";
 import SoundConfig, { SoundConfigProps } from "../molecules/SoundConfig";
 
 import "./Session.css";
 
 const Session: React.FunctionComponent<{
-  iterationCount: number;
-  elapsedTime: string;
-  onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
-  onReset: (event: React.MouseEvent<HTMLElement>) => void;
+  timerProps: TimerProps;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   intervalMinutes: number;
-  disableStartOrPause: boolean;
   soundConfigProps: SoundConfigProps;
-}> = ({
-  iterationCount,
-  elapsedTime,
-  onStartOrPause,
-  onReset,
-  onIntervalChange,
-  intervalMinutes,
-  disableStartOrPause,
-  soundConfigProps,
-}) => {
+}> = ({ timerProps, onIntervalChange, intervalMinutes, soundConfigProps }) => {
   return (
     <div className="session">
-      <Timer
-        iterationCount={iterationCount}
-        elapsedTime={elapsedTime}
-        onStartOrPause={onStartOrPause}
-        onReset={onReset}
-        disableStartOrPause={disableStartOrPause}
-      />
+      <Timer {...timerProps} />
       <div className="session--divider" />
       <Interval
         onIntervalChange={onIntervalChange}
