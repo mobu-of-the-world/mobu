@@ -29,7 +29,10 @@ const Menu: React.FunctionComponent<{
           </div>
           <div className="menu--content-item-container">
             <div className="menu--content-item">
-              <a href="https://github.com/pankona/mobu" target="blank">
+              <a
+                href="https://github.com/mobu-of-the-world/mobu"
+                target="blank"
+              >
                 GitHub
               </a>
             </div>
