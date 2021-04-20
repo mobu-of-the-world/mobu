@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import AppComponent from "../templates/AppComponent";
 import {
@@ -30,7 +30,9 @@ const AppContainer: React.FunctionComponent = () => {
   const [tickCount, setTickCount] = React.useState(0);
   const [iterationCount, setIterationCount] = React.useState(1);
   const [showMenu, setShowMenu] = React.useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(getCookieSoundEnabled());
+  const [soundEnabled, setSoundEnabled] = React.useState(
+    getCookieSoundEnabled()
+  );
 
   const registerDisabled = () =>
     username === emptyUsername ||
