@@ -1,6 +1,6 @@
 # mobu
 
-[![Actions Status](https://github.com/pankona/mobu/workflows/CI/badge.svg)](https://github.com/pankona/mobu/actions)
+[![Actions Status](https://github.com/mobu-of-the-world/mobu/workflows/CI/badge.svg)](https://github.com/mobu-of-the-world/mobu/actions)
 
 A web application to manage participants and timer for mob-programming!
 
