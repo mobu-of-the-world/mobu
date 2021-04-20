@@ -15,13 +15,15 @@ const Emoji: React.FunctionComponent<{
   );
 };
 
-export enum EmojiName {
-  Car,
-  Speaker,
-  Wastebasket,
-  Plus,
-  CrossMark,
-}
+export const EmojiName = {
+  Car: "Car",
+  Speaker: "Speaker",
+  Wastebasket: "Wastebasket",
+  Plus: "Plus",
+  CrossMark: "CrossMark",
+} as const;
+
+export type EmojiName = typeof EmojiName[keyof typeof EmojiName];
 
 const emojiByName = (name: EmojiName): string => {
   switch (name) {
