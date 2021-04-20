@@ -36,7 +36,8 @@ const emojiByName = (name: EmojiName): string => {
     case EmojiName.CrossMark:
       return "❌";
     default:
-      return "";
+      const _: never = name;
+      return _;
   }
 };
 

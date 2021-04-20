@@ -55,9 +55,12 @@ const AppContainer: React.FunctionComponent = () => {
           case "denied":
             alert("You rejected the notification :(　Please accept it.");
             break;
-          default:
+          case "default":
             alert("Can not judge to use notification :(　Please accept it.");
             break;
+          default:
+            const _: never = result;
+            return _;
         }
       });
     }
