@@ -115,9 +115,11 @@ const AppContainer: React.FunctionComponent = () => {
   const onIntervalChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newIntervalMinutes = parseInt(event.currentTarget.value);
-      const newIntervalSeconds = newIntervalMinutes * 60;
-      setIntervalSeconds(newIntervalSeconds);
-      intervalSecondsRef.current = newIntervalSeconds;
+      if (newIntervalMinutes > 0) {
+        const newIntervalSeconds = newIntervalMinutes * 60;
+        setIntervalSeconds(newIntervalSeconds);
+        intervalSecondsRef.current = newIntervalSeconds;
+      }
     },
     []
   );
