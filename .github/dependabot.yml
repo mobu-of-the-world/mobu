@@ -6,7 +6,6 @@ updates:
     interval: daily
   open-pull-requests-limit: 10
   reviewers:
-  - pankona
-  - kachick
+  - "mobu-of-the-world/maintainers"
   labels:
   - automerge
