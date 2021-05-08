@@ -20,7 +20,7 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "env BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:ci": "CI=true react-scripts test --passWithNoTests",
