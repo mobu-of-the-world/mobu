@@ -107,7 +107,7 @@ const AppContainer: React.FunctionComponent = () => {
 
   const onUsernameChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      setUsername(event.currentTarget.value.trim());
+      setUsername(event.currentTarget.value);
     },
     []
   );
