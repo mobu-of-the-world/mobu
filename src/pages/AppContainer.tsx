@@ -34,7 +34,7 @@ const AppContainer: React.FunctionComponent = () => {
     getCookieSoundEnabled()
   );
 
-  const registerDisabled = () =>
+  const registerDisabled = (username: string) =>
     username === emptyUsername ||
     blankStringsPattern.test(username) ||
     users.includes(username);
@@ -107,7 +107,7 @@ const AppContainer: React.FunctionComponent = () => {
 
   const onUsernameChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      setUsername(event.currentTarget.value.trim());
+      setUsername(event.currentTarget.value);
     },
     []
   );
@@ -128,7 +128,7 @@ const AppContainer: React.FunctionComponent = () => {
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setUsers((prev) => {
-        const newUsers = [...prev, username];
+        const newUsers = [...prev, username.trim()];
         setCookieUsers(newUsers);
         return newUsers;
       });
@@ -186,7 +186,7 @@ const AppContainer: React.FunctionComponent = () => {
       username={username}
       users={users}
       intervalMinutes={Math.ceil(intervalSeconds / 60)}
-      registerDisabled={registerDisabled()}
+      registerDisabled={registerDisabled(username.trim())}
       showMenu={showMenu}
       soundConfigProps={soundConfigProps}
     ></AppComponent>
