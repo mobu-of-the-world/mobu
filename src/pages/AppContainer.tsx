@@ -34,7 +34,7 @@ const AppContainer: React.FunctionComponent = () => {
     getCookieSoundEnabled()
   );
 
-  const registerDisabled = () =>
+  const registerDisabled = (username: string) =>
     username === emptyUsername ||
     blankStringsPattern.test(username) ||
     users.includes(username);
@@ -186,7 +186,7 @@ const AppContainer: React.FunctionComponent = () => {
       username={username}
       users={users}
       intervalMinutes={Math.ceil(intervalSeconds / 60)}
-      registerDisabled={registerDisabled()}
+      registerDisabled={registerDisabled(username.trim())}
       showMenu={showMenu}
       soundConfigProps={soundConfigProps}
     ></AppComponent>
