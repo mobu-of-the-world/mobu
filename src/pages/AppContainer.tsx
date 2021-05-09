@@ -128,7 +128,7 @@ const AppContainer: React.FunctionComponent = () => {
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setUsers((prev) => {
-        const newUsers = [...prev, username];
+        const newUsers = [...prev, username.trim()];
         setCookieUsers(newUsers);
         return newUsers;
       });
