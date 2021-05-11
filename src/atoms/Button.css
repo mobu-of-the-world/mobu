@@ -8,10 +8,11 @@
   width: 100%;
 }
 
-.button:disabled {
-  color: #aaaaaa;
-}
-
 .button:hover {
   background: #f5f5f5;
+}
+
+.button:disabled {
+  background: none;
+  color: #aaaaaa;
 }
