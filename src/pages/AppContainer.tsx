@@ -128,7 +128,7 @@ const AppContainer: React.FunctionComponent = () => {
         intervalSecondsRef.current = newIntervalSeconds;
       }
     },
-    [intervalSeconds]
+    []
   );
 
   const onUserRegister = React.useCallback(
