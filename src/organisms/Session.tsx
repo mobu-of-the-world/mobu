@@ -19,6 +19,7 @@ const Session: React.FunctionComponent<{
       <Interval
         onIntervalChange={onIntervalChange}
         intervalMinutes={intervalMinutes}
+        disabled={timerProps.iterationCount > 0}
       />
       <SoundConfig {...soundConfigProps} />
     </div>
