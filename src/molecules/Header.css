@@ -34,7 +34,6 @@
   align-self: center;
 }
 
-
 @media (prefers-color-scheme: dark) {
   .header {
     color: #f0f6fc;
