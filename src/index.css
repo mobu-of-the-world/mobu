@@ -1,0 +1,14 @@
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #c9d1d9;
+    background-color: #0d1117;
+  }
+}

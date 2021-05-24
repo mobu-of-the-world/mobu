@@ -3,3 +3,11 @@
   width: 100%;
   border-bottom: 1px solid;
 }
+
+@media (prefers-color-scheme: dark) {
+  .textinput {
+    border-style: inherit;
+    border-bottom: 1px solid #21262d;
+    color: inherit;
+  }
+}
