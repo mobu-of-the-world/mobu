@@ -9,6 +9,7 @@
 }
 
 .button:disabled {
+  background: none;
   color: #aaaaaa;
 }
 

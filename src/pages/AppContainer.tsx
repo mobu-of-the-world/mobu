@@ -28,7 +28,7 @@ const AppContainer: React.FunctionComponent = () => {
   );
 
   const [tickCount, setTickCount] = React.useState(0);
-  const [iterationCount, setIterationCount] = React.useState(1);
+  const [iterationCount, setIterationCount] = React.useState(0);
   const [showMenu, setShowMenu] = React.useState(false);
   const [soundEnabled, setSoundEnabled] = React.useState(
     getCookieSoundEnabled()
@@ -40,6 +40,9 @@ const AppContainer: React.FunctionComponent = () => {
     users.includes(username);
 
   const onStartOrPause = React.useCallback(() => {
+    if (iterationCount === 0) {
+      setIterationCount(1);
+    }
     if (timerID.current) {
       clearInterval(timerID.current);
       timerID.current = undefined;
@@ -89,12 +92,16 @@ const AppContainer: React.FunctionComponent = () => {
         }
       }
     }, 1000);
-  }, [count, timerID, soundEnabled]);
+  }, [count, timerID, soundEnabled, iterationCount]);
 
   const onReset = React.useCallback(() => {
+    if (timerID.current) {
+      clearInterval(timerID.current);
+      timerID.current = undefined;
+    }
     count.current = 0;
     setTickCount(count.current);
-    setIterationCount(1);
+    setIterationCount(0);
   }, [count]);
 
   const onShuffle = React.useCallback(() => {

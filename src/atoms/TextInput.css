@@ -4,6 +4,10 @@
   border-bottom: 1px solid;
 }
 
+.textinput:disabled {
+  color: #aaa;
+}
+
 @media (prefers-color-scheme: dark) {
   .textinput {
     border-style: inherit;
