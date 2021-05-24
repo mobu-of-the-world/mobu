@@ -22,12 +22,17 @@
     background-color: #21262d;
   }
 
+  .button:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+  }
+
   .button:disabled {
     color: #484f58;
   }
 
-  .button:hover {
-    background-color: #30363d;
-    border-color: #8b949e;
+  .button:disabled:hover {
+    background: none;
+    border-color: inherit;
   }
 }
