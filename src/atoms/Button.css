@@ -8,11 +8,31 @@
   width: 100%;
 }
 
+.button:disabled {
+  background: none;
+  color: #aaaaaa;
+}
+
 .button:hover {
   background: #f5f5f5;
 }
 
-.button:disabled {
-  background: none;
-  color: #aaaaaa;
+@media (prefers-color-scheme: dark) {
+  .button {
+    background-color: #21262d;
+  }
+
+  .button:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+  }
+
+  .button:disabled {
+    color: #484f58;
+  }
+
+  .button:disabled:hover {
+    background: none;
+    border-color: inherit;
+  }
 }

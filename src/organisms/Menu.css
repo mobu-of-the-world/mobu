@@ -113,3 +113,11 @@
 .menu--content-item {
   line-height: 3rem;
 }
+
+@media (prefers-color-scheme: dark) {
+  .menu--content-container {
+    color: #c9d1d9;
+    background: #161b22;
+    border-color: #30363d;
+  }
+}
