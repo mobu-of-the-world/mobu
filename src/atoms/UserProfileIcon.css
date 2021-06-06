@@ -1,0 +1,8 @@
+.user-profile-icon {
+  padding: 0 0.5rem;
+}
+
+.user-profile-icon img {
+  width: 32px;
+  border-radius: 50%;
+}
