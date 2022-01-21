@@ -11,7 +11,7 @@
     "ress": "^4.0.0"
   },
   "devDependencies": {
-    "typescript": "^4.5.4",
+    "typescript": "^4.5.5",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
