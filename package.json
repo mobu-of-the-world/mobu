@@ -28,8 +28,8 @@
   "scripts": {
     "start": "vite",
     "build": "tsc --noEmit && vite build",
-    "test": "react-scripts test",
-    "test:ci": "CI=true react-scripts test --passWithNoTests",
+    "test": "jest --watch",
+    "test:ci": "jest --passWithNoTests",
     "eject": "react-scripts eject",
     "prettier-check": "prettier --list-different \"src/**/*.{ts,tsx,css,scss}\"",
     "prettier:fix": "prettier --write \"src/**/*.{ts,tsx,css,scss}\"",
