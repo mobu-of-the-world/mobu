@@ -5,7 +5,7 @@
   "homepage": "./",
   "dependencies": {
     "js-cookie": "^3.0.1",
-    "react": "^18.0.0",
+    "react": "^18.1.0",
     "react-dom": "^18.0.0",
     "ress": "^5.0.2"
   },
