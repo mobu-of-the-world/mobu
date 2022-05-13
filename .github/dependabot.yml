@@ -1,5 +1,11 @@
 version: 2
 updates:
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  reviewers:
+    - "mobu-of-the-world/maintainers"
 - package-ecosystem: npm
   directory: "/"
   schedule:
