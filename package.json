@@ -6,7 +6,7 @@
   "dependencies": {
     "js-cookie": "^3.0.1",
     "react": "^18.1.0",
-    "react-dom": "^18.0.0",
+    "react-dom": "^18.1.0",
     "ress": "^5.0.2"
   },
   "devDependencies": {
@@ -17,7 +17,7 @@
     "@types/js-cookie": "^3.0.2",
     "@types/node": "^16.11.35",
     "@types/react": "^18.0.8",
-    "@types/react-dom": "^18.0.2",
+    "@types/react-dom": "^18.0.4",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.21.0",
     "@vitejs/plugin-react": "^1.3.1",
