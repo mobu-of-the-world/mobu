@@ -13,7 +13,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^14.2.0",
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^27.5.1",
     "@types/js-cookie": "^3.0.2",
     "@types/node": "^16.11.35",
     "@types/react": "^18.0.9",
