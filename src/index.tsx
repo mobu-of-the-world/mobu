@@ -1,8 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import AppContainer from "./pages/AppContainer";
 
 import "ress";
 import "./index.css";
+import { assertIsDefined } from "./utils/typeguard";
 
-ReactDOM.render(<AppContainer />, document.getElementById("root"));
+const root = document.getElementById("root");
+assertIsDefined<typeof root>(root);
+createRoot(root).render(
+  <React.StrictMode>
+    <AppContainer />
+  </React.StrictMode>
+);
