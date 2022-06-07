@@ -180,6 +180,38 @@ const AppContainer: React.FunctionComponent = () => {
     disableStartOrPause: users.length < 2,
   };
 
+  const changeDroppedUserPosition = (
+    currentUser: string,
+    droppedUser: string
+  ) => {
+    const droppedUserNewIndex = users.findIndex(
+      (element) => element === currentUser
+    );
+    const droppedUserOldIndex = users.findIndex(
+      (element) => element === droppedUser
+    );
+    const newUsers = [...users];
+
+    const newIndex = (index: number): number => {
+      if (index > droppedUserOldIndex && index <= droppedUserNewIndex) {
+        return index - 1;
+      } else if (index === droppedUserOldIndex) {
+        return droppedUserNewIndex;
+      } else if (index < droppedUserOldIndex && index >= droppedUserNewIndex) {
+        return index + 1;
+      }
+
+      return index;
+    };
+
+    users.forEach((user, index) => {
+      newUsers[newIndex(index)] = user;
+    });
+
+    setCookieUsers(newUsers);
+    setUsers(newUsers);
+  };
+
   return (
     <AppComponent
       timerProps={timerProps}
@@ -196,6 +228,7 @@ const AppContainer: React.FunctionComponent = () => {
       registerDisabled={registerDisabled(username.trim())}
       showMenu={showMenu}
       soundConfigProps={soundConfigProps}
+      changeDroppedUserPosition={changeDroppedUserPosition}
     ></AppComponent>
   );
 };

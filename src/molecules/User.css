@@ -1,3 +1,4 @@
 .user {
   display: flex;
+  cursor: move;
 }
