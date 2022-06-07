@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run tests with ${{ matrix.node-version }}
-      uses: actions/setup-node@v3.2.0
+      uses: actions/setup-node@v3.3.0
       with:
         node-version: ${{ matrix.node-version }}
     - name: Get yarn cache
@@ -40,7 +40,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run tests with ${{ matrix.node-version }}
-      uses: actions/setup-node@v3.2.0
+      uses: actions/setup-node@v3.3.0
       with:
         node-version: ${{ matrix.node-version }}
     - name: Get yarn cache
@@ -66,7 +66,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run tests with ${{ matrix.node-version }}
-      uses: actions/setup-node@v3.2.0
+      uses: actions/setup-node@v3.3.0
       with:
         node-version: ${{ matrix.node-version }}
     - name: Get yarn cache
@@ -92,7 +92,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run tests with ${{ matrix.node-version }}
-      uses: actions/setup-node@v3.2.0
+      uses: actions/setup-node@v3.3.0
       with:
         node-version: ${{ matrix.node-version }}
     - name: Get yarn cache
