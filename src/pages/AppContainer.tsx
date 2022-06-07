@@ -10,6 +10,7 @@ import {
 import audiofile from "../assets/audio/bell.mp3";
 import { SoundConfigProps } from "../molecules/SoundConfig";
 import { TimerProps } from "../molecules/Timer";
+import { newUsersAfterDropped } from "../organisms/UserListHelpers";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
@@ -180,33 +181,11 @@ const AppContainer: React.FunctionComponent = () => {
     disableStartOrPause: users.length < 2,
   };
 
-  const changeDroppedUserPosition = (
+  const updateUsersOrderAfterDropped = (
     currentUser: string,
     droppedUser: string
   ) => {
-    const droppedUserNewIndex = users.findIndex(
-      (element) => element === currentUser
-    );
-    const droppedUserOldIndex = users.findIndex(
-      (element) => element === droppedUser
-    );
-    const newUsers = [...users];
-
-    const newIndex = (index: number): number => {
-      if (index > droppedUserOldIndex && index <= droppedUserNewIndex) {
-        return index - 1;
-      } else if (index === droppedUserOldIndex) {
-        return droppedUserNewIndex;
-      } else if (index < droppedUserOldIndex && index >= droppedUserNewIndex) {
-        return index + 1;
-      }
-
-      return index;
-    };
-
-    users.forEach((user, index) => {
-      newUsers[newIndex(index)] = user;
-    });
+    const newUsers = newUsersAfterDropped(users, currentUser, droppedUser);
 
     setCookieUsers(newUsers);
     setUsers(newUsers);
@@ -228,7 +207,7 @@ const AppContainer: React.FunctionComponent = () => {
       registerDisabled={registerDisabled(username.trim())}
       showMenu={showMenu}
       soundConfigProps={soundConfigProps}
-      changeDroppedUserPosition={changeDroppedUserPosition}
+      updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
     ></AppComponent>
   );
 };

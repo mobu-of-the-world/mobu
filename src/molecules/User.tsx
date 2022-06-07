@@ -7,8 +7,11 @@ import "./User.css";
 const User: React.FunctionComponent<{
   isDriver: boolean;
   user: string;
-  changeDroppedUserPosition: (currentUser: string, droppedUser: string) => void;
-}> = ({ isDriver, user, changeDroppedUserPosition }) => {
+  updateUsersOrderAfterDropped: (
+    currentUser: string,
+    droppedUser: string
+  ) => void;
+}> = ({ isDriver, user, updateUsersOrderAfterDropped }) => {
   return (
     <div
       className="user"
@@ -32,7 +35,7 @@ const User: React.FunctionComponent<{
           /^user-(?<droppedUsername>.+)$/
         )?.groups?.droppedUsername;
         if (typeof droppedUsername === "string") {
-          changeDroppedUserPosition(user, droppedUsername);
+          updateUsersOrderAfterDropped(user, droppedUsername);
         }
         return false;
       }}
