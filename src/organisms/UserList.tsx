@@ -5,28 +5,48 @@ import User from "../molecules/User";
 
 import "./UserList.css";
 import "../atoms/Button.css";
+import UserRegister from "../molecules/UserRegister";
+import { useSetPersistedUsers, useUsers } from "../contexts/users-contexts";
+import Button from "../atoms/Button";
+import { newUsersAfterDropped } from "./UserListHelpers";
 
-const UserList: React.FunctionComponent<{
-  users: string[];
-  onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
-  updateUsersOrderAfterDropped: (
+const shuffleArray = <T,>(array: T[]): T[] => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const rand = Math.floor(Math.random() * (i + 1));
+    [array[i], array[rand]] = [array[rand], array[i]];
+  }
+
+  return array;
+};
+
+const UserList: React.FunctionComponent = () => {
+  const users = useUsers();
+  const setPersistedUsers = useSetPersistedUsers();
+
+  const onShuffle = React.useCallback(() => {
+    setPersistedUsers(shuffleArray<string>([...users]));
+  }, [setPersistedUsers, users]);
+
+  const updateUsersOrderAfterDropped = (
     currentUser: string,
     droppedUser: string
-  ) => void;
-  userRegister: React.ReactElement;
-  shuffleButton: React.ReactElement;
-}> = ({
-  userRegister,
-  shuffleButton,
-  users,
-  onUserRemove,
-  updateUsersOrderAfterDropped,
-}) => {
+  ) => {
+    const newUsers = newUsersAfterDropped(users, currentUser, droppedUser);
+
+    setPersistedUsers(newUsers);
+  };
+
   return (
     <div className="userlist">
-      {userRegister}
+      <UserRegister />
       <div className="userlist--divider" />
-      {shuffleButton}
+      <Button
+        className="button--width-max"
+        onClick={onShuffle}
+        disabled={users.length < 2}
+      >
+        Shuffle
+      </Button>
       <div className="userlist--divider" />
       <ul className="userlist__list">
         {users.map((user, index) => (
@@ -55,13 +75,16 @@ const UserList: React.FunctionComponent<{
               if (typeof droppedUsername === "string") {
                 updateUsersOrderAfterDropped(user, droppedUsername);
               }
+              // debugger;
               return false;
             }}
           >
             <User isDriver={index === 0} user={user} />
             <Emoji
               emojiName={EmojiName.CrossMark}
-              {...{ onClick: onUserRemove, value: user }}
+              onClick={() => {
+                setPersistedUsers(users.filter((elem) => elem !== user));
+              }}
             />
           </li>
         ))}

@@ -4,8 +4,6 @@ import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";
 import Header from "../molecules/Header";
 import Menu from "../organisms/Menu";
-import Button from "../atoms/Button";
-import UserRegister from "../molecules/UserRegister";
 
 import "./AppComponent.css";
 import { SoundConfigProps } from "../molecules/SoundConfig";
@@ -13,40 +11,20 @@ import { TimerProps } from "../molecules/Timer";
 
 const AppComponent: React.FunctionComponent<{
   timerProps: TimerProps;
-  onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  updateUsersOrderAfterDropped: (
-    currentUser: string,
-    droppedUser: string
-  ) => void;
-  username: string;
-  users: string[];
   intervalMinutes: number;
-  registerDisabled: boolean;
-  showMenu: boolean;
   soundConfigProps: SoundConfigProps;
-}> = ({
-  timerProps,
-  onShuffle,
-  onUsernameChange,
-  onIntervalChange,
-  onUserRegister,
-  onUserRemove,
-  onHamburgerMenuClick,
-  onHamburgerMenuCloseClick,
-  username,
-  users,
-  intervalMinutes,
-  registerDisabled,
-  showMenu,
-  soundConfigProps,
-  updateUsersOrderAfterDropped,
-}) => {
+}> = ({ timerProps, onIntervalChange, intervalMinutes, soundConfigProps }) => {
+  const [showMenu, setShowMenu] = React.useState(false);
+
+  const onHamburgerMenuClick = React.useCallback(() => {
+    setShowMenu(true);
+  }, []);
+
+  const onHamburgerMenuCloseClick = React.useCallback(() => {
+    setShowMenu(false);
+  }, []);
+
   return (
     <>
       <Menu
@@ -56,28 +34,7 @@ const AppComponent: React.FunctionComponent<{
       <Header onHamburgerMenuClick={onHamburgerMenuClick} />
       <div className="main--container">
         <div className="main">
-          <UserList
-            users={users}
-            onUserRemove={onUserRemove}
-            updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
-            userRegister={
-              <UserRegister
-                onUserRegister={onUserRegister}
-                onUsernameChange={onUsernameChange}
-                username={username}
-                registerDisabled={registerDisabled}
-              />
-            }
-            shuffleButton={
-              <Button
-                className="button--width-max"
-                onClick={onShuffle}
-                disabled={users.length < 2}
-              >
-                Shuffle
-              </Button>
-            }
-          />
+          <UserList />
           <div className="divider"></div>
           <Session
             timerProps={timerProps}
