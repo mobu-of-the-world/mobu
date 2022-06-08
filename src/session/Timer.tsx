@@ -8,12 +8,7 @@ import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 import "./Timer.css";
 import "../common/Button.css";
 import audiofile from "./assets/bell.mp3";
-
-const numberToTimeString = (count: number): string => {
-  const elapsedTime = new Date(count);
-  elapsedTime.setSeconds(count);
-  return elapsedTime.toISOString().substr(11, 8);
-};
+import { readableElapsedTime } from "./timeHelpers";
 
 const Timer: React.FC<{
   intervalSecondsRef: React.MutableRefObject<number>;
@@ -105,7 +100,7 @@ const Timer: React.FC<{
 
   return (
     <>
-      <Text>elapsed time: {numberToTimeString(tickCount)}</Text>
+      <Text>elapsed time: {readableElapsedTime(tickCount)}</Text>
       <Text>(iteration: {iterationCount})</Text>
       <div className="timer--divider" />
       <Button
