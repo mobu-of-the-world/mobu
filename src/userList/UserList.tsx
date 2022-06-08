@@ -51,9 +51,11 @@ const UserList: React.FunctionComponent = () => {
             onDrop={(ev) => {
               ev.preventDefault();
               const droppedData = ev.dataTransfer.getData("text/plain");
-              const droppedUsername = droppedData.match(
+              const droppedMatchedGroups = droppedData.match(
                 /^user-(?<droppedUsername>.+)$/
-              )?.groups?.droppedUsername;
+              )?.groups;
+              const droppedUsername =
+                droppedMatchedGroups && droppedMatchedGroups["droppedUsername"];
               if (typeof droppedUsername === "string") {
                 setPersistedUsers(
                   newUsersAfterDropped(users, user, droppedUsername)

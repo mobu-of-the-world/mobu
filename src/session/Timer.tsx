@@ -42,13 +42,13 @@ const Timer: React.FC<{
         switch (result) {
           case "granted":
             alert("Thanks to accept the notification :)");
-            break;
+            return;
           case "denied":
             alert("You rejected the notification :(　Please accept it.");
-            break;
+            return;
           case "default":
             alert("Can not judge to use notification :(　Please accept it.");
-            break;
+            return;
           default:
             const _: never = result;
             return _;
@@ -67,7 +67,9 @@ const Timer: React.FC<{
         }
         setPersistedUsers(
           users.length >= 2
-            ? [...users.slice(1, users.length), users[0]]
+            ? [...users.slice(1, users.length), users[0]].flatMap((user) =>
+                user ? [user] : []
+              )
             : users
         );
         if (soundEnabled) {
