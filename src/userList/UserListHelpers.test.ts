@@ -1,4 +1,4 @@
-import { newUsersAfterDropped } from "../organisms/UserListHelpers";
+import { newUsersAfterDropped } from "./UserListHelpers";
 import { expect, test } from "@jest/globals";
 
 test("newUsersAfterDropped does not change given users", async () => {

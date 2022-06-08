@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { getCookieUsers, setCookieUsers } from "../utils/cookie";
+import { getCookieUsers, setCookieUsers } from "./cookie";
 
 const usersContext = React.createContext<string[]>([]);
 const setPersistedUsersContext = React.createContext<

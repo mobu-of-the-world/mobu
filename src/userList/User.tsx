@@ -1,7 +1,7 @@
 import React from "react";
-import Emoji, { EmojiName } from "../atoms/Emoji";
-import Text from "../atoms/Text";
-import UserProfileIcon from "../atoms/UserProfileIcon";
+import Emoji, { EmojiName } from "../common/Emoji";
+import Text from "../common/Text";
+import UserProfileIcon from "../userList/UserProfileIcon";
 import "./User.css";
 
 const User: React.FunctionComponent<{

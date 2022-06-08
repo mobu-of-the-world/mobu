@@ -1,15 +1,15 @@
 import React from "react";
 
-import Emoji, { EmojiName } from "../atoms/Emoji";
-import User from "../molecules/User";
+import Emoji, { EmojiName } from "../common/Emoji";
+import User from "./User";
 
 import "./UserList.css";
-import "../atoms/Button.css";
-import UserRegister from "../molecules/UserRegister";
-import { useSetPersistedUsers, useUsers } from "../contexts/users";
-import Button from "../atoms/Button";
+import "../common/Button.css";
+import UserRegister from "./UserRegister";
+import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
+import Button from "../common/Button";
 import { newUsersAfterDropped } from "./UserListHelpers";
-import { shuffleArray } from "../utils/listHelpers";
+import { shuffleArray } from "../common/listHelpers";
 
 const UserList: React.FunctionComponent = () => {
   const users = useUsers();

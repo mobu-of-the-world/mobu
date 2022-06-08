@@ -1,6 +1,6 @@
 import React from "react";
 
-import MenuIcon from "../atoms/MenuIcon";
+import MenuIcon from "../nav/MenuIcon";
 
 import "./HamburgerMenu.css";
 
