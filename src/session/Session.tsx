@@ -3,7 +3,10 @@ import React from "react";
 import Timer from "./Timer";
 import Interval from "./Interval";
 import SoundConfig from "./SoundConfig";
-import { getCookieSoundEnabled, setCookieSoundEnabled } from "../common/cookie";
+import {
+  getStorageSoundEnabled,
+  setStorageSoundEnabled,
+} from "../common/storage";
 
 import "./Session.css";
 
@@ -16,7 +19,7 @@ const Session: React.FunctionComponent = () => {
     initialIntervalSeconds
   );
   const [soundEnabled, setSoundEnabled] = React.useState(
-    getCookieSoundEnabled()
+    getStorageSoundEnabled()
   );
   const onIntervalChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +49,7 @@ const Session: React.FunctionComponent = () => {
       />
       <SoundConfig
         onChangeSoundConfig={(_event: React.ChangeEvent<HTMLInputElement>) => {
-          setCookieSoundEnabled(!soundEnabled);
+          setStorageSoundEnabled(!soundEnabled);
           setSoundEnabled(!soundEnabled);
         }}
         soundEnabled={soundEnabled}
