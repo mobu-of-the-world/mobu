@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 const Form: React.FunctionComponent<
   React.FormHTMLAttributes<HTMLFormElement>
