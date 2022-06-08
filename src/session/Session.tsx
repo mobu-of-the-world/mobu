@@ -1,9 +1,9 @@
 import React from "react";
 
-import Timer from "../molecules/Timer";
-import Interval from "../molecules/Interval";
-import SoundConfig from "../molecules/SoundConfig";
-import { getCookieSoundEnabled, setCookieSoundEnabled } from "../utils/cookie";
+import Timer from "./Timer";
+import Interval from "./Interval";
+import SoundConfig from "./SoundConfig";
+import { getCookieSoundEnabled, setCookieSoundEnabled } from "../common/cookie";
 
 import "./Session.css";
 

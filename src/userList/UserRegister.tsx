@@ -1,12 +1,12 @@
 import React from "react";
 
-import Form from "../atoms/Form";
-import TextInput from "../atoms/TextInput";
-import Button from "../atoms/Button";
-import Emoji, { EmojiName } from "../atoms/Emoji";
+import Form from "../common/Form";
+import TextInput from "../common/TextInput";
+import Button from "../common/Button";
+import Emoji, { EmojiName } from "../common/Emoji";
 
 import "./UserRegister.css";
-import { useSetPersistedUsers, useUsers } from "../contexts/users";
+import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);

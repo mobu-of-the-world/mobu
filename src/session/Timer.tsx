@@ -1,13 +1,13 @@
 import React from "react";
 
-import Text from "../atoms/Text";
-import Button from "../atoms/Button";
+import Text from "../common/Text";
+import Button from "../common/Button";
 
-import { useSetPersistedUsers, useUsers } from "../contexts/users";
+import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 
 import "./Timer.css";
-import "../atoms/Button.css";
-import audiofile from "../assets/audio/bell.mp3";
+import "../common/Button.css";
+import audiofile from "./assets/bell.mp3";
 
 const numberToTimeString = (count: number): string => {
   const elapsedTime = new Date(count);

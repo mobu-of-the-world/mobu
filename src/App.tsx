@@ -1,11 +1,11 @@
 import React from "react";
 
-import { UsersProvider } from "../contexts/users";
+import { UsersProvider } from "./common/usersContexts";
 
-import UserList from "../organisms/UserList";
-import Session from "../organisms/Session";
-import Header from "../molecules/Header";
-import Menu from "../organisms/Menu";
+import UserList from "./userList/UserList";
+import Session from "./session/Session";
+import Header from "./nav/Header";
+import Menu from "./nav/Menu";
 
 import "./App.css";
 
