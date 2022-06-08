@@ -4,11 +4,13 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["react-hooks", "prefer-arrow"],
+  "plugins": ["deprecation", "react-hooks", "prefer-arrow"],
   "parser": "@typescript-eslint/parser",
   "env": { "browser": true, "node": true, "es6": true },
   "parserOptions": {
-    "sourceType": "module"
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "rules": {
     "react-hooks/rules-of-hooks": "error",
@@ -32,6 +34,7 @@
         "selector": "TSEnumDeclaration",
         "message": "Don't declare enums. ref: https://www.kabuku.co.jp/developers/good-bye-typescript-enum"
       }
-    ]
+    ],
+    "deprecation/deprecation": "error"
   }
 }
