@@ -1,5 +1,6 @@
-const KEY_USERS = "users";
-const KEY_SOUND_ENABLED = "sound_enabled";
+const KEY_PREFIX = "mobu-v1-";
+const KEY_USERS = `${KEY_PREFIX}users` as const;
+const KEY_SOUND_ENABLED = `${KEY_PREFIX}sound_enabled` as const;
 
 export const getStorageSoundEnabled = (): boolean => {
   return localStorage.getItem(KEY_SOUND_ENABLED) === "true";
