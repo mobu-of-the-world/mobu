@@ -9,32 +9,14 @@ import UserRegister from "../molecules/UserRegister";
 import { useSetPersistedUsers, useUsers } from "../contexts/users-contexts";
 import Button from "../atoms/Button";
 import { newUsersAfterDropped } from "./UserListHelpers";
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const rand = Math.floor(Math.random() * (i + 1));
-    [array[i], array[rand]] = [array[rand], array[i]];
-  }
-
-  return array;
-};
+import { shuffleArray } from "../utils/listHelpers";
 
 const UserList: React.FunctionComponent = () => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
-
   const onShuffle = React.useCallback(() => {
     setPersistedUsers(shuffleArray<string>([...users]));
   }, [setPersistedUsers, users]);
-
-  const updateUsersOrderAfterDropped = (
-    currentUser: string,
-    droppedUser: string
-  ) => {
-    const newUsers = newUsersAfterDropped(users, currentUser, droppedUser);
-
-    setPersistedUsers(newUsers);
-  };
 
   return (
     <div className="userlist">
@@ -73,7 +55,9 @@ const UserList: React.FunctionComponent = () => {
                 /^user-(?<droppedUsername>.+)$/
               )?.groups?.droppedUsername;
               if (typeof droppedUsername === "string") {
-                updateUsersOrderAfterDropped(user, droppedUsername);
+                setPersistedUsers(
+                  newUsersAfterDropped(users, user, droppedUsername)
+                );
               }
               return false;
             }}

@@ -9,13 +9,11 @@ import Menu from "../organisms/Menu";
 
 import "./App.css";
 
-const AppComponent: React.FunctionComponent = () => {
+const App: React.FunctionComponent = () => {
   const [showMenu, setShowMenu] = React.useState(false);
-
   const onHamburgerMenuClick = React.useCallback(() => {
     setShowMenu(true);
   }, []);
-
   const onHamburgerMenuCloseClick = React.useCallback(() => {
     setShowMenu(false);
   }, []);
@@ -42,4 +40,4 @@ const AppComponent: React.FunctionComponent = () => {
   );
 };
 
-export default AppComponent;
+export default App;
