@@ -1,60 +1,64 @@
 import React from "react";
 
-import Button from "../atoms/Button";
 import Emoji, { EmojiName } from "../atoms/Emoji";
 import User from "../molecules/User";
-import UserRegister from "../molecules/UserRegister";
 
 import "./UserList.css";
 import "../atoms/Button.css";
 
 const UserList: React.FunctionComponent<{
-  onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  username: string;
-  registerDisabled: boolean;
-  onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   users: string[];
   onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
   updateUsersOrderAfterDropped: (
     currentUser: string,
     droppedUser: string
   ) => void;
+  userRegister: React.ReactElement;
+  shuffleButton: React.ReactElement;
 }> = ({
-  onUserRegister,
-  onUsernameChange,
-  username,
-  registerDisabled,
-  onShuffle,
+  userRegister,
+  shuffleButton,
   users,
   onUserRemove,
   updateUsersOrderAfterDropped,
 }) => {
   return (
     <div className="userlist">
-      <UserRegister
-        onUserRegister={onUserRegister}
-        onUsernameChange={onUsernameChange}
-        username={username}
-        registerDisabled={registerDisabled}
-      />
+      {userRegister}
       <div className="userlist--divider" />
-      <Button
-        className="button--width-max"
-        onClick={onShuffle}
-        disabled={users.length < 2}
-      >
-        Shuffle
-      </Button>
+      {shuffleButton}
       <div className="userlist--divider" />
       <ul className="userlist__list">
         {users.map((user, index) => (
-          <li className="userlist__listitem" key={user}>
-            <User
-              isDriver={index === 0}
-              user={user}
-              updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
-            />
+          <li
+            className="userlist__listitem"
+            key={user}
+            draggable={true}
+            onDragStart={(ev) => {
+              ev.dataTransfer.effectAllowed = "move";
+              ev.dataTransfer.setData("text/plain", `user-${user}`);
+            }}
+            onDragEnter={(ev) => {
+              ev.preventDefault();
+              return false;
+            }}
+            onDragOver={(ev) => {
+              ev.preventDefault();
+              return false;
+            }}
+            onDrop={(ev) => {
+              ev.preventDefault();
+              const droppedData = ev.dataTransfer.getData("text/plain");
+              const droppedUsername = droppedData.match(
+                /^user-(?<droppedUsername>.+)$/
+              )?.groups?.droppedUsername;
+              if (typeof droppedUsername === "string") {
+                updateUsersOrderAfterDropped(user, droppedUsername);
+              }
+              return false;
+            }}
+          >
+            <User isDriver={index === 0} user={user} />
             <Emoji
               emojiName={EmojiName.CrossMark}
               {...{ onClick: onUserRemove, value: user }}

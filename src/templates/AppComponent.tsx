@@ -4,6 +4,8 @@ import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";
 import Header from "../molecules/Header";
 import Menu from "../organisms/Menu";
+import Button from "../atoms/Button";
+import UserRegister from "../molecules/UserRegister";
 
 import "./AppComponent.css";
 import { SoundConfigProps } from "../molecules/SoundConfig";
@@ -55,14 +57,26 @@ const AppComponent: React.FunctionComponent<{
       <div className="main--container">
         <div className="main">
           <UserList
-            onUserRegister={onUserRegister}
-            onUsernameChange={onUsernameChange}
-            username={username}
-            registerDisabled={registerDisabled}
-            onShuffle={onShuffle}
             users={users}
             onUserRemove={onUserRemove}
             updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
+            userRegister={
+              <UserRegister
+                onUserRegister={onUserRegister}
+                onUsernameChange={onUsernameChange}
+                username={username}
+                registerDisabled={registerDisabled}
+              />
+            }
+            shuffleButton={
+              <Button
+                className="button--width-max"
+                onClick={onShuffle}
+                disabled={users.length < 2}
+              >
+                Shuffle
+              </Button>
+            }
           />
           <div className="divider"></div>
           <Session
