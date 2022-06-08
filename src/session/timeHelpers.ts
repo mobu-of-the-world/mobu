@@ -1,6 +1,6 @@
 export const readableElapsedTime = (seconds: number): string => {
-  const elapsedTime = new Date(seconds);
-  elapsedTime.setSeconds(seconds);
+  const date = new Date(0);
+  date.setSeconds(seconds);
   // eslint-disable-next-line deprecation/deprecation
-  return elapsedTime.toISOString().substr(11, 8);
+  return date.toISOString().substr(11, 8);
 };
