@@ -6,7 +6,7 @@ import User from "../molecules/User";
 import "./UserList.css";
 import "../atoms/Button.css";
 import UserRegister from "../molecules/UserRegister";
-import { useSetPersistedUsers, useUsers } from "../contexts/users-contexts";
+import { useSetPersistedUsers, useUsers } from "../contexts/users";
 import Button from "../atoms/Button";
 import { newUsersAfterDropped } from "./UserListHelpers";
 import { shuffleArray } from "../utils/listHelpers";

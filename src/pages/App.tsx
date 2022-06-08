@@ -1,6 +1,6 @@
 import React from "react";
 
-import { UsersProvider } from "../contexts/users-contexts";
+import { UsersProvider } from "../contexts/users";
 
 import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";

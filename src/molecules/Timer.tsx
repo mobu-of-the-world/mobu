@@ -3,7 +3,7 @@ import React from "react";
 import Text from "../atoms/Text";
 import Button from "../atoms/Button";
 
-import { useSetPersistedUsers, useUsers } from "../contexts/users-contexts";
+import { useSetPersistedUsers, useUsers } from "../contexts/users";
 
 import "./Timer.css";
 import "../atoms/Button.css";

@@ -6,7 +6,7 @@ import Button from "../atoms/Button";
 import Emoji, { EmojiName } from "../atoms/Emoji";
 
 import "./UserRegister.css";
-import { useSetPersistedUsers, useUsers } from "../contexts/users-contexts";
+import { useSetPersistedUsers, useUsers } from "../contexts/users";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
