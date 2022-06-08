@@ -1,43 +1,26 @@
 import React from "react";
 
-import Button from "../atoms/Button";
 import Emoji, { EmojiName } from "../atoms/Emoji";
 import User from "../molecules/User";
-import UserRegister from "../molecules/UserRegister";
 
 import "./UserList.css";
 import "../atoms/Button.css";
+import UserRegister from "../molecules/UserRegister";
+import { useSetPersistedUsers, useUsers } from "../contexts/users";
+import Button from "../atoms/Button";
+import { newUsersAfterDropped } from "./UserListHelpers";
+import { shuffleArray } from "../utils/listHelpers";
 
-const UserList: React.FunctionComponent<{
-  onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  username: string;
-  registerDisabled: boolean;
-  onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  users: string[];
-  onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
-  updateUsersOrderAfterDropped: (
-    currentUser: string,
-    droppedUser: string
-  ) => void;
-}> = ({
-  onUserRegister,
-  onUsernameChange,
-  username,
-  registerDisabled,
-  onShuffle,
-  users,
-  onUserRemove,
-  updateUsersOrderAfterDropped,
-}) => {
+const UserList: React.FunctionComponent = () => {
+  const users = useUsers();
+  const setPersistedUsers = useSetPersistedUsers();
+  const onShuffle = React.useCallback(() => {
+    setPersistedUsers(shuffleArray<string>([...users]));
+  }, [setPersistedUsers, users]);
+
   return (
     <div className="userlist">
-      <UserRegister
-        onUserRegister={onUserRegister}
-        onUsernameChange={onUsernameChange}
-        username={username}
-        registerDisabled={registerDisabled}
-      />
+      <UserRegister />
       <div className="userlist--divider" />
       <Button
         className="button--width-max"
@@ -49,15 +32,42 @@ const UserList: React.FunctionComponent<{
       <div className="userlist--divider" />
       <ul className="userlist__list">
         {users.map((user, index) => (
-          <li className="userlist__listitem" key={user}>
-            <User
-              isDriver={index === 0}
-              user={user}
-              updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
-            />
+          <li
+            className="userlist__listitem"
+            key={user}
+            draggable={true}
+            onDragStart={(ev) => {
+              ev.dataTransfer.effectAllowed = "move";
+              ev.dataTransfer.setData("text/plain", `user-${user}`);
+            }}
+            onDragEnter={(ev) => {
+              ev.preventDefault();
+              return false;
+            }}
+            onDragOver={(ev) => {
+              ev.preventDefault();
+              return false;
+            }}
+            onDrop={(ev) => {
+              ev.preventDefault();
+              const droppedData = ev.dataTransfer.getData("text/plain");
+              const droppedUsername = droppedData.match(
+                /^user-(?<droppedUsername>.+)$/
+              )?.groups?.droppedUsername;
+              if (typeof droppedUsername === "string") {
+                setPersistedUsers(
+                  newUsersAfterDropped(users, user, droppedUsername)
+                );
+              }
+              return false;
+            }}
+          >
+            <User isDriver={index === 0} user={user} />
             <Emoji
               emojiName={EmojiName.CrossMark}
-              {...{ onClick: onUserRemove, value: user }}
+              onClick={() => {
+                setPersistedUsers(users.filter((elem) => elem !== user));
+              }}
             />
           </li>
         ))}

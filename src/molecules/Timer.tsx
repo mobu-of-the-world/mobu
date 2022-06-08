@@ -1,34 +1,122 @@
-import { FC } from "react";
+import React from "react";
 
 import Text from "../atoms/Text";
 import Button from "../atoms/Button";
 
+import { useSetPersistedUsers, useUsers } from "../contexts/users";
+
 import "./Timer.css";
 import "../atoms/Button.css";
+import audiofile from "../assets/audio/bell.mp3";
 
-export type TimerProps = {
-  elapsedTime: string;
-  iterationCount: number;
-  onStartOrPause: (event: React.MouseEvent<HTMLElement>) => void;
-  onReset: (event: React.MouseEvent<HTMLElement>) => void;
-  disableStartOrPause: boolean;
+const numberToTimeString = (count: number): string => {
+  const elapsedTime = new Date(count);
+  elapsedTime.setSeconds(count);
+  return elapsedTime.toISOString().substr(11, 8);
 };
 
-const Timer: FC<TimerProps> = (props) => {
+const Timer: React.FC<{
+  intervalSecondsRef: React.MutableRefObject<number>;
+  soundEnabled: boolean;
+  iterationCount: number;
+  setIterationCount: React.Dispatch<React.SetStateAction<number>>;
+}> = ({
+  intervalSecondsRef,
+  soundEnabled,
+  iterationCount,
+  setIterationCount,
+}) => {
+  const users = useUsers();
+  const setPersistedUsers = useSetPersistedUsers();
+  const count = React.useRef(0);
+  const timerID = React.useRef<NodeJS.Timeout>();
+  const [tickCount, setTickCount] = React.useState(0);
+
+  const onStartOrPause = React.useCallback(() => {
+    if (iterationCount === 0) {
+      setIterationCount(1);
+    }
+    if (timerID.current) {
+      clearInterval(timerID.current);
+      timerID.current = undefined;
+      return;
+    }
+
+    if (window.Notification && Notification.permission !== "granted") {
+      Notification.requestPermission((result) => {
+        switch (result) {
+          case "granted":
+            alert("Thanks to accept the notification :)");
+            break;
+          case "denied":
+            alert("You rejected the notification :(　Please accept it.");
+            break;
+          case "default":
+            alert("Can not judge to use notification :(　Please accept it.");
+            break;
+          default:
+            const _: never = result;
+            return _;
+        }
+      });
+    }
+
+    timerID.current = setInterval(() => {
+      count.current += 1;
+      setTickCount(count.current);
+      if (count.current % intervalSecondsRef.current === 0) {
+        setIterationCount(count.current / intervalSecondsRef.current + 1);
+        if (timerID.current) {
+          clearInterval(timerID.current);
+          timerID.current = undefined;
+        }
+        setPersistedUsers(
+          users.length >= 2
+            ? [...users.slice(1, users.length), users[0]]
+            : users
+        );
+        if (soundEnabled) {
+          const bell = new Audio(audiofile);
+          bell.play();
+        }
+        if (window.Notification) {
+          new Notification("Change the driver!");
+        }
+      }
+    }, 1000);
+  }, [
+    iterationCount,
+    setIterationCount,
+    intervalSecondsRef,
+    setPersistedUsers,
+    users,
+    soundEnabled,
+  ]);
+
+  const onReset = React.useCallback(() => {
+    if (timerID.current) {
+      clearInterval(timerID.current);
+      timerID.current = undefined;
+    }
+    count.current = 0;
+    setTickCount(count.current);
+    setIterationCount(0);
+  }, [setIterationCount]);
+
   return (
     <>
-      <Text>elapsed time: {props.elapsedTime}</Text>
-      <Text>(iteration: {props.iterationCount})</Text>
+      <Text>elapsed time: {numberToTimeString(tickCount)}</Text>
+      <Text>(iteration: {iterationCount})</Text>
       <div className="timer--divider" />
       <Button
         className="button--width-max"
-        onClick={props.onStartOrPause}
-        disabled={props.disableStartOrPause}
+        onClick={onStartOrPause}
+        disabled={users.length < 2}
       >
         Start/Pause
       </Button>
       <div className="timer--divider" />
-      <Button className="button--width-max" onClick={props.onReset}>
+      <Button className="button--width-max" onClick={onReset}>
         Reset
       </Button>
     </>

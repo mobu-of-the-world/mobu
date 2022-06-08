@@ -1,27 +1,56 @@
 import React from "react";
 
-import Timer, { TimerProps } from "../molecules/Timer";
+import Timer from "../molecules/Timer";
 import Interval from "../molecules/Interval";
-import SoundConfig, { SoundConfigProps } from "../molecules/SoundConfig";
+import SoundConfig from "../molecules/SoundConfig";
+import { getCookieSoundEnabled, setCookieSoundEnabled } from "../utils/cookie";
 
 import "./Session.css";
 
-const Session: React.FunctionComponent<{
-  timerProps: TimerProps;
-  onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  intervalMinutes: number;
-  soundConfigProps: SoundConfigProps;
-}> = ({ timerProps, onIntervalChange, intervalMinutes, soundConfigProps }) => {
+const initialIntervalSeconds = 60 * 30;
+
+const Session: React.FunctionComponent = () => {
+  const [iterationCount, setIterationCount] = React.useState(0);
+  const intervalSecondsRef = React.useRef(initialIntervalSeconds);
+  const [intervalSeconds, setIntervalSeconds] = React.useState(
+    initialIntervalSeconds
+  );
+  const [soundEnabled, setSoundEnabled] = React.useState(
+    getCookieSoundEnabled()
+  );
+  const onIntervalChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newIntervalMinutes = parseInt(event.currentTarget.value);
+      if (newIntervalMinutes > 0) {
+        const newIntervalSeconds = newIntervalMinutes * 60;
+        setIntervalSeconds(newIntervalSeconds);
+        intervalSecondsRef.current = newIntervalSeconds;
+      }
+    },
+    []
+  );
+
   return (
     <div className="session">
-      <Timer {...timerProps} />
+      <Timer
+        intervalSecondsRef={intervalSecondsRef}
+        soundEnabled={soundEnabled}
+        iterationCount={iterationCount}
+        setIterationCount={setIterationCount}
+      />
       <div className="session--divider" />
       <Interval
         onIntervalChange={onIntervalChange}
-        intervalMinutes={intervalMinutes}
-        disabled={timerProps.iterationCount > 0}
+        intervalMinutes={Math.ceil(intervalSeconds / 60)}
+        disabled={iterationCount > 0}
       />
-      <SoundConfig {...soundConfigProps} />
+      <SoundConfig
+        onChangeSoundConfig={(_event: React.ChangeEvent<HTMLInputElement>) => {
+          setCookieSoundEnabled(!soundEnabled);
+          setSoundEnabled(!soundEnabled);
+        }}
+        soundEnabled={soundEnabled}
+      />
     </div>
   );
 };

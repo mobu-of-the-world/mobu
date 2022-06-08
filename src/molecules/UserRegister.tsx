@@ -6,13 +6,34 @@ import Button from "../atoms/Button";
 import Emoji, { EmojiName } from "../atoms/Emoji";
 
 import "./UserRegister.css";
+import { useSetPersistedUsers, useUsers } from "../contexts/users";
 
-const UserRegister: React.FunctionComponent<{
-  onUserRegister: (event: React.FormEvent<HTMLFormElement>) => void;
-  onUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  username: string;
-  registerDisabled: boolean;
-}> = ({ onUserRegister, onUsernameChange, username, registerDisabled }) => {
+const emptyUsername = "";
+const blankStringsPattern = new RegExp(/^\s*$/);
+
+const UserRegister: React.FunctionComponent = () => {
+  const users = useUsers();
+  const setPersistedUsers = useSetPersistedUsers();
+  const [username, setUsername] = React.useState("");
+  const onUsernameChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setUsername(event.currentTarget.value);
+    },
+    []
+  );
+  const onUserRegister = React.useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setPersistedUsers([...users, username.trim()]);
+      setUsername(emptyUsername);
+    },
+    [setPersistedUsers, username, users]
+  );
+  const registerDisabled =
+    username === emptyUsername ||
+    blankStringsPattern.test(username) ||
+    users.includes(username);
+
   return (
     <div className="userregister">
       <Form className="userregister--form" onSubmit={onUserRegister}>
