@@ -8,6 +8,7 @@ type UserProfileIconProps = {
 const UserProfileIcon: FC<UserProfileIconProps> = ({ user }) => (
   <div className={"user-profile-icon"}>
     <img
+      draggable={false}
       src={`https://github.com/${user}.png`}
       onError={(e: React.BaseSyntheticEvent) => {
         e.target.onerror = null;

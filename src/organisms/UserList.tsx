@@ -16,6 +16,10 @@ const UserList: React.FunctionComponent<{
   onShuffle: (event: React.MouseEvent<HTMLButtonElement>) => void;
   users: string[];
   onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
+  updateUsersOrderAfterDropped: (
+    currentUser: string,
+    droppedUser: string
+  ) => void;
 }> = ({
   onUserRegister,
   onUsernameChange,
@@ -24,6 +28,7 @@ const UserList: React.FunctionComponent<{
   onShuffle,
   users,
   onUserRemove,
+  updateUsersOrderAfterDropped,
 }) => {
   return (
     <div className="userlist">
@@ -45,7 +50,11 @@ const UserList: React.FunctionComponent<{
       <ul className="userlist__list">
         {users.map((user, index) => (
           <li className="userlist__listitem" key={user}>
-            <User isDriver={index === 0} user={user} />
+            <User
+              isDriver={index === 0}
+              user={user}
+              updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
+            />
             <Emoji
               emojiName={EmojiName.CrossMark}
               {...{ onClick: onUserRemove, value: user }}

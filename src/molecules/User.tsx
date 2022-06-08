@@ -7,9 +7,39 @@ import "./User.css";
 const User: React.FunctionComponent<{
   isDriver: boolean;
   user: string;
-}> = ({ isDriver, user }) => {
+  updateUsersOrderAfterDropped: (
+    currentUser: string,
+    droppedUser: string
+  ) => void;
+}> = ({ isDriver, user, updateUsersOrderAfterDropped }) => {
   return (
-    <div className="user">
+    <div
+      className="user"
+      draggable={true}
+      onDragStart={(ev) => {
+        ev.dataTransfer.effectAllowed = "move";
+        ev.dataTransfer.setData("text/plain", `user-${user}`);
+      }}
+      onDragEnter={(ev) => {
+        ev.preventDefault();
+        return false;
+      }}
+      onDragOver={(ev) => {
+        ev.preventDefault();
+        return false;
+      }}
+      onDrop={(ev) => {
+        ev.preventDefault();
+        const droppedData = ev.dataTransfer.getData("text/plain");
+        const droppedUsername = droppedData.match(
+          /^user-(?<droppedUsername>.+)$/
+        )?.groups?.droppedUsername;
+        if (typeof droppedUsername === "string") {
+          updateUsersOrderAfterDropped(user, droppedUsername);
+        }
+        return false;
+      }}
+    >
       <Emoji emojiName={emojiNameByRole(isDriver)} />
       <UserProfileIcon user={user} />
       <Text>{user}</Text>

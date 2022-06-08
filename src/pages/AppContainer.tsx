@@ -10,6 +10,7 @@ import {
 import audiofile from "../assets/audio/bell.mp3";
 import { SoundConfigProps } from "../molecules/SoundConfig";
 import { TimerProps } from "../molecules/Timer";
+import { newUsersAfterDropped } from "../organisms/UserListHelpers";
 
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
@@ -180,6 +181,16 @@ const AppContainer: React.FunctionComponent = () => {
     disableStartOrPause: users.length < 2,
   };
 
+  const updateUsersOrderAfterDropped = (
+    currentUser: string,
+    droppedUser: string
+  ) => {
+    const newUsers = newUsersAfterDropped(users, currentUser, droppedUser);
+
+    setCookieUsers(newUsers);
+    setUsers(newUsers);
+  };
+
   return (
     <AppComponent
       timerProps={timerProps}
@@ -196,6 +207,7 @@ const AppContainer: React.FunctionComponent = () => {
       registerDisabled={registerDisabled(username.trim())}
       showMenu={showMenu}
       soundConfigProps={soundConfigProps}
+      updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
     ></AppComponent>
   );
 };

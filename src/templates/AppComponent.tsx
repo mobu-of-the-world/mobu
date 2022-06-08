@@ -18,6 +18,10 @@ const AppComponent: React.FunctionComponent<{
   onUserRemove: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuClick: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHamburgerMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  updateUsersOrderAfterDropped: (
+    currentUser: string,
+    droppedUser: string
+  ) => void;
   username: string;
   users: string[];
   intervalMinutes: number;
@@ -39,6 +43,7 @@ const AppComponent: React.FunctionComponent<{
   registerDisabled,
   showMenu,
   soundConfigProps,
+  updateUsersOrderAfterDropped,
 }) => {
   return (
     <>
@@ -57,6 +62,7 @@ const AppComponent: React.FunctionComponent<{
             onShuffle={onShuffle}
             users={users}
             onUserRemove={onUserRemove}
+            updateUsersOrderAfterDropped={updateUsersOrderAfterDropped}
           />
           <div className="divider"></div>
           <Session
