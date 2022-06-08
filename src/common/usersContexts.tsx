@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { getCookieUsers, setCookieUsers } from "./cookie";
+import { getStorageUsers, setStorageUsers } from "./storage";
 
 const usersContext = React.createContext<string[]>([]);
 const setPersistedUsersContext = React.createContext<
@@ -10,11 +10,11 @@ export const UsersProvider: React.FC<{ children: React.ReactElement }> = ({
   children,
 }) => {
   const [users, setUsers] = React.useState<string[]>(
-    JSON.parse(getCookieUsers())
+    JSON.parse(getStorageUsers())
   );
   const setPersistedUsers = (newUsers: string[]) => {
     setUsers(newUsers);
-    setCookieUsers(newUsers);
+    setStorageUsers(newUsers);
   };
 
   return (
