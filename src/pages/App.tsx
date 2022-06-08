@@ -1,20 +1,15 @@
 import React from "react";
 
+import { UsersProvider } from "../contexts/users-contexts";
+
 import UserList from "../organisms/UserList";
 import Session from "../organisms/Session";
 import Header from "../molecules/Header";
 import Menu from "../organisms/Menu";
 
-import "./AppComponent.css";
-import { SoundConfigProps } from "../molecules/SoundConfig";
-import { TimerProps } from "../molecules/Timer";
+import "./App.css";
 
-const AppComponent: React.FunctionComponent<{
-  timerProps: TimerProps;
-  onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  intervalMinutes: number;
-  soundConfigProps: SoundConfigProps;
-}> = ({ timerProps, onIntervalChange, intervalMinutes, soundConfigProps }) => {
+const AppComponent: React.FunctionComponent = () => {
   const [showMenu, setShowMenu] = React.useState(false);
 
   const onHamburgerMenuClick = React.useCallback(() => {
@@ -34,14 +29,13 @@ const AppComponent: React.FunctionComponent<{
       <Header onHamburgerMenuClick={onHamburgerMenuClick} />
       <div className="main--container">
         <div className="main">
-          <UserList />
-          <div className="divider"></div>
-          <Session
-            timerProps={timerProps}
-            onIntervalChange={onIntervalChange}
-            intervalMinutes={intervalMinutes}
-            soundConfigProps={soundConfigProps}
-          />
+          <UsersProvider>
+            <>
+              <UserList />
+              <div className="divider"></div>
+              <Session />
+            </>
+          </UsersProvider>
         </div>
       </div>
     </>

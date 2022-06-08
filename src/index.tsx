@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import AppContainer from "./pages/AppContainer";
+import App from "./pages/App";
 
 import "ress";
 import "./index.css";
@@ -10,6 +10,6 @@ const root = document.getElementById("root");
 assertIsDefined<typeof root>(root);
 createRoot(root).render(
   <React.StrictMode>
-    <AppContainer />
+    <App />
   </React.StrictMode>
 );
