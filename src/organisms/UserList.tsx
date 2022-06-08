@@ -75,7 +75,6 @@ const UserList: React.FunctionComponent = () => {
               if (typeof droppedUsername === "string") {
                 updateUsersOrderAfterDropped(user, droppedUsername);
               }
-              // debugger;
               return false;
             }}
           >
