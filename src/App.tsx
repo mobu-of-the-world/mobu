@@ -5,6 +5,7 @@ import { UsersProvider } from "./common/usersContexts";
 import Header from "./header";
 import UserList from "./userList/UserList";
 import Session from "./session/Session";
+import Footer from "./footer";
 
 import "./App.css";
 
@@ -23,6 +24,7 @@ const App: React.FunctionComponent = () => {
           </UsersProvider>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
