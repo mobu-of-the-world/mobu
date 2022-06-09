@@ -1,4 +1,5 @@
 import React from "react";
+import { buildClassNames } from "../common/cssHelpers";
 
 import HamburgerMenu from "./HamburgerMenu";
 
@@ -19,7 +20,10 @@ const Header: React.FunctionComponent = () => {
       <Menu isVisible={showMenu} onCloseClick={onHamburgerMenuCloseClick} />
       <div className={css["header"]}>
         <div
-          className={[css["header--container"], css["header--width"]].join(" ")}
+          className={buildClassNames([
+            css["header--container"],
+            css["header--width"],
+          ])}
         >
           <div className={css["header--logo"]}>mobu</div>
           <HamburgerMenu onClick={onHamburgerMenuClick} />

@@ -1,4 +1,5 @@
 import type React from "react";
+import { buildClassNames } from "./cssHelpers";
 
 import css from "./TextInput.module.css";
 
@@ -7,9 +8,10 @@ const TextInput: React.FunctionComponent<
 > = ({ className, ...rest }) => {
   return (
     <input
-      className={[css["textinput"], className && css[className]]
-        .filter(Boolean)
-        .join(" ")}
+      className={buildClassNames([
+        css["textinput"],
+        className && css[className],
+      ])}
       {...rest}
     />
   );

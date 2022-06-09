@@ -1,4 +1,5 @@
 import type React from "react";
+import { buildClassNames } from "./cssHelpers";
 
 import css from "./Emoji.module.css";
 
@@ -8,9 +9,10 @@ const Emoji: React.FunctionComponent<{
 }> = ({ emojiName, onClick }) => {
   return (
     <div
-      className={[css["emoji"], onClick && css["emoji--clickable"]]
-        .filter(Boolean)
-        .join(" ")}
+      className={buildClassNames([
+        css["emoji"],
+        onClick && css["emoji--clickable"],
+      ])}
       onClick={onClick}
     >
       {emojiByName(emojiName)}

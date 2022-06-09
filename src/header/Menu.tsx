@@ -1,4 +1,5 @@
 import type React from "react";
+import { buildClassNames } from "../common/cssHelpers";
 
 import css from "./Menu.module.css";
 
@@ -11,10 +12,10 @@ const Menu: React.FunctionComponent<{
 }> = ({ isVisible, onCloseClick }) => {
   return (
     <div
-      className={[
+      className={buildClassNames([
         css["menu--container"],
         css[visibilityClassname(isVisible)],
-      ].join(" ")}
+      ])}
       onClick={onCloseClick}
     >
       <div className={css["menu--container-place-adjuster"]}>

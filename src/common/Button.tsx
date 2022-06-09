@@ -1,6 +1,7 @@
 import type { FC } from "react";
 
 import css from "./Button.module.css";
+import { buildClassNames } from "./cssHelpers";
 
 const Button: FC<JSX.IntrinsicElements["button"]> = ({
   className,
@@ -8,9 +9,7 @@ const Button: FC<JSX.IntrinsicElements["button"]> = ({
 }) => {
   return (
     <button
-      className={[css["button"], className && css[className]]
-        .filter(Boolean)
-        .join(" ")}
+      className={buildClassNames([css["button"], className && css[className]])}
       {...props}
     >
       {props.children}
