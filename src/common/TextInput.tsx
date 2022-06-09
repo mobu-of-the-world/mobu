@@ -1,12 +1,18 @@
 import type React from "react";
 
-import "./TextInput.css";
+import css from "./TextInput.module.css";
 
 const TextInput: React.FunctionComponent<
   React.InputHTMLAttributes<HTMLInputElement>
 > = ({ className, ...rest }) => {
-  className = "textinput" + (className != null ? " " + className : "");
-  return <input className={className} {...rest} />;
+  return (
+    <input
+      className={[css["textinput"], className && css[className]]
+        .filter(Boolean)
+        .join(" ")}
+      {...rest}
+    />
+  );
 };
 
 export default TextInput;

@@ -1,13 +1,18 @@
 import type { FC } from "react";
 
-import "./Button.css";
+import css from "./Button.module.css";
 
 const Button: FC<JSX.IntrinsicElements["button"]> = ({
   className,
   ...props
 }) => {
   return (
-    <button className={"button " + className} {...props}>
+    <button
+      className={[css["button"], className && css[className]]
+        .filter(Boolean)
+        .join(" ")}
+      {...props}
+    >
       {props.children}
     </button>
   );

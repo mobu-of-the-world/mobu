@@ -1,13 +1,13 @@
 import type React from "react";
 
-import "./MenuIcon.css";
+import css from "./MenuIcon.module.css";
 
 const MenuIcon: React.FunctionComponent = () => {
   return (
-    <div className="menuicon">
-      <span className="menuicon--line"></span>
-      <span className="menuicon--line"></span>
-      <span className="menuicon--line"></span>
+    <div className={css["menuicon"]}>
+      <span className={css["menuicon--line"]}></span>
+      <span className={css["menuicon--line"]}></span>
+      <span className={css["menuicon--line"]}></span>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 import HamburgerMenu from "./HamburgerMenu";
 
-import "./Header.css";
+import css from "./Header.module.css";
 import Menu from "./Menu";
 
 const Header: React.FunctionComponent = () => {
@@ -17,9 +17,11 @@ const Header: React.FunctionComponent = () => {
   return (
     <>
       <Menu isVisible={showMenu} onCloseClick={onHamburgerMenuCloseClick} />
-      <div className="header">
-        <div className="header--container header--width">
-          <div className="header--logo">mobu</div>
+      <div className={css["header"]}>
+        <div
+          className={[css["header--container"], css["header--width"]].join(" ")}
+        >
+          <div className={css["header--logo"]}>mobu</div>
           <HamburgerMenu onClick={onHamburgerMenuClick} />
         </div>
       </div>

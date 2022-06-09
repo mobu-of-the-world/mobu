@@ -5,7 +5,7 @@ import TextInput from "../common/TextInput";
 import Button from "../common/Button";
 import Emoji, { EmojiName } from "../common/Emoji";
 
-import "./UserRegister.css";
+import css from "./UserRegister.module.css";
 import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 
 const emptyUsername = "";
@@ -35,15 +35,15 @@ const UserRegister: React.FunctionComponent = () => {
     users.includes(username);
 
   return (
-    <div className="userregister">
-      <Form className="userregister--form" onSubmit={onUserRegister}>
+    <div className={css["userregister"]}>
+      <Form className={css["userregister--form"]} onSubmit={onUserRegister}>
         <TextInput
           placeholder="Username"
           onChange={onUsernameChange}
           value={username}
         />
         <Button
-          className="userregister--button"
+          className={css["userregister--button"]}
           type="submit"
           disabled={registerDisabled}
         >

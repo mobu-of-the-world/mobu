@@ -5,8 +5,8 @@ import Button from "../common/Button";
 
 import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 
-import "./Timer.css";
-import "../common/Button.css";
+import timerCss from "./Timer.module.css";
+import buttonCss from "../common/Button.module.css";
 import audiofile from "./assets/bell.mp3";
 import { readableElapsedTime } from "./timeHelpers";
 
@@ -104,16 +104,16 @@ const Timer: React.FC<{
     <>
       <Text>elapsed time: {readableElapsedTime(tickCount)}</Text>
       <Text>(iteration: {iterationCount})</Text>
-      <div className="timer--divider" />
+      <div className={timerCss["timer--divider"]} />
       <Button
-        className="button--width-max"
+        className={buttonCss["button--width-max"]}
         onClick={onStartOrPause}
         disabled={users.length < 2}
       >
         Start/Pause
       </Button>
-      <div className="timer--divider" />
-      <Button className="button--width-max" onClick={onReset}>
+      <div className={timerCss["timer--divider"]} />
+      <Button className={buttonCss["button--width-max"]} onClick={onReset}>
         Reset
       </Button>
     </>

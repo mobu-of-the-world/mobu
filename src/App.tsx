@@ -7,18 +7,18 @@ import UserList from "./userList/UserList";
 import Session from "./session/Session";
 import Footer from "./footer";
 
-import "./App.css";
+import css from "./App.module.css";
 
 const App: React.FunctionComponent = () => {
   return (
     <>
       <Header />
-      <div className="main--container">
-        <div className="main">
+      <div className={css["main--container"]}>
+        <div className={css["main"]}>
           <UsersProvider>
             <>
               <UserList />
-              <div className="divider"></div>
+              <div className={css["divider"]}></div>
               <Session />
             </>
           </UsersProvider>
