@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import Checkbox from "../common/Checkbox";
 import Text from "../common/Text";
 

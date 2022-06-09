@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import Emoji, { EmojiName } from "../common/Emoji";
 import Text from "../common/Text";
 import UserProfileIcon from "../userList/UserProfileIcon";
