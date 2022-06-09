@@ -2,13 +2,17 @@ import type React from "react";
 
 import "./Menu.css";
 
+const visibilityCSSClassSuffix = (isVisible: boolean): "visible" | "hidden" =>
+  isVisible ? "visible" : "hidden";
+
 const Menu: React.FunctionComponent<{
-  menuVisibility: boolean;
-  onMenuCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-}> = ({ menuVisibility, onMenuCloseClick }) => {
-  const containerClassName = "menu--container " + visibility(menuVisibility);
+  isVisible: boolean;
+  onCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+}> = ({ isVisible, onCloseClick }) => {
+  const containerClassName =
+    "menu--container " + visibilityCSSClassSuffix(isVisible);
   return (
-    <div className={containerClassName} onClick={onMenuCloseClick}>
+    <div className={containerClassName} onClick={onCloseClick}>
       <div className="menu--container-place-adjuster">
         <div
           className="menu--content-container"
@@ -22,7 +26,7 @@ const Menu: React.FunctionComponent<{
           <div className="menu--content-item-header">
             <div
               className="menu--content-item-header-close"
-              onClick={onMenuCloseClick}
+              onClick={onCloseClick}
             >
               ✗
             </div>
@@ -41,13 +45,6 @@ const Menu: React.FunctionComponent<{
       </div>
     </div>
   );
-};
-
-const visibility = (menuVisibility: boolean): string => {
-  if (menuVisibility) {
-    return "visible";
-  }
-  return "hidden";
 };
 
 export default Menu;
