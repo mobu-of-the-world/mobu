@@ -1,4 +1,5 @@
 import type React from "react";
+import { GITHUB_REPOSITORY_URL } from "../common/constants";
 import { buildClassNames } from "../common/cssHelpers";
 
 import css from "./Menu.module.css";
@@ -38,10 +39,7 @@ const Menu: React.FunctionComponent<{
           </div>
           <div className={css["menu--content-item-container"]}>
             <div className={css["menu--content-item"]}>
-              <a
-                href="https://github.com/mobu-of-the-world/mobu"
-                target="blank"
-              >
+              <a href={GITHUB_REPOSITORY_URL} target="blank">
                 GitHub
               </a>
             </div>
