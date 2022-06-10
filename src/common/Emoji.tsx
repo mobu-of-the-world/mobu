@@ -1,14 +1,20 @@
 import type React from "react";
+import { buildClassNames } from "./cssHelpers";
 
-import "./Emoji.css";
+import css from "./Emoji.module.css";
 
 const Emoji: React.FunctionComponent<{
   emojiName: EmojiName;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }> = ({ emojiName, onClick }) => {
-  const className = "emoji" + (onClick != null ? " emoji--clickable" : "");
   return (
-    <div className={className} onClick={onClick}>
+    <div
+      className={buildClassNames([
+        css["emoji"],
+        onClick && css["emoji--clickable"],
+      ])}
+      onClick={onClick}
+    >
       {emojiByName(emojiName)}
     </div>
   );

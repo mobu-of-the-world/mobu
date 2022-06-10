@@ -1,13 +1,17 @@
 import type { FC } from "react";
 
-import "./Button.css";
+import css from "./Button.module.css";
+import { buildClassNames } from "./cssHelpers";
 
 const Button: FC<JSX.IntrinsicElements["button"]> = ({
   className,
   ...props
 }) => {
   return (
-    <button className={"button " + className} {...props}>
+    <button
+      className={buildClassNames([css["button"], className && css[className]])}
+      {...props}
+    >
       {props.children}
     </button>
   );

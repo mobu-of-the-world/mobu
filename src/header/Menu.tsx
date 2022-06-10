@@ -1,21 +1,26 @@
 import type React from "react";
+import { buildClassNames } from "../common/cssHelpers";
 
-import "./Menu.css";
+import css from "./Menu.module.css";
 
-const visibilityCSSClassSuffix = (isVisible: boolean): "visible" | "hidden" =>
+const visibilityClassname = (isVisible: boolean): "visible" | "hidden" =>
   isVisible ? "visible" : "hidden";
 
 const Menu: React.FunctionComponent<{
   isVisible: boolean;
   onCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
 }> = ({ isVisible, onCloseClick }) => {
-  const containerClassName =
-    "menu--container " + visibilityCSSClassSuffix(isVisible);
   return (
-    <div className={containerClassName} onClick={onCloseClick}>
-      <div className="menu--container-place-adjuster">
+    <div
+      className={buildClassNames([
+        css["menu--container"],
+        css[visibilityClassname(isVisible)],
+      ])}
+      onClick={onCloseClick}
+    >
+      <div className={css["menu--container-place-adjuster"]}>
         <div
-          className="menu--content-container"
+          className={css["menu--content-container"]}
           // Don't close the opened menu if clicked point is
           // within the menu container. Otherwise (clicked point
           // is out of menu container) close the menu.
@@ -23,16 +28,16 @@ const Menu: React.FunctionComponent<{
             event.stopPropagation();
           }}
         >
-          <div className="menu--content-item-header">
+          <div className={css["menu--content-item-header"]}>
             <div
-              className="menu--content-item-header-close"
+              className={css["menu--content-item-header-close"]}
               onClick={onCloseClick}
             >
               ✗
             </div>
           </div>
-          <div className="menu--content-item-container">
-            <div className="menu--content-item">
+          <div className={css["menu--content-item-container"]}>
+            <div className={css["menu--content-item"]}>
               <a
                 href="https://github.com/mobu-of-the-world/mobu"
                 target="blank"

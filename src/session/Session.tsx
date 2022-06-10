@@ -8,7 +8,7 @@ import {
   setStorageSoundEnabled,
 } from "../common/storage";
 
-import "./Session.css";
+import css from "./Session.module.css";
 
 const initialIntervalSeconds = 60 * 30;
 
@@ -34,14 +34,14 @@ const Session: React.FunctionComponent = () => {
   );
 
   return (
-    <div className="session">
+    <div className={css["session"]}>
       <Timer
         intervalSecondsRef={intervalSecondsRef}
         soundEnabled={soundEnabled}
         iterationCount={iterationCount}
         setIterationCount={setIterationCount}
       />
-      <div className="session--divider" />
+      <div className={css["session--divider"]} />
       <Interval
         onIntervalChange={onIntervalChange}
         intervalMinutes={Math.ceil(intervalSeconds / 60)}

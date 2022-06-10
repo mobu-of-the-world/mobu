@@ -3,8 +3,8 @@ import React from "react";
 import Emoji, { EmojiName } from "../common/Emoji";
 import User from "./User";
 
-import "./UserList.css";
-import "../common/Button.css";
+import css from "./UserList.module.css";
+import buttonCss from "../common/Button.module.css";
 import UserRegister from "./UserRegister";
 import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 import Button from "../common/Button";
@@ -19,21 +19,21 @@ const UserList: React.FunctionComponent = () => {
   }, [setPersistedUsers, users]);
 
   return (
-    <div className="userlist">
+    <div className={css["userlist"]}>
       <UserRegister />
-      <div className="userlist--divider" />
+      <div className={css["userlist--divider"]} />
       <Button
-        className="button--width-max"
+        className={buttonCss["button--width-max"]}
         onClick={onShuffle}
         disabled={users.length < 2}
       >
         Shuffle
       </Button>
-      <div className="userlist--divider" />
-      <ul className="userlist__list">
+      <div className={css["userlist--divider"]} />
+      <ul className={css["userlist__list"]}>
         {users.map((user, index) => (
           <li
-            className="userlist__listitem"
+            className={css["userlist__listitem"]}
             key={user}
             draggable={true}
             onDragStart={(ev) => {

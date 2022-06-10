@@ -2,7 +2,7 @@ import type { FC } from "react";
 import Checkbox from "../common/Checkbox";
 import Text from "../common/Text";
 
-import "./SoundConfig.css";
+import css from "./SoundConfig.module.css";
 
 export type SoundConfigProps = {
   soundEnabled: boolean;
@@ -11,14 +11,14 @@ export type SoundConfigProps = {
 
 const SoundConfig: FC<SoundConfigProps> = (props) => {
   const inputProps: JSX.IntrinsicElements["input"] = {
-    className: "sound-config-checkbox",
+    className: css["sound-config-checkbox"],
     name: "BellCheckbox",
     defaultChecked: props.soundEnabled,
     onChange: props.onChangeSoundConfig,
   };
   return (
-    <div className="sound-config">
-      <span className={"sound-config-label"}>
+    <div className={css["sound-config"]}>
+      <span className={css["sound-config-label"]}>
         <Text>Bell 🛎 : </Text>
       </span>
       <Checkbox {...inputProps} />
