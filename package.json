@@ -15,7 +15,7 @@
     "@tsconfig/node16-strictest-esm": "^1.0.2",
     "@types/jest": "^28.1.1",
     "@types/node": "^16.11.41",
-    "@types/react": "^18.0.12",
+    "@types/react": "^18.0.13",
     "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
