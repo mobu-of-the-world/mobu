@@ -12,9 +12,9 @@ updates:
     interval: daily
   open-pull-requests-limit: 10
   reviewers:
-  - "mobu-of-the-world/maintainers"
+    - "mobu-of-the-world/maintainers"
   labels:
-  - automerge
+    - automerge
   ignore:
     - dependency-name: "@types/*"
       update-types: ["version-update:semver-major"]
