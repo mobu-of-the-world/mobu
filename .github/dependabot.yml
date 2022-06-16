@@ -6,6 +6,8 @@ updates:
     interval: "daily"
   reviewers:
     - "mobu-of-the-world/maintainers"
+  labels:
+    - automerge
 - package-ecosystem: npm
   directory: "/"
   schedule:
