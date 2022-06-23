@@ -66,6 +66,17 @@
         "code",
         "design"
       ]
+    },
+    {
+      "login": "ujihisa",
+      "name": "ujihisa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11504?v=4",
+      "profile": "http://ujihisa.wordpress.com/",
+      "contributions": [
+        "code",
+        "bug",
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7
