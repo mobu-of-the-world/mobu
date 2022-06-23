@@ -77,6 +77,16 @@
         "bug",
         "translation"
       ]
+    },
+    {
+      "login": "motorollerscalatron",
+      "name": "Masahiro Iwasaki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7314191?v=4",
+      "profile": "https://github.com/motorollerscalatron",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7

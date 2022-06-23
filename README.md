@@ -1,6 +1,6 @@
 # mobu
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Actions Status](https://github.com/mobu-of-the-world/mobu/workflows/CI/badge.svg)](https://github.com/mobu-of-the-world/mobu/actions)
@@ -53,6 +53,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://ohbarye.github.io/"><img src="https://avatars.githubusercontent.com/u/1811616?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Masato Ohba</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=ohbarye" title="Code">💻</a> <a href="#tool-ohbarye" title="Tools">🔧</a> <a href="#design-ohbarye" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/ravelll"><img src="https://avatars.githubusercontent.com/u/2294362?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yoshihide Taniguchi</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=ravelll" title="Code">💻</a> <a href="#design-ravelll" title="Design">🎨</a></td>
     <td align="center"><a href="http://ujihisa.wordpress.com/"><img src="https://avatars.githubusercontent.com/u/11504?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ujihisa</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=ujihisa" title="Code">💻</a> <a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/issues?q=author%3Aujihisa" title="Bug reports">🐛</a> <a href="#translation-ujihisa" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/motorollerscalatron"><img src="https://avatars.githubusercontent.com/u/7314191?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Masahiro Iwasaki</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=motorollerscalatron" title="Code">💻</a> <a href="#ideas-motorollerscalatron" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
