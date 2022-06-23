@@ -1,4 +1,4 @@
-import React from "react";
+import { FunctionComponent, useCallback, useRef, useState } from "react";
 
 import Timer from "./Timer";
 import Interval from "./Interval";
@@ -12,16 +12,14 @@ import css from "./Session.module.css";
 
 const initialIntervalSeconds = 60 * 30;
 
-const Session: React.FunctionComponent = () => {
-  const [iterationCount, setIterationCount] = React.useState(0);
-  const intervalSecondsRef = React.useRef(initialIntervalSeconds);
-  const [intervalSeconds, setIntervalSeconds] = React.useState(
+const Session: FunctionComponent = () => {
+  const [iterationCount, setIterationCount] = useState(0);
+  const intervalSecondsRef = useRef(initialIntervalSeconds);
+  const [intervalSeconds, setIntervalSeconds] = useState(
     initialIntervalSeconds
   );
-  const [soundEnabled, setSoundEnabled] = React.useState(
-    getStorageSoundEnabled()
-  );
-  const onIntervalChange = React.useCallback(
+  const [soundEnabled, setSoundEnabled] = useState(getStorageSoundEnabled());
+  const onIntervalChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newIntervalMinutes = parseInt(event.currentTarget.value);
       if (newIntervalMinutes > 0) {

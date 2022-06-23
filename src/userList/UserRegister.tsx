@@ -1,4 +1,4 @@
-import React from "react";
+import { FunctionComponent, useCallback, useState } from "react";
 
 import Form from "../common/Form";
 import TextInput from "../common/TextInput";
@@ -11,17 +11,17 @@ import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
 
-const UserRegister: React.FunctionComponent = () => {
+const UserRegister: FunctionComponent = () => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
-  const [username, setUsername] = React.useState("");
-  const onUsernameChange = React.useCallback(
+  const [username, setUsername] = useState("");
+  const onUsernameChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setUsername(event.currentTarget.value);
     },
     []
   );
-  const onUserRegister = React.useCallback(
+  const onUserRegister = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setPersistedUsers([...users, username.trim()]);

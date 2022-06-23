@@ -1,0 +1,93 @@
+{
+  "projectName": "mobu-of-the-world/mobu",
+  "projectOwner": "mobu-of-the-world",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "pankona",
+      "name": "Yosuke Akatsuka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6533008?v=4",
+      "profile": "https://pankona.github.io/",
+      "contributions": [
+        "code",
+        "design",
+        "infra",
+        "review"
+      ]
+    },
+    {
+      "login": "kachick",
+      "name": "Kenichi Kamiya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1180335?v=4",
+      "profile": "https://kachick.github.io/",
+      "contributions": [
+        "code",
+        "bug",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "highwide",
+      "name": "Takahiro Uchiyama",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1495423?v=4",
+      "profile": "http://highwide.hatenablog.com/",
+      "contributions": [
+        "code",
+        "bug",
+        "audio",
+        "design",
+        "review"
+      ]
+    },
+    {
+      "login": "ohbarye",
+      "name": "Masato Ohba",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1811616?v=4",
+      "profile": "https://ohbarye.github.io/",
+      "contributions": [
+        "code",
+        "tool",
+        "design"
+      ]
+    },
+    {
+      "login": "ravelll",
+      "name": "Yoshihide Taniguchi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2294362?v=4",
+      "profile": "https://github.com/ravelll",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
+    {
+      "login": "ujihisa",
+      "name": "ujihisa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11504?v=4",
+      "profile": "http://ujihisa.wordpress.com/",
+      "contributions": [
+        "code",
+        "bug",
+        "translation"
+      ]
+    },
+    {
+      "login": "motorollerscalatron",
+      "name": "Masahiro Iwasaki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7314191?v=4",
+      "profile": "https://github.com/motorollerscalatron",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

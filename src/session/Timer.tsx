@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback, useRef, useState } from "react";
 
 import Text from "../common/Text";
 import Button from "../common/Button";
@@ -23,11 +23,11 @@ const Timer: React.FC<{
 }) => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
-  const count = React.useRef(0);
-  const timerID = React.useRef<NodeJS.Timeout>();
-  const [tickCount, setTickCount] = React.useState(0);
+  const count = useRef(0);
+  const timerID = useRef<NodeJS.Timeout>();
+  const [tickCount, setTickCount] = useState(0);
 
-  const onStartOrPause = React.useCallback(() => {
+  const onStartOrPause = useCallback(() => {
     if (iterationCount === 0) {
       setIterationCount(1);
     }
@@ -90,7 +90,7 @@ const Timer: React.FC<{
     soundEnabled,
   ]);
 
-  const onReset = React.useCallback(() => {
+  const onReset = useCallback(() => {
     if (timerID.current) {
       clearInterval(timerID.current);
       timerID.current = undefined;

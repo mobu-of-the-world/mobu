@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 
@@ -9,7 +9,7 @@ import { assertIsDefined } from "./common/typeguard";
 const root = document.getElementById("root");
 assertIsDefined<typeof root>(root);
 createRoot(root).render(
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );
