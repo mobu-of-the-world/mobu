@@ -1,6 +1,6 @@
 # mobu
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Actions Status](https://github.com/mobu-of-the-world/mobu/workflows/CI/badge.svg)](https://github.com/mobu-of-the-world/mobu/actions)
@@ -48,6 +48,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://pankona.github.io/"><img src="https://avatars.githubusercontent.com/u/6533008?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yosuke Akatsuka</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=pankona" title="Code">💻</a> <a href="#design-pankona" title="Design">🎨</a> <a href="#infra-pankona" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/pulls?q=is%3Apr+reviewed-by%3Apankona" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://kachick.github.io/"><img src="https://avatars.githubusercontent.com/u/1180335?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kenichi Kamiya</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=kachick" title="Code">💻</a> <a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/issues?q=author%3Akachick" title="Bug reports">🐛</a> <a href="#maintenance-kachick" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
