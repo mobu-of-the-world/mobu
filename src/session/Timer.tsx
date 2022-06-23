@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { MutableRefObject, useCallback, useRef, useState } from "react";
 
 import Text from "../common/Text";
 import Button from "../common/Button";
@@ -10,16 +10,16 @@ import buttonCss from "../common/Button.module.css";
 import audiofile from "./assets/bell.mp3";
 import { readableElapsedTime } from "./timeHelpers";
 
-const Timer: React.FC<{
-  intervalSecondsRef: React.MutableRefObject<number>;
-  soundEnabled: boolean;
-  iterationCount: number;
-  setIterationCount: React.Dispatch<React.SetStateAction<number>>;
-}> = ({
+const Timer = ({
   intervalSecondsRef,
   soundEnabled,
   iterationCount,
   setIterationCount,
+}: {
+  intervalSecondsRef: MutableRefObject<number>;
+  soundEnabled: boolean;
+  iterationCount: number;
+  setIterationCount: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
