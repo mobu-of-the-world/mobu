@@ -40,18 +40,22 @@ const Timer: React.FC<{
     if (window.Notification && Notification.permission !== "granted") {
       Notification.requestPermission((result) => {
         switch (result) {
-          case "granted":
+          case "granted": {
             alert("Thanks to accept the notification :)");
             return;
-          case "denied":
+          }
+          case "denied": {
             alert("You rejected the notification :(　Please accept it.");
             return;
-          case "default":
+          }
+          case "default": {
             alert("Can not judge to use notification :(　Please accept it.");
             return;
-          default:
+          }
+          default: {
             const _: never = result;
             return _;
+          }
         }
       });
     }
