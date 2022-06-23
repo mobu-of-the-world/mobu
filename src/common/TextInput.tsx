@@ -1,11 +1,12 @@
-import type React from "react";
+import type { InputHTMLAttributes } from "react";
 import { buildClassNames } from "./cssHelpers";
 
 import css from "./TextInput.module.css";
 
-const TextInput: React.FunctionComponent<
-  React.InputHTMLAttributes<HTMLInputElement>
-> = ({ className, ...rest }) => {
+const TextInput = ({
+  className,
+  ...rest
+}: InputHTMLAttributes<HTMLInputElement>) => {
   return (
     <input
       className={buildClassNames([

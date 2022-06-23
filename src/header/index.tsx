@@ -6,7 +6,7 @@ import HamburgerMenu from "./HamburgerMenu";
 import css from "./Header.module.css";
 import Menu from "./Menu";
 
-const Header: React.FunctionComponent = () => {
+const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const onHamburgerMenuClick = useCallback(() => {
     setShowMenu(true);

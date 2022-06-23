@@ -1,5 +1,3 @@
-import type React from "react";
-
 import { UsersProvider } from "./common/usersContexts";
 
 import Header from "./header";
@@ -9,7 +7,7 @@ import Footer from "./footer";
 
 import css from "./App.module.css";
 
-const App: React.FunctionComponent = () => {
+const App = () => {
   return (
     <>
       <Header />

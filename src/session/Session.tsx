@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import Timer from "./Timer";
 import Interval from "./Interval";
@@ -12,7 +12,7 @@ import css from "./Session.module.css";
 
 const initialIntervalSeconds = 60 * 30;
 
-const Session: FunctionComponent = () => {
+const Session = () => {
   const [iterationCount, setIterationCount] = useState(0);
   const intervalSecondsRef = useRef(initialIntervalSeconds);
   const [intervalSeconds, setIntervalSeconds] = useState(

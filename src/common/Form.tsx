@@ -1,8 +1,6 @@
-import type React from "react";
+import type { FormHTMLAttributes } from "react";
 
-const Form: React.FunctionComponent<
-  React.FormHTMLAttributes<HTMLFormElement>
-> = ({ children, ...rest }) => {
+const Form = ({ children, ...rest }: FormHTMLAttributes<HTMLFormElement>) => {
   return <form {...rest}>{children}</form>;
 };
 

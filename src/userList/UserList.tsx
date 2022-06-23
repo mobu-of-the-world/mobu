@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback } from "react";
+import { useCallback } from "react";
 
 import Emoji, { EmojiName } from "../common/Emoji";
 import User from "./User";
@@ -11,7 +11,7 @@ import Button from "../common/Button";
 import { newUsersAfterDropped } from "./UserListHelpers";
 import { shuffleArray } from "../common/listHelpers";
 
-const UserList: FunctionComponent = () => {
+const UserList = () => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
   const onShuffle = useCallback(() => {
