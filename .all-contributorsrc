@@ -56,6 +56,16 @@
         "tool",
         "design"
       ]
+    },
+    {
+      "login": "ravelll",
+      "name": "Yoshihide Taniguchi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2294362?v=4",
+      "profile": "https://github.com/ravelll",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7
