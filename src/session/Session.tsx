@@ -18,9 +18,7 @@ const Session: FunctionComponent = () => {
   const [intervalSeconds, setIntervalSeconds] = useState(
     initialIntervalSeconds
   );
-  const [soundEnabled, setSoundEnabled] = useState(
-    getStorageSoundEnabled()
-  );
+  const [soundEnabled, setSoundEnabled] = useState(getStorageSoundEnabled());
   const onIntervalChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newIntervalMinutes = parseInt(event.currentTarget.value);
