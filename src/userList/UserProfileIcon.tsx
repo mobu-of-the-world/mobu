@@ -1,11 +1,10 @@
-import type { FC } from "react";
 import css from "./UserProfileIcon.module.css";
 
 type UserProfileIconProps = {
   user: string;
 };
 
-const UserProfileIcon: FC<UserProfileIconProps> = ({ user }) => (
+const UserProfileIcon = ({ user }: UserProfileIconProps) => (
   <div className={css["user-profile-icon"]}>
     <img
       draggable={false}

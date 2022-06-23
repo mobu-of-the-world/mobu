@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import Checkbox from "../common/Checkbox";
 import Text from "../common/Text";
 
@@ -9,7 +8,7 @@ export type SoundConfigProps = {
   onChangeSoundConfig: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SoundConfig: FC<SoundConfigProps> = (props) => {
+const SoundConfig = (props: SoundConfigProps) => {
   const inputProps: JSX.IntrinsicElements["input"] = {
     className: css["sound-config-checkbox"],
     name: "BellCheckbox",
