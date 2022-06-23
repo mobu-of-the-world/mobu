@@ -1,13 +1,9 @@
-import { FunctionComponent } from "react";
 import Emoji, { EmojiName } from "../common/Emoji";
 import Text from "../common/Text";
 import UserProfileIcon from "../userList/UserProfileIcon";
 import css from "./User.module.css";
 
-const User: FunctionComponent<{
-  isDriver: boolean;
-  user: string;
-}> = ({ isDriver, user }) => {
+const User = ({ isDriver, user }: { isDriver: boolean; user: string }) => {
   return (
     <div className={css["user"]}>
       <Emoji emojiName={emojiNameByRole(isDriver)} />

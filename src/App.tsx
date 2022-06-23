@@ -1,5 +1,3 @@
-import { FunctionComponent } from "react";
-
 import { UsersProvider } from "./common/usersContexts";
 
 import Header from "./header";
@@ -9,7 +7,7 @@ import Footer from "./footer";
 
 import css from "./App.module.css";
 
-const App: FunctionComponent = () => {
+const App = () => {
   return (
     <>
       <Header />

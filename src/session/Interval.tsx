@@ -1,14 +1,18 @@
-import { ChangeEvent, FunctionComponent } from "react";
+import type { ChangeEvent } from "react";
 
 import TextInput from "../common/TextInput";
 
 import css from "./Interval.module.css";
 
-const Interval: FunctionComponent<{
+const Interval = ({
+  onIntervalChange,
+  intervalMinutes,
+  disabled,
+}: {
   onIntervalChange: (event: ChangeEvent<HTMLInputElement>) => void;
   intervalMinutes: number;
   disabled: boolean;
-}> = ({ onIntervalChange, intervalMinutes, disabled }) => {
+}) => {
   return (
     <div className={css["interval"]}>
       <div className={css["interval--text"]}>

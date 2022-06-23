@@ -1,8 +1,6 @@
-import { FunctionComponent } from "react";
-
 import css from "./MenuIcon.module.css";
 
-const MenuIcon: FunctionComponent = () => {
+const MenuIcon = () => {
   return (
     <div className={css["menuicon"]}>
       <span className={css["menuicon--line"]}></span>

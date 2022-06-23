@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import Form from "../common/Form";
 import TextInput from "../common/TextInput";
@@ -11,7 +11,7 @@ import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 const emptyUsername = "";
 const blankStringsPattern = new RegExp(/^\s*$/);
 
-const UserRegister: FunctionComponent = () => {
+const UserRegister = () => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
   const [username, setUsername] = useState("");

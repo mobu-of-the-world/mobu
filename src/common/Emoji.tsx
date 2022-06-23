@@ -1,12 +1,15 @@
-import { FunctionComponent, MouseEvent as ReactMouseEvent } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 import { buildClassNames } from "./cssHelpers";
 
 import css from "./Emoji.module.css";
 
-const Emoji: FunctionComponent<{
+const Emoji = ({
+  emojiName,
+  onClick,
+}: {
   emojiName: EmojiName;
   onClick?: (event: ReactMouseEvent<HTMLDivElement>) => void;
-}> = ({ emojiName, onClick }) => {
+}) => {
   return (
     <div
       className={buildClassNames([

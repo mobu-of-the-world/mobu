@@ -1,4 +1,4 @@
-import { FunctionComponent, MouseEvent as ReactMouseEvent } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 import { GITHUB_REPOSITORY_URL } from "../common/constants";
 import { buildClassNames } from "../common/cssHelpers";
 
@@ -7,10 +7,13 @@ import css from "./Menu.module.css";
 const visibilityClassname = (isVisible: boolean): "visible" | "hidden" =>
   isVisible ? "visible" : "hidden";
 
-const Menu: FunctionComponent<{
+const Menu = ({
+  isVisible,
+  onCloseClick,
+}: {
   isVisible: boolean;
   onCloseClick: (event: ReactMouseEvent<HTMLDivElement>) => void;
-}> = ({ isVisible, onCloseClick }) => {
+}) => {
   return (
     <div
       className={buildClassNames([
