@@ -1,4 +1,4 @@
-import React from "react";
+import { FunctionComponent, useCallback } from "react";
 
 import Emoji, { EmojiName } from "../common/Emoji";
 import User from "./User";
@@ -11,10 +11,10 @@ import Button from "../common/Button";
 import { newUsersAfterDropped } from "./UserListHelpers";
 import { shuffleArray } from "../common/listHelpers";
 
-const UserList: React.FunctionComponent = () => {
+const UserList: FunctionComponent = () => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
-  const onShuffle = React.useCallback(() => {
+  const onShuffle = useCallback(() => {
     setPersistedUsers(shuffleArray<string>([...users]));
   }, [setPersistedUsers, users]);
 

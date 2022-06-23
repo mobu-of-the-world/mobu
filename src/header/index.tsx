@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback, useState } from "react";
 import { buildClassNames } from "../common/cssHelpers";
 
 import HamburgerMenu from "./HamburgerMenu";
@@ -7,11 +7,11 @@ import css from "./Header.module.css";
 import Menu from "./Menu";
 
 const Header: React.FunctionComponent = () => {
-  const [showMenu, setShowMenu] = React.useState(false);
-  const onHamburgerMenuClick = React.useCallback(() => {
+  const [showMenu, setShowMenu] = useState(false);
+  const onHamburgerMenuClick = useCallback(() => {
     setShowMenu(true);
   }, []);
-  const onHamburgerMenuCloseClick = React.useCallback(() => {
+  const onHamburgerMenuCloseClick = useCallback(() => {
     setShowMenu(false);
   }, []);
 
