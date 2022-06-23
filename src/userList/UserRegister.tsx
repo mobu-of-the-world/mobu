@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 
-import Form from "../common/Form";
 import TextInput from "../common/TextInput";
 import Button from "../common/Button";
 import Emoji, { EmojiName } from "../common/Emoji";
@@ -36,7 +35,7 @@ const UserRegister = () => {
 
   return (
     <div className={css["userregister"]}>
-      <Form className={css["userregister--form"]} onSubmit={onUserRegister}>
+      <form className={css["userregister--form"]} onSubmit={onUserRegister}>
         <TextInput
           placeholder="Username"
           onChange={onUsernameChange}
@@ -49,7 +48,7 @@ const UserRegister = () => {
         >
           <Emoji emojiName={EmojiName.Plus} />
         </Button>
-      </Form>
+      </form>
     </div>
   );
 };
