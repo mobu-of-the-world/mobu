@@ -1,4 +1,4 @@
-import type React from "react";
+import { FunctionComponent, MouseEvent as ReactMouseEvent } from "react";
 import { GITHUB_REPOSITORY_URL } from "../common/constants";
 import { buildClassNames } from "../common/cssHelpers";
 
@@ -7,9 +7,9 @@ import css from "./Menu.module.css";
 const visibilityClassname = (isVisible: boolean): "visible" | "hidden" =>
   isVisible ? "visible" : "hidden";
 
-const Menu: React.FunctionComponent<{
+const Menu: FunctionComponent<{
   isVisible: boolean;
-  onCloseClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onCloseClick: (event: ReactMouseEvent<HTMLDivElement>) => void;
 }> = ({ isVisible, onCloseClick }) => {
   return (
     <div
@@ -25,7 +25,7 @@ const Menu: React.FunctionComponent<{
           // Don't close the opened menu if clicked point is
           // within the menu container. Otherwise (clicked point
           // is out of menu container) close the menu.
-          onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+          onClick={(event: ReactMouseEvent<HTMLDivElement>) => {
             event.stopPropagation();
           }}
         >

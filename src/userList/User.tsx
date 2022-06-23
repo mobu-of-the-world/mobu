@@ -1,10 +1,10 @@
-import type React from "react";
+import { FunctionComponent } from "react";
 import Emoji, { EmojiName } from "../common/Emoji";
 import Text from "../common/Text";
 import UserProfileIcon from "../userList/UserProfileIcon";
 import css from "./User.module.css";
 
-const User: React.FunctionComponent<{
+const User: FunctionComponent<{
   isDriver: boolean;
   user: string;
 }> = ({ isDriver, user }) => {

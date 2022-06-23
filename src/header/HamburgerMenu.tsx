@@ -1,11 +1,11 @@
-import type React from "react";
+import { FunctionComponent, MouseEvent as ReactMouseEvent } from "react";
 
 import MenuIcon from "./MenuIcon";
 
 import css from "./HamburgerMenu.module.css";
 
-const HamburgerMenu: React.FunctionComponent<{
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+const HamburgerMenu: FunctionComponent<{
+  onClick: (event: ReactMouseEvent<HTMLDivElement>) => void;
 }> = ({ onClick }) => {
   return (
     <div className={css["hamburger-menu"]} onClick={onClick}>

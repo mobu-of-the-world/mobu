@@ -1,8 +1,8 @@
-import type React from "react";
+import { FunctionComponent } from "react";
 
 import css from "./Text.module.css";
 
-const Text: React.FunctionComponent<JSX.IntrinsicElements["div"]> = ({
+const Text: FunctionComponent<JSX.IntrinsicElements["div"]> = ({
   children,
   ...rest
 }) => {

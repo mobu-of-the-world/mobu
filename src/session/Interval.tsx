@@ -1,11 +1,11 @@
-import type React from "react";
+import { ChangeEvent, FunctionComponent } from "react";
 
 import TextInput from "../common/TextInput";
 
 import css from "./Interval.module.css";
 
-const Interval: React.FunctionComponent<{
-  onIntervalChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+const Interval: FunctionComponent<{
+  onIntervalChange: (event: ChangeEvent<HTMLInputElement>) => void;
   intervalMinutes: number;
   disabled: boolean;
 }> = ({ onIntervalChange, intervalMinutes, disabled }) => {
