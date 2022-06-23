@@ -45,6 +45,17 @@
         "design",
         "review"
       ]
+    },
+    {
+      "login": "ohbarye",
+      "name": "Masato Ohba",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1811616?v=4",
+      "profile": "https://ohbarye.github.io/",
+      "contributions": [
+        "code",
+        "tool",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7
