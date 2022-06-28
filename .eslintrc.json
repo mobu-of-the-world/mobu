@@ -5,7 +5,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["deprecation", "react-hooks"],
+  "plugins": ["deprecation", "react-hooks", "prefer-arrow"],
   "parser": "@typescript-eslint/parser",
   "env": { "browser": true, "node": true, "es2022": true },
   "parserOptions": {
@@ -22,6 +22,15 @@
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "argsIgnorePattern": "^_" }
+    ],
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false,
+        "allowStandaloneDeclarations": true
+      }
     ],
     "no-restricted-syntax": [
       "error",
