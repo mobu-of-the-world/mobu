@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 
 import Timer from "./Timer";
 import Interval from "./Interval";
@@ -14,18 +14,18 @@ const initialIntervalSeconds = 60 * 30;
 
 const Session = () => {
   const [iterationCount, setIterationCount] = useState(0);
-  const intervalSecondsRef = useRef(initialIntervalSeconds);
   const [intervalSeconds, setIntervalSeconds] = useState(
     initialIntervalSeconds
   );
-  const [soundEnabled, setSoundEnabled] = useState(getStorageSoundEnabled());
+  const [isSoundEnabled, setIsSoundEnabled] = useState(
+    getStorageSoundEnabled()
+  );
   const onIntervalChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newIntervalMinutes = parseInt(event.currentTarget.value);
       if (newIntervalMinutes > 0) {
         const newIntervalSeconds = newIntervalMinutes * 60;
         setIntervalSeconds(newIntervalSeconds);
-        intervalSecondsRef.current = newIntervalSeconds;
       }
     },
     []
@@ -34,8 +34,8 @@ const Session = () => {
   return (
     <div className={css["session"]}>
       <Timer
-        intervalSecondsRef={intervalSecondsRef}
-        soundEnabled={soundEnabled}
+        intervalSeconds={intervalSeconds}
+        isSoundEnabled={isSoundEnabled}
         iterationCount={iterationCount}
         setIterationCount={setIterationCount}
       />
@@ -47,10 +47,10 @@ const Session = () => {
       />
       <SoundConfig
         onChangeSoundConfig={(_event: React.ChangeEvent<HTMLInputElement>) => {
-          setStorageSoundEnabled(!soundEnabled);
-          setSoundEnabled(!soundEnabled);
+          setStorageSoundEnabled(!isSoundEnabled);
+          setIsSoundEnabled(!isSoundEnabled);
         }}
-        soundEnabled={soundEnabled}
+        isSoundEnabled={isSoundEnabled}
       />
     </div>
   );

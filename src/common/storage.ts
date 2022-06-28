@@ -6,8 +6,8 @@ export const getStorageSoundEnabled = (): boolean => {
   return localStorage.getItem(KEY_SOUND_ENABLED) === "true";
 };
 
-export const setStorageSoundEnabled = (soundEnabled: boolean): void => {
-  localStorage.setItem(KEY_SOUND_ENABLED, JSON.stringify(soundEnabled));
+export const setStorageSoundEnabled = (isSoundEnabled: boolean): void => {
+  localStorage.setItem(KEY_SOUND_ENABLED, JSON.stringify(isSoundEnabled));
 };
 
 export const getStorageUsers = (): string => {
