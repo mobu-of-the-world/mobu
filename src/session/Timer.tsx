@@ -77,9 +77,10 @@ const Timer = ({
             case "default":
               alert("Can not judge to use notification :(Please accept it.");
               return;
-            default:
+            default: {
               const _: never = result;
               return _;
+            }
           }
         });
       }

@@ -1,5 +1,6 @@
 {
   "extends": [
+    "eslint:recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
@@ -23,11 +24,12 @@
       { "argsIgnorePattern": "^_" }
     ],
     "prefer-arrow/prefer-arrow-functions": [
-      "warn",
+      "error",
       {
         "disallowPrototype": true,
         "singleReturnOnly": false,
-        "classPropertiesAllowed": false
+        "classPropertiesAllowed": false,
+        "allowStandaloneDeclarations": true
       }
     ],
     "no-restricted-syntax": [
