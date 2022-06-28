@@ -35,19 +35,25 @@ export type EmojiName = typeof EmojiName[keyof typeof EmojiName];
 
 const emojiByName = (name: EmojiName): string => {
   switch (name) {
-    case EmojiName.Car:
+    case EmojiName.Car: {
       return "🚗";
-    case EmojiName.Speaker:
+    }
+    case EmojiName.Speaker: {
       return "🗣";
-    case EmojiName.Wastebasket:
+    }
+    case EmojiName.Wastebasket: {
       return "🗑";
-    case EmojiName.Plus:
+    }
+    case EmojiName.Plus: {
       return "➕";
-    case EmojiName.CrossMark:
+    }
+    case EmojiName.CrossMark: {
       return "❌";
-    default:
+    }
+    default: {
       const _: never = name;
       return _;
+    }
   }
 };
 
