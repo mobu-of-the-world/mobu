@@ -1,4 +1,4 @@
-import Emoji, { EmojiName } from "../common/Emoji";
+import Emoji from "../common/Emoji";
 import Text from "../common/Text";
 import UserProfileIcon from "../userList/UserProfileIcon";
 import css from "./User.module.css";
@@ -13,11 +13,11 @@ const User = ({ isDriver, user }: { isDriver: boolean; user: string }) => {
   );
 };
 
-const emojiNameByRole = (isDriver: boolean): EmojiName => {
+const emojiNameByRole = (isDriver: boolean) => {
   if (isDriver) {
-    return EmojiName.Car;
+    return "Car";
   }
-  return EmojiName.Speaker;
+  return "Speaker";
 };
 
 export default User;

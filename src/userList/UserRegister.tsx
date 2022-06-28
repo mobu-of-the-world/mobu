@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 import TextInput from "../common/TextInput";
 import Button from "../common/Button";
-import Emoji, { EmojiName } from "../common/Emoji";
+import Emoji from "../common/Emoji";
 
 import css from "./UserRegister.module.css";
 import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
@@ -46,7 +46,7 @@ const UserRegister = () => {
           type="submit"
           disabled={registerDisabled}
         >
-          <Emoji emojiName={EmojiName.Plus} />
+          <Emoji emojiName={"Plus"} />
         </Button>
       </form>
     </div>
