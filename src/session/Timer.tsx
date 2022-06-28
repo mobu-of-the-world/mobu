@@ -66,22 +66,16 @@ const Timer = ({
       setIterationCount(1);
 
       if (window.Notification && Notification.permission !== "granted") {
+        const alertMessageByNotificationPermission: Readonly<{
+          [key in NotificationPermission]: string;
+        }> = {
+          granted: "Thanks to accept the notification :)",
+          denied: "You rejected the notification :(Please accept it.",
+          default: "Can not judge to use notification :(Please accept it.",
+        };
+
         Notification.requestPermission((result) => {
-          switch (result) {
-            case "granted":
-              alert("Thanks to accept the notification :)");
-              return;
-            case "denied":
-              alert("You rejected the notification :(Please accept it.");
-              return;
-            case "default":
-              alert("Can not judge to use notification :(Please accept it.");
-              return;
-            default: {
-              const _: never = result;
-              return _;
-            }
-          }
+          alert(alertMessageByNotificationPermission[result]);
         });
       }
     }
