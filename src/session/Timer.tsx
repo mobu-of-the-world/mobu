@@ -66,9 +66,9 @@ const Timer = ({
       setIterationCount(1);
 
       if (window.Notification && Notification.permission !== "granted") {
-        const alertMessageByNotificationPermission: {
+        const alertMessageByNotificationPermission: Readonly<{
           [key in NotificationPermission]: string;
-        } = {
+        }> = {
           granted: "Thanks to accept the notification :)",
           denied: "You rejected the notification :(Please accept it.",
           default: "Can not judge to use notification :(Please accept it.",
