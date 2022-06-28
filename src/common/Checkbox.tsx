@@ -1,6 +1,4 @@
-import type { FC } from "react";
-
-const Checkbox: FC<JSX.IntrinsicElements["input"]> = (props) => {
+const Checkbox = (props: JSX.IntrinsicElements["input"]) => {
   return <input type="checkbox" {...props} />;
 };
 

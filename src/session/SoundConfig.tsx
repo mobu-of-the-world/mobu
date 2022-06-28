@@ -1,19 +1,18 @@
-import type { FC } from "react";
 import Checkbox from "../common/Checkbox";
 import Text from "../common/Text";
 
 import css from "./SoundConfig.module.css";
 
 export type SoundConfigProps = {
-  soundEnabled: boolean;
+  isSoundEnabled: boolean;
   onChangeSoundConfig: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SoundConfig: FC<SoundConfigProps> = (props) => {
+const SoundConfig = (props: SoundConfigProps) => {
   const inputProps: JSX.IntrinsicElements["input"] = {
     className: css["sound-config-checkbox"],
     name: "BellCheckbox",
-    defaultChecked: props.soundEnabled,
+    defaultChecked: props.isSoundEnabled,
     onChange: props.onChangeSoundConfig,
   };
   return (
