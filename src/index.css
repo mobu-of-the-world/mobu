@@ -10,9 +10,23 @@ body {
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: light) {
+  a {
+    color: #9b4dca;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     color: #c9d1d9;
     background-color: #0d1117;
+  }
+
+  a {
+    color: #c9d1d9;
   }
 }
