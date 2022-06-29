@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-import Emoji, { EmojiName } from "../common/Emoji";
+import Emoji from "../common/Emoji";
 import User from "./User";
 
 import css from "./UserList.module.css";
@@ -66,7 +66,7 @@ const UserList = () => {
           >
             <User isDriver={index === 0} user={user} />
             <Emoji
-              emojiName={EmojiName.CrossMark}
+              emojiName={"CrossMark"}
               onClick={() => {
                 setPersistedUsers(users.filter((elem) => elem !== user));
               }}
