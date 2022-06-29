@@ -7,7 +7,7 @@ const Emoji = ({
   emojiName,
   onClick,
 }: {
-  emojiName: keyof typeof EmojiName;
+  emojiName: keyof typeof EmojiByName;
   onClick?: (event: ReactMouseEvent<HTMLDivElement>) => void;
 }) => {
   return (
@@ -18,12 +18,12 @@ const Emoji = ({
       ])}
       onClick={onClick}
     >
-      {EmojiName[emojiName]}
+      {EmojiByName[emojiName]}
     </div>
   );
 };
 
-export const EmojiName = {
+const EmojiByName = {
   Car: "🚗",
   Speaker: "🗣",
   Wastebasket: "🗑",
