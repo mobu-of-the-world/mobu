@@ -31,7 +31,7 @@ const Timer = ({
   useInterval(
     () => {
       if (countInIteration > 0 && countInIteration % intervalSeconds === 0) {
-        setIterationCount(countTotal / intervalSeconds + 1);
+        setIterationCount((countTotal / intervalSeconds) + 1);
         setCountInIteration(0);
         setIsCounting(false);
         setPersistedUsers(
