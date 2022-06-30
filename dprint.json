@@ -10,7 +10,7 @@
   },
   "markdown": {
   },
-  "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,html,css}"],
+  "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,html,css,yml}"],
   "excludes": [
     ".git",
     "**/node_modules",
