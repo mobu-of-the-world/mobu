@@ -50,6 +50,7 @@ const Interval = ({
         onChange={onIntervalChange}
         type="number"
         value={interval}
+        min={1}
         disabled={disabled}
       />
     </div>
