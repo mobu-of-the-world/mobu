@@ -18,7 +18,7 @@ const SoundConfig = (props: SoundConfigProps) => {
   return (
     <div className={css["sound-config"]}>
       <span className={css["sound-config-label"]}>
-        <Text>Bell 🛎 : </Text>
+        <Text>{`Bell 🛎 : `}</Text>
       </span>
       <Checkbox {...inputProps} />
     </div>
