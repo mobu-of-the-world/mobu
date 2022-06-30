@@ -48,9 +48,7 @@ const Timer = ({
         setElapsedSeconds(actualElapsedSeconds);
       }
       if (actualElapsedSeconds >= intervalSeconds * iterationCount) {
-        setIterationCount(
-          Math.round(actualElapsedSeconds / intervalSeconds + 1)
-        );
+        setIterationCount(iterationCount + 1);
         setIsCounting(false);
         setLastPausedAt(now);
         setPersistedUsers(
