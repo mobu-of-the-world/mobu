@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import Timer from "./Timer";
 import Interval from "./Interval";
@@ -20,16 +20,6 @@ const Session = () => {
   const [isSoundEnabled, setIsSoundEnabled] = useState(
     getStorageSoundEnabled()
   );
-  const onIntervalChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newIntervalMinutes = parseInt(event.currentTarget.value);
-      if (newIntervalMinutes > 0) {
-        const newIntervalSeconds = newIntervalMinutes * 60;
-        setIntervalSeconds(newIntervalSeconds);
-      }
-    },
-    []
-  );
 
   return (
     <div className={css["session"]}>
@@ -41,8 +31,8 @@ const Session = () => {
       />
       <div className={css["session--divider"]} />
       <Interval
-        onIntervalChange={onIntervalChange}
-        intervalMinutes={Math.ceil(intervalSeconds / 60)}
+        setIntervalSeconds={setIntervalSeconds}
+        intervalSeconds={intervalSeconds}
         disabled={iterationCount > 0}
       />
       <SoundConfig
