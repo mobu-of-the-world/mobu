@@ -1,7 +1,12 @@
 # mobu
+
+<!-- dprint-ignore-start -->
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+<!-- dprint-ignore-end -->
 
 [![Actions Status](https://github.com/mobu-of-the-world/mobu/workflows/CI/badge.svg)](https://github.com/mobu-of-the-world/mobu/actions)
 
@@ -37,10 +42,11 @@ MIT
 
 Yosuke Akatsuka (a.k.a [pankona](https://github.com/pankona))
 
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- dprint-ignore-start -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -59,7 +65,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+<!-- dprint-ignore-end -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
