@@ -65,7 +65,7 @@ const Timer = ({
         }
       }
     },
-    isCounting ? 1000 : null
+    isCounting ? 500 : null
   );
 
   const onStartOrPause = useCallback(() => {
