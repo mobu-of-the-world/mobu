@@ -125,12 +125,14 @@ const Timer = ({
     setLastPausedAt(null);
     setIterationCount(0);
     setPausedSeconds(0);
+    setElapsedSeconds(0);
   }, [
     setIsCounting,
     setStartedAt,
     setIterationCount,
     setPausedSeconds,
     setLastPausedAt,
+    setElapsedSeconds,
   ]);
 
   return (
