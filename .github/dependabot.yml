@@ -1,22 +1,22 @@
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     reviewers:
-      - "mobu-of-the-world/maintainers"
+      - 'mobu-of-the-world/maintainers'
     labels:
       - automerge
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     schedule:
       interval: daily
     open-pull-requests-limit: 10
     reviewers:
-      - "mobu-of-the-world/maintainers"
+      - 'mobu-of-the-world/maintainers'
     labels:
       - automerge
     ignore:
-      - dependency-name: "@types/*"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '@types/*'
+        update-types: ['version-update:semver-major']

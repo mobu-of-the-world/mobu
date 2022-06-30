@@ -10,6 +10,9 @@
   },
   "markdown": {
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,html,css,yml}"],
   "excludes": [
     ".git",

@@ -1,10 +1,10 @@
-name: "Dependency Review"
+name: 'Dependency Review'
 on:
   pull_request:
     paths:
-      - ".github/workflows/**"
-      - "package.json"
-      - "package-lock.json"
+      - '.github/workflows/**'
+      - 'package.json'
+      - 'package-lock.json'
 
 permissions:
   contents: read
@@ -13,7 +13,7 @@ jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Repository"
+      - name: 'Checkout Repository'
         uses: actions/checkout@v3
-      - name: "Dependency Review"
+      - name: 'Dependency Review'
         uses: actions/dependency-review-action@v2
