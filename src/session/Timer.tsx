@@ -35,9 +35,9 @@ const Timer = ({
         setCountInIteration(0);
         setIsCounting(false);
         setPersistedUsers(
-          users.length >= 2
-            ? [...users.slice(1, users.length), users[0]].flatMap((user) => user ? [user] : [])
-            : users,
+          users.length >= 2 ?
+            [...users.slice(1, users.length), users[0]].flatMap((user) => user ? [user] : []) :
+            users,
         );
         if (isSoundEnabled) {
           const bell = new Audio(audiofile);

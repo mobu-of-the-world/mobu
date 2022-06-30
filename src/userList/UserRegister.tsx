@@ -28,9 +28,9 @@ const UserRegister = () => {
     },
     [setPersistedUsers, username, users],
   );
-  const registerDisabled = username === emptyUsername
-    || blankStringsPattern.test(username)
-    || users.includes(username);
+  const registerDisabled = username === emptyUsername ||
+    blankStringsPattern.test(username) ||
+    users.includes(username);
 
   return (
     <div className={css["userregister"]}>

@@ -3,7 +3,8 @@
     "module.sortImportDeclarations": "maintain",
     "module.sortExportDeclarations": "maintain",
     "importDeclaration.sortNamedImports": "maintain",
-    "exportDeclaration.sortNamedExports": "maintain"
+    "exportDeclaration.sortNamedExports": "maintain",
+    "operatorPosition": "sameLine"
   },
   "json": {
   },
