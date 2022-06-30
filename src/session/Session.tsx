@@ -3,10 +3,7 @@ import { useState } from "react";
 import Timer from "./Timer";
 import Interval from "./Interval";
 import SoundConfig from "./SoundConfig";
-import {
-  getStorageSoundEnabled,
-  setStorageSoundEnabled,
-} from "../common/storage";
+import { getStorageSoundEnabled, setStorageSoundEnabled } from "../common/storage";
 
 import css from "./Session.module.css";
 
@@ -15,10 +12,10 @@ const initialIntervalSeconds = 60 * 30;
 const Session = () => {
   const [iterationCount, setIterationCount] = useState(0);
   const [intervalSeconds, setIntervalSeconds] = useState(
-    initialIntervalSeconds
+    initialIntervalSeconds,
   );
   const [isSoundEnabled, setIsSoundEnabled] = useState(
-    getStorageSoundEnabled()
+    getStorageSoundEnabled(),
   );
 
   return (

@@ -4,8 +4,7 @@ import { buildClassNames } from "../common/cssHelpers";
 
 import css from "./Menu.module.css";
 
-const visibilityClassname = (isVisible: boolean): "visible" | "hidden" =>
-  isVisible ? "visible" : "hidden";
+const visibilityClassname = (isVisible: boolean): "visible" | "hidden" => isVisible ? "visible" : "hidden";
 
 const Menu = ({
   isVisible,
