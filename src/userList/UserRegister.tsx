@@ -18,7 +18,7 @@ const UserRegister = () => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setUsername(event.currentTarget.value);
     },
-    []
+    [],
   );
   const onUserRegister = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
@@ -26,10 +26,9 @@ const UserRegister = () => {
       setPersistedUsers([...users, username.trim()]);
       setUsername(emptyUsername);
     },
-    [setPersistedUsers, username, users]
+    [setPersistedUsers, username, users],
   );
-  const registerDisabled =
-    username === emptyUsername ||
+  const registerDisabled = username === emptyUsername ||
     blankStringsPattern.test(username) ||
     users.includes(username);
 

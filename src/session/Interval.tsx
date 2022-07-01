@@ -27,7 +27,7 @@ const Interval = ({
           setIntervalSeconds(newIntervalSeconds);
         }
       },
-      [setIntervalSeconds]
+      [setIntervalSeconds],
     ),
     minutes: useCallback(
       (event: ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +37,7 @@ const Interval = ({
           setIntervalSeconds(newIntervalSeconds);
         }
       },
-      [setIntervalSeconds]
+      [setIntervalSeconds],
     ),
   }[unit];
 

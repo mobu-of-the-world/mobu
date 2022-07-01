@@ -31,15 +31,13 @@ const Timer = ({
   useInterval(
     () => {
       if (countInIteration > 0 && countInIteration % intervalSeconds === 0) {
-        setIterationCount(countTotal / intervalSeconds + 1);
+        setIterationCount((countTotal / intervalSeconds) + 1);
         setCountInIteration(0);
         setIsCounting(false);
         setPersistedUsers(
-          users.length >= 2
-            ? [...users.slice(1, users.length), users[0]].flatMap((user) =>
-                user ? [user] : []
-              )
-            : users
+          users.length >= 2 ?
+            [...users.slice(1, users.length), users[0]].flatMap((user) => user ? [user] : []) :
+            users,
         );
         if (isSoundEnabled) {
           const bell = new Audio(audiofile);
@@ -53,7 +51,7 @@ const Timer = ({
         setCountTotal(countTotal + 1);
       }
     },
-    isCounting ? 1000 : null
+    isCounting ? 1000 : null,
   );
 
   const onStartOrPause = useCallback(() => {
@@ -66,9 +64,11 @@ const Timer = ({
       setIterationCount(1);
 
       if (window.Notification && Notification.permission !== "granted") {
-        const alertMessageByNotificationPermission: Readonly<{
-          [key in NotificationPermission]: string;
-        }> = {
+        const alertMessageByNotificationPermission: Readonly<
+          {
+            [key in NotificationPermission]: string;
+          }
+        > = {
           granted: "Thanks to accept the notification :)",
           denied: "You rejected the notification :(Please accept it.",
           default: "Can not judge to use notification :(Please accept it.",

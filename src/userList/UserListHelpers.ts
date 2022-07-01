@@ -1,13 +1,13 @@
 export const newUsersAfterDropped = (
   originalUsers: string[],
   currentUser: string,
-  droppedUser: string
+  droppedUser: string,
 ): string[] => {
   const droppedUserNewIndex = originalUsers.findIndex(
-    (element) => element === currentUser
+    (element) => element === currentUser,
   );
   const droppedUserOldIndex = originalUsers.findIndex(
-    (element) => element === droppedUser
+    (element) => element === droppedUser,
   );
   const newUsers = [...originalUsers];
 

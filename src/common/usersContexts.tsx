@@ -3,7 +3,7 @@ import { getStorageUsers, setStorageUsers } from "./storage";
 
 const usersContext = createContext<string[]>([]);
 const setPersistedUsersContext = createContext<(newUsers: string[]) => void>(
-  () => undefined
+  () => undefined,
 );
 
 export const UsersProvider = ({ children }: { children: ReactElement }) => {

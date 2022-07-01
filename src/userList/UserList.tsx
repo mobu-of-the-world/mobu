@@ -52,13 +52,12 @@ const UserList = () => {
               ev.preventDefault();
               const droppedData = ev.dataTransfer.getData("text/plain");
               const droppedMatchedGroups = droppedData.match(
-                /^user-(?<droppedUsername>.+)$/
+                /^user-(?<droppedUsername>.+)$/,
               )?.groups;
-              const droppedUsername =
-                droppedMatchedGroups && droppedMatchedGroups["droppedUsername"];
+              const droppedUsername = droppedMatchedGroups && droppedMatchedGroups["droppedUsername"];
               if (typeof droppedUsername === "string") {
                 setPersistedUsers(
-                  newUsersAfterDropped(users, user, droppedUsername)
+                  newUsersAfterDropped(users, user, droppedUsername),
                 );
               }
               return false;
