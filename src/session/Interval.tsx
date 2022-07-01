@@ -27,7 +27,7 @@ const Interval = ({
           setIntervalSeconds(newIntervalSeconds);
         }
       },
-      [setIntervalSeconds]
+      [setIntervalSeconds],
     ),
     minutes: useCallback(
       (event: ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +37,7 @@ const Interval = ({
           setIntervalSeconds(newIntervalSeconds);
         }
       },
-      [setIntervalSeconds]
+      [setIntervalSeconds],
     ),
   }[unit];
 
@@ -50,6 +50,7 @@ const Interval = ({
         onChange={onIntervalChange}
         type="number"
         value={interval}
+        min={1}
         disabled={disabled}
       />
     </div>

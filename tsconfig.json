@@ -7,7 +7,7 @@
       "esnext"
     ],
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
   },
   "include": ["src/**/*", "tests/**/*", "*.config.ts"]
 }

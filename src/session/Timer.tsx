@@ -11,9 +11,9 @@ import audiofile from "./assets/bell.mp3";
 import { readableElapsedTime } from "./timeHelpers";
 import { useInterval } from "../common/timerHooks";
 
-function secondsFromMilliseconds(milliseconds: number): number {
+const secondsFromMilliseconds = (milliseconds: number): number => {
   return Math.round(milliseconds / 1000);
-}
+};
 
 const Timer = ({
   intervalSeconds,
@@ -42,8 +42,7 @@ const Timer = ({
         return;
       }
 
-      const actualElapsedSeconds =
-        startedAt === null ? 0 : (now - startedAt) / 1000 - pausedSeconds;
+      const actualElapsedSeconds = startedAt === null ? 0 : ((now - startedAt) / 1000) - pausedSeconds;
       if (elapsedSeconds !== actualElapsedSeconds) {
         setElapsedSeconds(actualElapsedSeconds);
       }
@@ -52,11 +51,9 @@ const Timer = ({
         setIsCounting(false);
         setLastPausedAt(now);
         setPersistedUsers(
-          users.length >= 2
-            ? [...users.slice(1, users.length), users[0]].flatMap((user) =>
-                user ? [user] : []
-              )
-            : users
+          users.length >= 2 ?
+            [...users.slice(1, users.length), users[0]].flatMap((user) => user ? [user] : []) :
+            users,
         );
         if (isSoundEnabled) {
           const bell = new Audio(audiofile);
@@ -67,7 +64,7 @@ const Timer = ({
         }
       }
     },
-    isCounting ? 500 : null
+    isCounting ? 500 : null,
   );
 
   const onStartOrPause = useCallback(() => {
@@ -84,7 +81,7 @@ const Timer = ({
     } else {
       setPausedSeconds(
         pausedSeconds +
-          secondsFromMilliseconds(now - (lastPausedAt || startedAt))
+          secondsFromMilliseconds(now - (lastPausedAt || startedAt)),
       );
     }
 
@@ -92,9 +89,11 @@ const Timer = ({
       setIterationCount(1);
 
       if (window.Notification && Notification.permission !== "granted") {
-        const alertMessageByNotificationPermission: Readonly<{
-          [key in NotificationPermission]: string;
-        }> = {
+        const alertMessageByNotificationPermission: Readonly<
+          {
+            [key in NotificationPermission]: string;
+          }
+        > = {
           granted: "Thanks to accept the notification :)",
           denied: "You rejected the notification :(Please accept it.",
           default: "Can not judge to use notification :(Please accept it.",
