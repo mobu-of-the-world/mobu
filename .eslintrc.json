@@ -30,7 +30,7 @@
         "disallowPrototype": true,
         "singleReturnOnly": false,
         "classPropertiesAllowed": false,
-        "allowStandaloneDeclarations": true
+        "allowStandaloneDeclarations": false
       }
     ],
     "no-restricted-syntax": [
