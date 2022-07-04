@@ -39,7 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dprint/check@v2.0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -49,3 +48,9 @@ jobs:
       - name: lint
         run: |
           npm run eslint
+
+  check-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dprint/check@v2.0
