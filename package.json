@@ -34,7 +34,8 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "tsc --noEmit && vite build",
+    "prebuild": "tsc",
+    "build": "vite build",
     "test": "jest --watch",
     "test:ci": "jest",
     "format:check": "dprint check",
