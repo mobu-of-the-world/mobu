@@ -9,9 +9,9 @@ const UserProfileIcon = ({ user }: UserProfileIconProps) => (
     <img
       draggable={false}
       src={`https://github.com/${user}.png`}
-      onError={(e: React.BaseSyntheticEvent) => {
-        e.target.onerror = null;
-        e.target.src = "/images/default-profile-icon.png";
+      onError={({ currentTarget }) => {
+        currentTarget.onerror = null;
+        currentTarget.src = "/images/default-profile-icon.png";
       }}
     />
   </div>
