@@ -1,7 +1,7 @@
 import { newUsersAfterDropped } from "./UserListHelpers";
 import { expect, test } from "@jest/globals";
 
-test("newUsersAfterDropped does not change given users", async () => {
+test("newUsersAfterDropped does not change given users", () => {
   const users = [
     "pankona",
     "kachick",
@@ -22,7 +22,7 @@ test("newUsersAfterDropped does not change given users", async () => {
   ]);
 });
 
-test("newUsersAfterDropped returns reordered users", async () => {
+test("newUsersAfterDropped returns reordered users", () => {
   const users = [
     "pankona",
     "kachick",
