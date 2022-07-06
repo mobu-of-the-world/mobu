@@ -87,6 +87,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "mpls104",
+      "name": "Ryota Kusano",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31480737?v=4",
+      "profile": "https://github.com/mpls104",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7

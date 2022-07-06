@@ -3,7 +3,7 @@
 <!-- dprint-ignore-start -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- dprint-ignore-end -->
@@ -61,10 +61,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://ujihisa.wordpress.com/"><img src="https://avatars.githubusercontent.com/u/11504?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ujihisa</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=ujihisa" title="Code">💻</a> <a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/issues?q=author%3Aujihisa" title="Bug reports">🐛</a> <a href="#translation-ujihisa" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/motorollerscalatron"><img src="https://avatars.githubusercontent.com/u/7314191?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Masahiro Iwasaki</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/commits?author=motorollerscalatron" title="Code">💻</a> <a href="#ideas-motorollerscalatron" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/mpls104"><img src="https://avatars.githubusercontent.com/u/31480737?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ryota Kusano</b></sub></a><br /><a href="https://github.com/mobu-of-the-world/mobu-of-the-world/mobu/issues?q=author%3Ampls104" title="Bug reports">🐛</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- dprint-ignore-end -->
