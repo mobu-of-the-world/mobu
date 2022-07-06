@@ -7,7 +7,7 @@ const setPersistedUsersContext = createContext<(newUsers: string[]) => void>(
 );
 
 export const UsersProvider = ({ children }: { children: ReactElement }) => {
-  const [users, setUsers] = useState<string[]>(JSON.parse(getStorageUsers()));
+  const [users, setUsers] = useState<string[]>(getStorageUsers());
   const setPersistedUsers = (newUsers: string[]) => {
     setUsers(newUsers);
     setStorageUsers(newUsers);
