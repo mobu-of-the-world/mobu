@@ -1,4 +1,4 @@
-import { isTypedArray } from "./typeguard";
+import { isString, isTypedArray } from "./typeguard";
 
 const KEY_PREFIX = "mobu-v1-" as const;
 const KEY_USERS = `${KEY_PREFIX}users` as const;
@@ -16,7 +16,7 @@ export const getStorageUsers = (): string[] => {
   const stored = localStorage.getItem(KEY_USERS);
   if (stored) {
     const parsed: unknown = JSON.parse(stored);
-    if (isTypedArray<string>(parsed)) {
+    if (isTypedArray<string>(parsed, isString)) {
       return parsed;
     }
   }

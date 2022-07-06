@@ -7,6 +7,10 @@ export function assertIsDefined<T>(val: T): asserts val is NonNullable<T> {
   }
 }
 
-export const isTypedArray = <T>(val: unknown): val is T[] => {
-  return Array.isArray(val) && val.every((elm) => typeof elm === "string");
+export const isString = (val: unknown): val is string => {
+  return typeof val === "string";
+};
+
+export const isTypedArray = <T>(val: unknown, isT: (elm: unknown) => elm is T): val is T[] => {
+  return Array.isArray(val) && val.every((elm) => isT(elm));
 };
