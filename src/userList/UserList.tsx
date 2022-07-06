@@ -54,7 +54,7 @@ const UserList = () => {
               const droppedMatchedGroups = droppedData.match(
                 /^user-(?<droppedUsername>.+)$/,
               )?.groups;
-              const droppedUsername = droppedMatchedGroups && droppedMatchedGroups["droppedUsername"];
+              const droppedUsername = droppedMatchedGroups?.["droppedUsername"];
               if (typeof droppedUsername === "string") {
                 setPersistedUsers(
                   newUsersAfterDropped(users, user, droppedUsername),
