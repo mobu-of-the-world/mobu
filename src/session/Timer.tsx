@@ -42,7 +42,7 @@ const Timer = ({
         return;
       }
 
-      const actualElapsedSeconds = startedAt === null ? 0 : ((now - startedAt) / 1000) - pausedSeconds;
+      const actualElapsedSeconds = ((now - startedAt) / 1000) - pausedSeconds;
       if (elapsedSeconds !== actualElapsedSeconds) {
         setElapsedSeconds(actualElapsedSeconds);
       }
@@ -56,12 +56,12 @@ const Timer = ({
             users,
         );
         if (isSoundEnabled) {
-          const bell = new Audio(audiofile);
-          bell.play();
+          if (typeof audiofile === "string") {
+            const bell = new Audio(audiofile);
+            void bell.play();
+          }
         }
-        if (window.Notification) {
-          new Notification("Change the driver!");
-        }
+        new Notification("Change the driver!");
       }
     },
     isCounting ? 500 : null,
@@ -81,14 +81,14 @@ const Timer = ({
     } else {
       setPausedSeconds(
         pausedSeconds +
-          secondsFromMilliseconds(now - (lastPausedAt || startedAt)),
+          secondsFromMilliseconds(now - (lastPausedAt ?? startedAt)),
       );
     }
 
     if (iterationCount === 0) {
       setIterationCount(1);
 
-      if (window.Notification && Notification.permission !== "granted") {
+      if (Notification.permission !== "granted") {
         const alertMessageByNotificationPermission: Readonly<
           {
             [key in NotificationPermission]: string;
@@ -99,7 +99,7 @@ const Timer = ({
           default: "Can not judge to use notification :(Please accept it.",
         };
 
-        Notification.requestPermission((result) => {
+        void Notification.requestPermission((result) => {
           alert(alertMessageByNotificationPermission[result]);
         });
       }
