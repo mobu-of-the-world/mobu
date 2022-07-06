@@ -15,7 +15,7 @@ const UserList = () => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
   const onShuffle = useCallback(() => {
-    setPersistedUsers(shuffleArray<string>([...users]));
+    setPersistedUsers(shuffleArray<string>(users));
   }, [setPersistedUsers, users]);
 
   return (

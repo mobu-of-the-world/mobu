@@ -41,5 +41,11 @@
       }
     ],
     "deprecation/deprecation": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.ts"],
+      "rules": { "@typescript-eslint/prefer-readonly-parameter-types": "error" }
+    }
+  ]
 }

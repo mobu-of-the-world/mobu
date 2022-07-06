@@ -24,6 +24,6 @@ export const getStorageUsers = (): string[] => {
   return [];
 };
 
-export const setStorageUsers = (newUsers: string[]): void => {
+export const setStorageUsers = (newUsers: readonly string[]): void => {
   localStorage.setItem(KEY_USERS, JSON.stringify(newUsers));
 };
