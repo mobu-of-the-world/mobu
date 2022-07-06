@@ -11,6 +11,10 @@ import audiofile from "./assets/bell.mp3";
 import { readableElapsedTime } from "./timeHelpers";
 import { useInterval } from "../common/timerHooks";
 
+const secondsFromMilliseconds = (milliseconds: number): number => {
+  return Math.round(milliseconds / 1000);
+};
+
 const Timer = ({
   intervalSeconds,
   isSoundEnabled,
@@ -24,16 +28,28 @@ const Timer = ({
 }) => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
-  const [countTotal, setCountTotal] = useState(0);
-  const [countInIteration, setCountInIteration] = useState(0);
   const [isCounting, setIsCounting] = useState(false);
+  const [startedAt, setStartedAt] = useState<number | null>(null);
+  const [lastPausedAt, setLastPausedAt] = useState<number | null>(null);
+  const [pausedSeconds, setPausedSeconds] = useState(0);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
   useInterval(
     () => {
-      if (countInIteration > 0 && countInIteration % intervalSeconds === 0) {
-        setIterationCount((countTotal / intervalSeconds) + 1);
-        setCountInIteration(0);
+      const now = Date.now();
+
+      if (startedAt === null) {
+        return;
+      }
+
+      const actualElapsedSeconds = startedAt === null ? 0 : ((now - startedAt) / 1000) - pausedSeconds;
+      if (elapsedSeconds !== actualElapsedSeconds) {
+        setElapsedSeconds(actualElapsedSeconds);
+      }
+      if (actualElapsedSeconds >= intervalSeconds * iterationCount) {
+        setIterationCount(iterationCount + 1);
         setIsCounting(false);
+        setLastPausedAt(now);
         setPersistedUsers(
           users.length >= 2 ?
             [...users.slice(1, users.length), users[0]].flatMap((user) => user ? [user] : []) :
@@ -46,18 +62,27 @@ const Timer = ({
         if (window.Notification) {
           new Notification("Change the driver!");
         }
-      } else {
-        setCountInIteration(countInIteration + 1);
-        setCountTotal(countTotal + 1);
       }
     },
-    isCounting ? 1000 : null,
+    isCounting ? 500 : null,
   );
 
   const onStartOrPause = useCallback(() => {
+    const now = Date.now();
     if (isCounting) {
       setIsCounting(false);
+      setLastPausedAt(now);
       return;
+    }
+
+    if (startedAt === null) {
+      setStartedAt(now);
+      setIsCounting(true);
+    } else {
+      setPausedSeconds(
+        pausedSeconds +
+          secondsFromMilliseconds(now - (lastPausedAt || startedAt)),
+      );
     }
 
     if (iterationCount === 0) {
@@ -81,18 +106,35 @@ const Timer = ({
     }
 
     setIsCounting(true);
-  }, [isCounting, iterationCount, setIterationCount]);
+  }, [
+    isCounting,
+    iterationCount,
+    pausedSeconds,
+    setIterationCount,
+    startedAt,
+    lastPausedAt,
+    setLastPausedAt,
+  ]);
 
   const onReset = useCallback(() => {
     setIsCounting(false);
-    setCountTotal(0);
-    setCountInIteration(0);
+    setStartedAt(null);
+    setLastPausedAt(null);
     setIterationCount(0);
-  }, [setIsCounting, setCountTotal, setIterationCount]);
+    setPausedSeconds(0);
+    setElapsedSeconds(0);
+  }, [
+    setIsCounting,
+    setStartedAt,
+    setIterationCount,
+    setPausedSeconds,
+    setLastPausedAt,
+    setElapsedSeconds,
+  ]);
 
   return (
     <>
-      <Text>elapsed time: {readableElapsedTime(countTotal)}</Text>
+      <Text>elapsed time: {readableElapsedTime(elapsedSeconds)}</Text>
       <Text>(iteration: {iterationCount})</Text>
       <div className={timerCss["timer--divider"]} />
       <Button
