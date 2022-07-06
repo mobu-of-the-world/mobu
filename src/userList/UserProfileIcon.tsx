@@ -1,8 +1,8 @@
 import css from "./UserProfileIcon.module.css";
 
-type UserProfileIconProps = {
+interface UserProfileIconProps {
   user: string;
-};
+}
 
 const UserProfileIcon = ({ user }: UserProfileIconProps) => (
   <div className={css["user-profile-icon"]}>
