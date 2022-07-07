@@ -45,7 +45,7 @@
   "overrides": [
     {
       "files": ["src/**/*.ts"],
-      "rules": { "@typescript-eslint/prefer-readonly-parameter-types": "error" }
+      "rules": { "@typescript-eslint/prefer-readonly-parameter-types": ["error", { "ignoreInferredTypes": true }] }
     }
   ]
 }
