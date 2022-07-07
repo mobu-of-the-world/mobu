@@ -1,1 +1,2 @@
-export const buildClassNames = (classNames: (string | undefined)[]): string => classNames.filter(Boolean).join(" ");
+export const buildClassNames = (classNames: readonly (string | undefined)[]): string =>
+  classNames.filter(Boolean).join(" ");

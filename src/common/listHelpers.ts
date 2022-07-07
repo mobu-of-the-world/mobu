@@ -1,14 +1,15 @@
 import { assertIsDefined } from "./typeguard";
 
-export const shuffleArray = <T>(array: T[]): T[] => {
-  for (let i = array.length - 1; i > 0; i--) {
+export const shuffleArray = <T>(array: readonly T[]): T[] => {
+  const dup = [...array];
+  for (let i = dup.length - 1; i > 0; i--) {
     const rand = Math.floor(Math.random() * (i + 1));
-    const newItem = array[rand];
-    const oldItem = array[i];
+    const newItem = dup[rand];
+    const oldItem = dup[i];
     assertIsDefined<T | undefined>(newItem);
     assertIsDefined<T | undefined>(oldItem);
-    [array[i], array[rand]] = [newItem, oldItem];
+    [dup[i], dup[rand]] = [newItem, oldItem];
   }
 
-  return array;
+  return dup;
 };

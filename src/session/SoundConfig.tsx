@@ -3,10 +3,10 @@ import Text from "../common/Text";
 
 import css from "./SoundConfig.module.css";
 
-export type SoundConfigProps = {
+export interface SoundConfigProps {
   isSoundEnabled: boolean;
   onChangeSoundConfig: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
 const SoundConfig = (props: SoundConfigProps) => {
   const inputProps: JSX.IntrinsicElements["input"] = {

@@ -15,7 +15,7 @@ const UserList = () => {
   const users = useUsers();
   const setPersistedUsers = useSetPersistedUsers();
   const onShuffle = useCallback(() => {
-    setPersistedUsers(shuffleArray<string>([...users]));
+    setPersistedUsers(shuffleArray<string>(users));
   }, [setPersistedUsers, users]);
 
   return (
@@ -54,7 +54,7 @@ const UserList = () => {
               const droppedMatchedGroups = droppedData.match(
                 /^user-(?<droppedUsername>.+)$/,
               )?.groups;
-              const droppedUsername = droppedMatchedGroups && droppedMatchedGroups["droppedUsername"];
+              const droppedUsername = droppedMatchedGroups?.["droppedUsername"];
               if (typeof droppedUsername === "string") {
                 setPersistedUsers(
                   newUsersAfterDropped(users, user, droppedUsername),

@@ -1,17 +1,17 @@
 import css from "./UserProfileIcon.module.css";
 
-type UserProfileIconProps = {
+interface UserProfileIconProps {
   user: string;
-};
+}
 
 const UserProfileIcon = ({ user }: UserProfileIconProps) => (
   <div className={css["user-profile-icon"]}>
     <img
       draggable={false}
       src={`https://github.com/${user}.png`}
-      onError={(e: React.BaseSyntheticEvent) => {
-        e.target.onerror = null;
-        e.target.src = "/images/default-profile-icon.png";
+      onError={({ currentTarget }) => {
+        currentTarget.onerror = null;
+        currentTarget.src = "/images/default-profile-icon.png";
       }}
     />
   </div>

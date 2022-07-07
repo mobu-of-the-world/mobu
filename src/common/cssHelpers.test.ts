@@ -1,7 +1,7 @@
 import { expect, test } from "@jest/globals";
 import { buildClassNames } from "./cssHelpers";
 
-test("returns combined classnames as a string that trimmed empty", async () => {
+test("returns combined classnames as a string that trimmed empty", () => {
   expect(buildClassNames(["button", "button-primary"])).toBe(
     "button button-primary",
   );

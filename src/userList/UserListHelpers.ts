@@ -1,5 +1,5 @@
 export const newUsersAfterDropped = (
-  originalUsers: string[],
+  originalUsers: readonly string[],
   currentUser: string,
   droppedUser: string,
 ): string[] => {
