@@ -3,7 +3,7 @@
   "extends": [
     "github>kachick/renovate-config-dprint"
   ],
-  "labels": ["dependencies", "renovate"],
+  "labels": ["dependencies", "renovate", "automerge"],
   "automerge": true,
   "enabledManagers": ["regex"]
 }
