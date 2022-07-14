@@ -9,5 +9,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "skipLibCheck": false,
   "include": ["src/**/*", "tests/**/*", "*.config.ts"]
 }
