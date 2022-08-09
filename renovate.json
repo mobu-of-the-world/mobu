@@ -5,5 +5,14 @@
   ],
   "labels": ["dependencies", "renovate", "automerge"],
   "automerge": true,
-  "enabledManagers": ["nodenv", "regex"]
+  "enabledManagers": ["regex"],
+  "regexManagers": [
+    {
+      "fileMatch": [".node-version"],
+      "matchStrings": ["^v(?<currentValue>.+?)\\n"],
+      "depNameTemplate": "nodejs/node",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^v(?<version>\\S+)"
+    }
+  ]
 }
