@@ -8,6 +8,7 @@ on:
 
 jobs:
   typecheck:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,6 +23,7 @@ jobs:
           npx tsc
 
   test:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -36,6 +38,7 @@ jobs:
           npm run test:ci
 
   lint:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -50,6 +53,7 @@ jobs:
           npm run eslint
 
   check-format:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
