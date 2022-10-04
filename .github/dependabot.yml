@@ -4,8 +4,6 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-    reviewers:
-      - 'mobu-of-the-world/maintainers'
     labels:
       - automerge
   - package-ecosystem: npm
@@ -13,8 +11,6 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 10
-    reviewers:
-      - 'mobu-of-the-world/maintainers'
     labels:
       - automerge
     ignore:
