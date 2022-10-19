@@ -14,5 +14,11 @@
       "datasourceTemplate": "github-tags",
       "extractVersionTemplate": "^v(?<version>\\S+)"
     }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["nodejs/node"],
+      "allowedVersions": "/^v?18\\./"
+    }
   ]
 }
