@@ -1,20 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": true,
   "extends": [
     "github>kachick/renovate-config-dprint"
   ],
   "labels": ["dependencies", "renovate", "automerge"],
   "automerge": true,
-  "enabledManagers": ["regex"],
-  "regexManagers": [
-    {
-      "fileMatch": [".node-version"],
-      "matchStrings": ["^v(?<currentValue>.+?)\\n"],
-      "depNameTemplate": "nodejs/node",
-      "datasourceTemplate": "github-tags",
-      "extractVersionTemplate": "^v(?<version>\\S+)"
-    }
-  ],
+  "enabledManagers": ["nodenv", "regex"],
   "packageRules": [
     {
       "matchPackageNames": ["nodejs/node"],
