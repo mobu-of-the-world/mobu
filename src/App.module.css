@@ -1,3 +1,7 @@
+html {
+  font-family: 'Inconsolata', monospace;
+}
+
 .main--container {
   display: flex;
   width: 100%;
