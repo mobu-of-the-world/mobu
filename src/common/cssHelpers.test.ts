@@ -1,12 +1,9 @@
-import { expect, test } from "@jest/globals";
+import test from "node:test";
+import assert from "node:assert";
 import { buildClassNames } from "./cssHelpers";
 
-test("returns combined classnames as a string that trimmed empty", () => {
-  expect(buildClassNames(["button", "button-primary"])).toBe(
-    "button button-primary",
-  );
-  expect(buildClassNames(["button", undefined])).toBe("button");
-  expect(buildClassNames(["button", undefined, "hidden"])).toBe(
-    "button hidden",
-  );
+void test("returns combined classnames as a string that trimmed empty", () => {
+  assert.strictEqual(buildClassNames(["button", "button-primary"]), "button button-primary");
+  assert.strictEqual(buildClassNames(["button", undefined]), "button");
+  assert.strictEqual(buildClassNames(["button", undefined, "hidden"]), "button hidden");
 });
