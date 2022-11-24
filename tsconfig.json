@@ -9,8 +9,7 @@
       "esnext"
     ],
     "noEmit": true,
-    "jsx": "react-jsx",
-    "skipLibCheck": false
+    "jsx": "react-jsx"
   },
   "include": ["src/**/*", "tests/**/*", "*.config.ts"]
 }
