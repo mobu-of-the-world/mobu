@@ -27,6 +27,8 @@ jobs:
           node-version-file: '.node-version'
       - name: install dependencies
         run: npm ci --ignore-scripts
+      - name: Specify actual commit ref for revisions
+        run: echo VITE_COMMIT_REF=${{ github.event.pull_request.head.sha }} > .env
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
