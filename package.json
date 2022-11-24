@@ -57,5 +57,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "@babel/plugin-transform-react-jsx": "^7.20.0"
   }
 }
