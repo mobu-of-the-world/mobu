@@ -89,14 +89,12 @@ const Timer = ({
       setIterationCount(1);
 
       if (Notification.permission !== "granted") {
-        const alertMessageByNotificationPermission: Readonly<
-          {
-            [key in NotificationPermission]: string;
-          }
-        > = {
+        const alertMessageByNotificationPermission = {
           granted: "Thanks to accept the notification :)",
           denied: "You rejected the notification :(Please accept it.",
           default: "Can not judge to use notification :(Please accept it.",
+        } as const satisfies {
+          [key in NotificationPermission]: string;
         };
 
         void Notification.requestPermission((result) => {
