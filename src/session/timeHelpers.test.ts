@@ -1,9 +1,10 @@
 import { readableElapsedTime } from "./timeHelpers";
-import { expect, test } from "@jest/globals";
+import test from "node:test";
+import assert from "node:assert";
 
-test("returns readable format", () => {
-  expect(readableElapsedTime(42)).toBe("00:00:42");
-  expect(readableElapsedTime(142)).toBe("00:02:22");
-  expect(readableElapsedTime(1001)).toBe("00:16:41");
-  expect(readableElapsedTime(60000)).toBe("16:40:00");
+void test("returns readable format", () => {
+  assert.strictEqual("00:00:42", readableElapsedTime(42));
+  assert.strictEqual("00:02:22", readableElapsedTime(142));
+  assert.strictEqual("00:16:41", readableElapsedTime(1001));
+  assert.strictEqual("16:40:00", readableElapsedTime(60000));
 });

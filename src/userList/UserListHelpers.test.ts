@@ -1,7 +1,8 @@
 import { newUsersAfterDropped } from "./UserListHelpers";
-import { expect, test } from "@jest/globals";
+import test from "node:test";
+import assert from "node:assert";
 
-test("newUsersAfterDropped does not change given users", () => {
+void test("newUsersAfterDropped does not change given users", () => {
   const users = [
     "pankona",
     "kachick",
@@ -12,17 +13,17 @@ test("newUsersAfterDropped does not change given users", () => {
   ];
   newUsersAfterDropped(users, "pankona", "kachick");
 
-  expect(users).toStrictEqual([
+  assert.deepStrictEqual([
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "ujihisa",
-  ]);
+  ], users);
 });
 
-test("newUsersAfterDropped returns reordered users", () => {
+void test("newUsersAfterDropped returns reordered users", () => {
   const users = [
     "pankona",
     "kachick",
@@ -32,48 +33,48 @@ test("newUsersAfterDropped returns reordered users", () => {
     "ujihisa",
   ];
 
-  expect(newUsersAfterDropped(users, "pankona", "ravelll")).toStrictEqual([
+  assert.deepStrictEqual([
     "ravelll",
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ujihisa",
-  ]);
+  ], newUsersAfterDropped(users, "pankona", "ravelll"));
 
-  expect(newUsersAfterDropped(users, "ravelll", "pankona")).toStrictEqual([
+  assert.deepStrictEqual([
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "pankona",
     "ujihisa",
-  ]);
+  ], newUsersAfterDropped(users, "ravelll", "pankona"));
 
-  expect(newUsersAfterDropped(users, "highwide", "highwide")).toStrictEqual([
+  assert.deepStrictEqual([
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "ujihisa",
-  ]);
+  ], newUsersAfterDropped(users, "highwide", "highwide"));
 
-  expect(newUsersAfterDropped(users, "pankona", "ujihisa")).toStrictEqual([
+  assert.deepStrictEqual([
     "ujihisa",
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
-  ]);
+  ], newUsersAfterDropped(users, "pankona", "ujihisa"));
 
-  expect(newUsersAfterDropped(users, "ujihisa", "pankona")).toStrictEqual([
+  assert.deepStrictEqual([
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "ujihisa",
     "pankona",
-  ]);
+  ], newUsersAfterDropped(users, "ujihisa", "pankona"));
 });

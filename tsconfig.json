@@ -1,6 +1,8 @@
 {
   "extends": "@tsconfig/node18-strictest-esm/tsconfig.json",
   "compilerOptions": {
+    // https://www.typescriptlang.org/docs/handbook/esm-node.html
+    "module": "node16",
     "lib": [
       "dom",
       "dom.iterable",
