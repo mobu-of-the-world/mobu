@@ -12,7 +12,7 @@
 
 A web application to manage participants and timer for mob-programming!
 
-Visit here to enjoy: [https://mobu-waiwai.netlify.com](https://mobu-waiwai.netlify.com)
+Visit here to enjoy: [https://mobu-waiwai.web.app/](https://mobu-waiwai.web.app/)
 
 ## How to start development
 
