@@ -35,7 +35,7 @@ jobs:
         run: npm ci --ignore-scripts
       - name: test
         run: |
-          npm run test:ci
+          npm run test
 
   lint:
     timeout-minutes: 5
