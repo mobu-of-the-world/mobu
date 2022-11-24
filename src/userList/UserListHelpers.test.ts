@@ -13,14 +13,14 @@ void test("newUsersAfterDropped does not change given users", () => {
   ];
   newUsersAfterDropped(users, "pankona", "kachick");
 
-  assert.deepStrictEqual([
+  assert.deepStrictEqual(users, [
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "ujihisa",
-  ], users);
+  ]);
 });
 
 void test("newUsersAfterDropped returns reordered users", () => {
@@ -33,48 +33,48 @@ void test("newUsersAfterDropped returns reordered users", () => {
     "ujihisa",
   ];
 
-  assert.deepStrictEqual([
+  assert.deepStrictEqual(newUsersAfterDropped(users, "pankona", "ravelll"), [
     "ravelll",
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ujihisa",
-  ], newUsersAfterDropped(users, "pankona", "ravelll"));
+  ]);
 
-  assert.deepStrictEqual([
+  assert.deepStrictEqual(newUsersAfterDropped(users, "ravelll", "pankona"), [
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "pankona",
     "ujihisa",
-  ], newUsersAfterDropped(users, "ravelll", "pankona"));
+  ]);
 
-  assert.deepStrictEqual([
+  assert.deepStrictEqual(newUsersAfterDropped(users, "highwide", "highwide"), [
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "ujihisa",
-  ], newUsersAfterDropped(users, "highwide", "highwide"));
+  ]);
 
-  assert.deepStrictEqual([
+  assert.deepStrictEqual(newUsersAfterDropped(users, "pankona", "ujihisa"), [
     "ujihisa",
     "pankona",
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
-  ], newUsersAfterDropped(users, "pankona", "ujihisa"));
+  ]);
 
-  assert.deepStrictEqual([
+  assert.deepStrictEqual(newUsersAfterDropped(users, "ujihisa", "pankona"), [
     "kachick",
     "highwide",
     "ohbarye",
     "ravelll",
     "ujihisa",
     "pankona",
-  ], newUsersAfterDropped(users, "ujihisa", "pankona"));
+  ]);
 });
