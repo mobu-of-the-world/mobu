@@ -8,8 +8,7 @@ import buttonCss from "../common/Button.module.css";
 import UserRegister from "./UserRegister";
 import { useSetPersistedUsers, useUsers } from "../common/usersContexts";
 import Button from "../common/Button";
-import { newUsersAfterDropped } from "./UserListHelpers";
-import { shuffleArray } from "../common/listHelpers";
+import { movePosition, shuffleArray } from "../common/listHelpers";
 
 const UserList = () => {
   const users = useUsers();
@@ -57,7 +56,7 @@ const UserList = () => {
               const droppedUsername = droppedMatchedGroups?.["droppedUsername"];
               if (typeof droppedUsername === "string") {
                 setPersistedUsers(
-                  newUsersAfterDropped(users, user, droppedUsername),
+                  movePosition(users, user, droppedUsername),
                 );
               }
               return false;
