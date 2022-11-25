@@ -19,7 +19,7 @@ Visit here to enjoy: [https://mobu-waiwai.web.app/](https://mobu-waiwai.web.app/
 ### `npm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:5173/](http://localhost:5173/) to view it in your browser.
 
 The page will reload when you make changes.<br />
 You may also see any lint errors in the console.
