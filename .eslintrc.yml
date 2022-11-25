@@ -25,6 +25,8 @@ rules:
   '@typescript-eslint/no-unused-vars':
     - error
     - argsIgnorePattern: ^_
+  # https://github.com/mobu-of-the-world/mobu/pull/82#discussion_r606832062
+  # https://github.com/mobu-of-the-world/mobu/pull/476#discussion_r907948539
   prefer-arrow/prefer-arrow-functions:
     - error
     - disallowPrototype: true
