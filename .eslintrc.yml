@@ -1,0 +1,46 @@
+extends:
+  - plugin:react-hooks/recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:@typescript-eslint/recommended-requiring-type-checking
+  - plugin:@typescript-eslint/strict
+plugins:
+  - deprecation
+  - react-hooks
+  - prefer-arrow
+parser: '@typescript-eslint/parser'
+env:
+  browser: true
+  node: true
+  es2022: true
+parserOptions:
+  sourceType: module
+  project: ./tsconfig.json
+  ecmaFeatures:
+    jsx: true
+rules:
+  no-mixed-operators: error
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn
+  no-unused-vars: 'off'
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - argsIgnorePattern: ^_
+  prefer-arrow/prefer-arrow-functions:
+    - error
+    - disallowPrototype: true
+      singleReturnOnly: false
+      classPropertiesAllowed: false
+      allowStandaloneDeclarations: false
+  no-restricted-syntax:
+    - error
+    - selector: TSEnumDeclaration
+      message: >-
+        Don't declare enums. ref: https://www.kabuku.co.jp/developers/good-bye-typescript-enum
+  deprecation/deprecation: error
+overrides:
+  - files:
+      - src/**/*.ts
+    rules:
+      '@typescript-eslint/prefer-readonly-parameter-types':
+        - error
+        - ignoreInferredTypes: true
