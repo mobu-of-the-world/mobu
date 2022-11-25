@@ -4,7 +4,21 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.editorconfig'
+      - '**.md'
+      - '.vscode/**'
+      - 'dprint.json'
+      - 'renovate.json'
+      - '.eslintrc.json'
   pull_request:
+    paths-ignore:
+      - '.editorconfig'
+      - '**.md'
+      - '.vscode/**'
+      - 'dprint.json'
+      - 'renovate.json'
+      - '.eslintrc.json'
 
 jobs:
   typecheck:
@@ -51,10 +65,3 @@ jobs:
       - name: lint
         run: |
           npm run eslint
-
-  check-format:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dprint/check@v2.1
