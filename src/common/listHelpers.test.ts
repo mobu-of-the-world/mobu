@@ -5,78 +5,94 @@ import { movePosition } from "./listHelpers";
 describe("movePosition", () => {
   it("does not change given users", () => {
     const users = [
-      "pankona",
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ravelll",
-      "ujihisa",
+      "user1",
+      "user2",
+      "user3",
     ];
-    movePosition<string>(users, "pankona", "kachick");
+    movePosition<string>(users, "user1", "user2");
 
     assert.deepStrictEqual(users, [
-      "pankona",
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ravelll",
-      "ujihisa",
+      "user1",
+      "user2",
+      "user3",
     ]);
   });
 
   it("returns reordered users", () => {
     const users = [
-      "pankona",
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ravelll",
-      "ujihisa",
+      "user1",
+      "user2",
+      "user3",
     ];
 
-    assert.deepStrictEqual(movePosition(users, "pankona", "ravelll"), [
-      "ravelll",
-      "pankona",
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ujihisa",
+    assert.deepStrictEqual(movePosition(users, "user3", "user1"), [
+      "user3",
+      "user1",
+      "user2",
     ]);
 
-    assert.deepStrictEqual(movePosition(users, "ravelll", "pankona"), [
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ravelll",
-      "pankona",
-      "ujihisa",
+    assert.deepStrictEqual(movePosition(users, "user1", "user3"), [
+      "user2",
+      "user3",
+      "user1",
     ]);
 
-    assert.deepStrictEqual(movePosition(users, "highwide", "highwide"), [
-      "pankona",
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ravelll",
-      "ujihisa",
+    assert.deepStrictEqual(movePosition(users, "user1", "user2"), [
+      "user2",
+      "user1",
+      "user3",
     ]);
 
-    assert.deepStrictEqual(movePosition(users, "pankona", "ujihisa"), [
-      "ujihisa",
-      "pankona",
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ravelll",
+    assert.deepStrictEqual(movePosition(users, "user2", "user1"), [
+      "user2",
+      "user1",
+      "user3",
+    ]);
+  });
+
+  it("returns same order when given current position", () => {
+    const users = [
+      "user1",
+      "user2",
+      "user3",
+    ];
+
+    assert.deepStrictEqual(movePosition(users, "user1", "user1"), [
+      "user1",
+      "user2",
+      "user3",
     ]);
 
-    assert.deepStrictEqual(movePosition(users, "ujihisa", "pankona"), [
-      "kachick",
-      "highwide",
-      "ohbarye",
-      "ravelll",
-      "ujihisa",
-      "pankona",
+    assert.deepStrictEqual(movePosition(users, "user2", "user2"), [
+      "user1",
+      "user2",
+      "user3",
+    ]);
+
+    assert.deepStrictEqual(movePosition(users, "user3", "user3"), [
+      "user1",
+      "user2",
+      "user3",
+    ]);
+  });
+
+  it("returns same order when given an out of member", () => {
+    const users = [
+      "user1",
+      "user2",
+      "user3",
+    ];
+
+    assert.deepStrictEqual(movePosition(users, "user42", "user1"), [
+      "user1",
+      "user2",
+      "user3",
+    ]);
+
+    assert.deepStrictEqual(movePosition(users, "user1", "user42"), [
+      "user1",
+      "user2",
+      "user3",
     ]);
   });
 });

@@ -31,25 +31,38 @@ export const movePosition = <T>(
   );
 
   if ((from < 0) || (to < 0)) {
-    throw new Error("given list does not contain given mover/moveTo");
+    return [...items];
   }
 
-  const newIndex = (index: number): number => {
-    if (index > to && index <= from) {
-      return index - 1;
-    } else if (index === to) {
-      return from;
-    } else if (index < to && index >= from) {
-      return index + 1;
+  const newPosition = (index: number): number => {
+    const isStay = from === to;
+    const isMover = index === from;
+    const isPointOfArrival = index === to;
+    const isJumpedOver = (from < index && index < to) || (index < from && to < index);
+    const isRequiredToSlide = isPointOfArrival || isJumpedOver;
+    const isPointingDown = from < to;
+
+    if (isStay) {
+      return index;
     }
 
-    return index;
+    if (isMover) {
+      return to;
+    }
+
+    if (!isRequiredToSlide) {
+      return index;
+    }
+
+    if (isPointingDown) {
+      // Keep in mind. Returning value is not an "index". Minus value means reversed order in Array.
+      return index - 1;
+    } else {
+      return index + 1;
+    }
   };
 
-  const newItems = [...items];
-  items.forEach((item, index) => {
-    newItems[newIndex(index)] = item;
-  });
-
-  return newItems;
+  const withNewPositions = items.map((item, index) => ({ item, newPosition: newPosition(index) }));
+  withNewPositions.sort((a, b) => a.newPosition - b.newPosition);
+  return withNewPositions.map((wn) => wn.item);
 };

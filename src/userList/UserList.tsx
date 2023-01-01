@@ -56,7 +56,7 @@ const UserList = () => {
               const droppedUsername = droppedMatchedGroups?.["droppedUsername"];
               if (typeof droppedUsername === "string") {
                 setPersistedUsers(
-                  movePosition(users, user, droppedUsername),
+                  movePosition(users, droppedUsername, user),
                 );
               }
               return false;
