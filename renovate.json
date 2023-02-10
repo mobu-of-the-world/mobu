@@ -11,6 +11,10 @@
     {
       "matchPackageNames": ["nodejs/node"],
       "allowedVersions": "/^v?18\\./"
+    },
+    {
+      "extends": ["schedule:monthly"],
+      "matchPackagePrefixes": ["dprint"]
     }
   ]
 }
