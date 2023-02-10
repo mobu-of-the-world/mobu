@@ -20,6 +20,19 @@ See the section about [Test runner](https://nodejs.org/docs/latest-v18.x/api/tes
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+## How to run repl
+
+```ts
+❯ npx tsx
+> const n: string = 42; // You can write with TypeScript except actual type checking
+> const { shuffleArray } = await import('./src/common/listHelpers');
+undefined
+> shuffleArray([1, 2, 3, 4, 5]);
+[ 4, 2, 1, 3, 5 ]
+> shuffleArray([1, 2, 3, 4, 5]);
+[ 3, 2, 1, 4, 5 ]
+```
+
 ## How to update contributors list
 
 Members will update the list with this command after merging your PR.
