@@ -5,7 +5,6 @@ name: Deploy to Firebase Hosting on PR
 'on':
   pull_request:
     paths-ignore:
-      - '.github/dependabot.yml'
       - '.github/workflows/dependency-review.yml'
       - '.github/workflows/main.yml'
       - '.editorconfig'
@@ -16,7 +15,7 @@ name: Deploy to Firebase Hosting on PR
       - '.eslintrc.yml'
 jobs:
   build_and_preview:
-    if: ${{ (github.event.pull_request.head.repo.full_name == github.repository) && (github.actor != 'dependabot[bot]') && (github.actor != 'renovate[bot]') }}
+    if: ${{ (github.event.pull_request.head.repo.full_name == github.repository) && (github.actor != 'renovate[bot]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

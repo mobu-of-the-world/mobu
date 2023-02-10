@@ -2,11 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
   "extends": [
+    "config:js-app",
     "github>kachick/renovate-config-dprint"
   ],
-  "labels": ["dependencies", "renovate", "automerge"],
+  "labels": ["dependencies", "renovate"],
   "automerge": true,
-  "enabledManagers": ["nodenv", "regex"],
+  "platformAutomerge": true,
   "packageRules": [
     {
       "matchPackageNames": ["nodejs/node"],
@@ -16,5 +17,6 @@
       "extends": ["schedule:monthly"],
       "matchPackagePrefixes": ["dprint"]
     }
-  ]
+  ],
+  "reviewers": ["team:maintainers"]
 }
