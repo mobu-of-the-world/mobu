@@ -9,14 +9,12 @@ on:
       - '**.md'
       - '.vscode/**'
       - 'renovate.json'
-      - '.eslintrc.yml'
   pull_request:
     paths-ignore:
       - '.editorconfig'
       - '**.md'
       - '.vscode/**'
       - 'renovate.json'
-      - '.eslintrc.yml'
 
 jobs:
   typecheck:
