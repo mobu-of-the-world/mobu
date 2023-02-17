@@ -9,7 +9,7 @@
     "ress": "5.0.2"
   },
   "devDependencies": {
-    "@testing-library/react": "13.4.0",
+    "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
     "@tsconfig/node18-strictest-esm": "1.0.1",
     "@types/node": "18.13.0",
