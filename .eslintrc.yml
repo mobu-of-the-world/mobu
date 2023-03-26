@@ -4,7 +4,6 @@ extends:
   - plugin:@typescript-eslint/recommended-requiring-type-checking
   - plugin:@typescript-eslint/strict
 plugins:
-  - deprecation
   - react-hooks
   - prefer-arrow
 parser: '@typescript-eslint/parser'
@@ -38,7 +37,6 @@ rules:
     - selector: TSEnumDeclaration
       message: >-
         Don't declare enums. ref: https://www.kabuku.co.jp/developers/good-bye-typescript-enum
-  deprecation/deprecation: error
 overrides:
   - files:
       - src/**/*.ts
