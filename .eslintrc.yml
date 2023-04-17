@@ -37,6 +37,9 @@ rules:
     - selector: TSEnumDeclaration
       message: >-
         Don't declare enums. ref: https://www.kabuku.co.jp/developers/good-bye-typescript-enum
+  # See https://zenn.dev/teppeis/articles/2023-04-typescript-5_0-verbatim-module-syntax for enabling reason
+  '@typescript-eslint/consistent-type-imports': 'error'
+  '@typescript-eslint/no-import-type-side-effects': 'error'
 overrides:
   - files:
       - src/**/*.ts
