@@ -1,4 +1,4 @@
-import { createContext, ReactElement, useContext, useState } from "react";
+import { createContext, type ReactElement, useContext, useState } from "react";
 import { getStorageUsers, setStorageUsers } from "./storage";
 
 const usersContext = createContext<string[]>([]);
