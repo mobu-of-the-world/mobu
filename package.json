@@ -23,7 +23,7 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-react-hooks": "4.6.0",
     "ts-node-test": "0.4.1",
-    "tsx": "3.12.6",
+    "tsx": "3.12.7",
     "typescript": "5.0.4",
     "vite": "4.3.3"
   },
