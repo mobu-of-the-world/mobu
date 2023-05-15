@@ -25,7 +25,7 @@
     "ts-node-test": "0.4.1",
     "tsx": "3.12.7",
     "typescript": "5.0.4",
-    "vite": "4.3.5"
+    "vite": "4.3.6"
   },
   "scripts": {
     "start": "vite",
