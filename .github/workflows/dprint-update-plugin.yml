@@ -28,6 +28,9 @@ jobs:
         with:
           app_id: '${{ secrets.UPDATE_DPRINT_PLUGINS_APP_ID }}'
           private_key: '${{ secrets.UPDATE_DPRINT_PLUGINS_APP_PRIVATE_KEY }}'
+        env:
+          # https://github.com/tibdex/github-app-token/issues/54#issuecomment-1470810318
+          OPENSSL_CONF: /dev/null
       - id: update-dprint-plugins
         uses: kachick/action-update-dprint-plugins@v1-beta
         with:
