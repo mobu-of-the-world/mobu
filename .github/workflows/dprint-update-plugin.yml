@@ -23,11 +23,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: '${{ secrets.UPDATE_DPRINT_PLUGINS_APP_ID }}'
+          private_key: '${{ secrets.UPDATE_DPRINT_PLUGINS_APP_PRIVATE_KEY }}'
       - id: update-dprint-plugins
         uses: kachick/action-update-dprint-plugins@v1-beta
         with:
           base-branch: 'main'
-          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          github-token: '${{ steps.generate-token.outputs.token }}'
       # Enable `Allow auto-merge` in your repository settings if you need following steps
       - name: Merge sent PR
         # Merge if `dprint fmt` does not make any diff even after updating plugins
