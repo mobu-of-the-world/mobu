@@ -17,7 +17,7 @@
     "@typescript-eslint/eslint-plugin": "5.60.1",
     "@typescript-eslint/parser": "5.60.1",
     "@vitejs/plugin-react": "4.0.1",
-    "dprint": "0.38.2",
+    "dprint": "0.38.3",
     "esbuild": "0.18.11",
     "eslint": "8.44.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
