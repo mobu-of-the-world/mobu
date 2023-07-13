@@ -1,16 +1,8 @@
 {
-  // TODO: Use tsconfig/base after all tools support tsconfig.extends array
-  "extends": "./tsconfig.base.json",
+  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/vite-react"],
   "compilerOptions": {
-    // https://www.typescriptlang.org/docs/handbook/esm-node.html
-    "module": "node16",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "allowJs": true,
+    "noEmit": true
   },
   "include": ["src/**/*", "tests/**/*", "*.config.ts"]
 }
