@@ -1,8 +1,12 @@
 {
-  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/vite-react"],
+  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node18/tsconfig"],
   "compilerOptions": {
-    "allowJs": true,
-    "noEmit": true
+    "lib": [
+      "dom",
+      "dom.iterable"
+    ],
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
   "include": ["src/**/*", "tests/**/*", "*.config.ts"]
 }
