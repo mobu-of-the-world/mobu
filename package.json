@@ -34,8 +34,8 @@
     "test": "ts-node-test src/**/*.test.ts",
     "format:check": "dprint check",
     "format:fix": "dprint fmt",
-    "eslint": "eslint \"src/**/*.{ts,tsx}\"",
-    "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\""
+    "eslint": "eslint .",
+    "eslint:fix": "eslint --fix ."
   },
   "browserslist": {
     "production": [

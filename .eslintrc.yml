@@ -1,3 +1,4 @@
+root: true
 extends:
   - plugin:react-hooks/recommended
   - plugin:@typescript-eslint/recommended
