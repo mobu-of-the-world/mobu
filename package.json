@@ -19,7 +19,7 @@
     "@vitejs/plugin-react": "4.0.3",
     "dprint": "0.39.1",
     "esbuild": "0.18.12",
-    "eslint": "8.44.0",
+    "eslint": "8.45.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-react-hooks": "4.6.0",
     "ts-node-test": "0.4.1",
