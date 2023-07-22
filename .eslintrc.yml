@@ -13,10 +13,7 @@ env:
   node: true
   es2022: true
 parserOptions:
-  sourceType: module
-  project: ./tsconfig.json
-  ecmaFeatures:
-    jsx: true
+  project: true
 rules:
   no-mixed-operators: error
   react-hooks/rules-of-hooks: error
