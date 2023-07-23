@@ -10,7 +10,7 @@ const TextInput = ({
   return (
     <input
       className={buildClassNames([
-        css["textinput"],
+        css.textinput,
         className && css[className],
       ])}
       {...rest}

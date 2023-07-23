@@ -1,6 +1,7 @@
 {
   "name": "mobu",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "homepage": "./",
   "dependencies": {
@@ -11,7 +12,8 @@
   "devDependencies": {
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
-    "@types/node": "18.17.0",
+    "@tsconfig/vite-react": "^2.0.0",
+    "@types/node": "^20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@typescript-eslint/eslint-plugin": "6.1.0",
@@ -22,7 +24,7 @@
     "eslint": "8.45.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-react-hooks": "4.6.0",
-    "ts-node-test": "0.4.1",
+    "glob": "^10.3.3",
     "tsx": "3.12.7",
     "typescript": "5.1.6",
     "vite": "4.4.6"
@@ -31,7 +33,7 @@
     "start": "vite",
     "prebuild": "tsc",
     "build": "vite build",
-    "test": "ts-node-test src/**/*.test.ts",
+    "test": "glob -c \"node --loader tsx --no-warnings --test\" \"./src/**/*.test.ts\"",
     "format:check": "dprint check",
     "format:fix": "dprint fmt",
     "eslint": "eslint .",

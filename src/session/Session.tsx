@@ -19,7 +19,7 @@ const Session = () => {
   );
 
   return (
-    <div className={css["session"]}>
+    <div className={css.session}>
       <Timer
         intervalSeconds={intervalSeconds}
         isSoundEnabled={isSoundEnabled}

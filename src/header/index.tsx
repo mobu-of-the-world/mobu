@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <>
       <Menu isVisible={showMenu} onCloseClick={onHamburgerMenuCloseClick} />
-      <div className={css["header"]}>
+      <div className={css.header}>
         <div
           className={buildClassNames([
             css["header--container"],

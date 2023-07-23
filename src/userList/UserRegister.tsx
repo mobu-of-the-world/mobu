@@ -33,7 +33,7 @@ const UserRegister = () => {
     users.includes(username);
 
   return (
-    <div className={css["userregister"]}>
+    <div className={css.userregister}>
       <form className={css["userregister--form"]} onSubmit={onUserRegister}>
         <TextInput
           placeholder="Username"
