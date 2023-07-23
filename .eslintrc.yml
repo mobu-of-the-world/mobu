@@ -45,3 +45,8 @@ overrides:
       '@typescript-eslint/prefer-readonly-parameter-types':
         - error
         - ignoreInferredTypes: true
+  - files:
+      - src/**/*.test.ts
+    rules:
+      '@typescript-eslint/no-floating-promises':
+        - off
