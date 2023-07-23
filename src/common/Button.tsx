@@ -4,7 +4,7 @@ import { buildClassNames } from "./cssHelpers";
 const Button = ({ className, ...props }: JSX.IntrinsicElements["button"]) => {
   return (
     <button
-      className={buildClassNames([css["button"], className && css[className]])}
+      className={buildClassNames([css.button, className && css[className]])}
       {...props}
     >
       {props.children}

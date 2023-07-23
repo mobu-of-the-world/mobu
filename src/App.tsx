@@ -12,11 +12,11 @@ const App = () => {
     <>
       <Header />
       <div className={css["main--container"]}>
-        <div className={css["main"]}>
+        <div className={css.main}>
           <UsersProvider>
             <>
               <UserList />
-              <div className={css["divider"]}></div>
+              <div className={css.divider}></div>
               <Session />
             </>
           </UsersProvider>

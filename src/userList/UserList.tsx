@@ -18,7 +18,7 @@ const UserList = () => {
   }, [setPersistedUsers, users]);
 
   return (
-    <div className={css["userlist"]}>
+    <div className={css.userlist}>
       <UserRegister />
       <div className={css["userlist--divider"]} />
       <Button
@@ -29,10 +29,10 @@ const UserList = () => {
         Shuffle
       </Button>
       <div className={css["userlist--divider"]} />
-      <ul className={css["userlist__list"]}>
+      <ul className={css.userlist__list}>
         {users.map((user, index) => (
           <li
-            className={css["userlist__listitem"]}
+            className={css.userlist__listitem}
             key={user}
             draggable={true}
             onDragStart={(ev) => {
@@ -53,7 +53,7 @@ const UserList = () => {
               const droppedMatchedGroups = droppedData.match(
                 /^user-(?<droppedUsername>.+)$/,
               )?.groups;
-              const droppedUsername = droppedMatchedGroups?.["droppedUsername"];
+              const droppedUsername = droppedMatchedGroups?.droppedUsername;
               if (typeof droppedUsername === "string") {
                 setPersistedUsers(
                   movePosition(users, droppedUsername, user),

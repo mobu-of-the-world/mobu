@@ -13,7 +13,7 @@ const Emoji = ({
   return (
     <div
       className={buildClassNames([
-        css["emoji"],
+        css.emoji,
         onClick && css["emoji--clickable"],
       ])}
       onClick={onClick}

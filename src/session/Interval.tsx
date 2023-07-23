@@ -42,7 +42,7 @@ const Interval = ({
   }[unit];
 
   return (
-    <div className={css["interval"]}>
+    <div className={css.interval}>
       <div className={css["interval--text"]}>
         Interval {`(${unit})`}&nbsp;:&nbsp;
       </div>
