@@ -58,6 +58,6 @@ jobs:
           node-version-file: '.node-version'
       - name: install dependencies
         run: npm ci --ignore-scripts
+      - run: npm run format:check
       - name: lint
-        run: |
-          npm run eslint
+        run: npm run eslint
