@@ -24,7 +24,7 @@
     "eslint": "8.50.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-react-hooks": "4.6.0",
-    "glob": "10.3.9",
+    "glob": "10.3.10",
     "tsx": "3.13.0",
     "typescript": "5.2.2",
     "vite": "4.4.9"
