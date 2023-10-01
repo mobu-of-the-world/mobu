@@ -96,6 +96,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "matz",
+      "name": "Yukihiro \"Matz\" Matsumoto",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30733?v=4",
+      "profile": "https://github.com/matz",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
