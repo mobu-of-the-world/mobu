@@ -6,13 +6,11 @@ on:
       - main
     paths-ignore:
       - '.editorconfig'
-      - '**.md'
       - '.vscode/**'
       - 'renovate.json'
   pull_request:
     paths-ignore:
       - '.editorconfig'
-      - '**.md'
       - '.vscode/**'
       - 'renovate.json'
 
