@@ -7,12 +7,12 @@ on:
     paths-ignore:
       - '.editorconfig'
       - '.vscode/**'
-      - 'renovate.json'
+      - '.github/renovate.json'
   pull_request:
     paths-ignore:
       - '.editorconfig'
       - '.vscode/**'
-      - 'renovate.json'
+      - '.github/renovate.json'
 
 jobs:
   typecheck:
