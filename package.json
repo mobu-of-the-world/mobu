@@ -10,7 +10,7 @@
     "ress": "5.0.2"
   },
   "devDependencies": {
-    "@testing-library/react": "14.1.1",
+    "@testing-library/react": "14.1.2",
     "@testing-library/user-event": "14.5.1",
     "@tsconfig/vite-react": "2.0.1",
     "@types/node": "20.9.1",
