@@ -21,7 +21,7 @@
     "@vitejs/plugin-react": "4.2.0",
     "all-contributors-cli": "6.26.1",
     "dprint": "0.43.1",
-    "esbuild": "0.19.7",
+    "esbuild": "0.19.8",
     "eslint": "8.54.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-react-hooks": "4.6.0",
