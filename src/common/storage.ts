@@ -1,8 +1,8 @@
 import { isString, isTypedArray } from "./typeguard";
 
-const KEY_PREFIX = "mobu-v1-" as const;
-const KEY_USERS = `${KEY_PREFIX}users` as const;
-const KEY_SOUND_ENABLED = `${KEY_PREFIX}sound_enabled` as const;
+const KEY_PREFIX = "mobu-v1-";
+const KEY_USERS = `${KEY_PREFIX}users`;
+const KEY_SOUND_ENABLED = `${KEY_PREFIX}sound_enabled`;
 
 export const getStorageSoundEnabled = (): boolean => {
   return localStorage.getItem(KEY_SOUND_ENABLED) === "true";
