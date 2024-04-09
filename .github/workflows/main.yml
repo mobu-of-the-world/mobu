@@ -71,4 +71,4 @@ jobs:
         run: npm ci --ignore-scripts
       - run: npm run format:check
       - name: lint
-        run: npm run eslint
+        run: npm run lint
