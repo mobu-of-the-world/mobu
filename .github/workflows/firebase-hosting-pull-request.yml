@@ -12,7 +12,7 @@ name: Deploy to Firebase Hosting on PR
       - '.vscode/**'
       - 'dprint.json'
       - 'renovate.json'
-      - '.eslintrc.yml'
+      - '.denolint.json'
 jobs:
   build_and_preview:
     if: ${{ (github.event.pull_request.head.repo.full_name == github.repository) && (! contains(github.actor, '[bot]')) }}
