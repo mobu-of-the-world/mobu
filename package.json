@@ -10,7 +10,7 @@
     "ress": "5.0.2"
   },
   "devDependencies": {
-    "@node-rs/deno-lint": "^1.20.1",
+    "@node-rs/deno-lint": "1.20.1",
     "@testing-library/react": "14.3.0",
     "@testing-library/user-event": "14.5.2",
     "@tsconfig/vite-react": "3.0.2",
