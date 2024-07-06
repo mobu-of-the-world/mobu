@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
   "extends": [
-    "config:js-app"
+    "config:js-app",
+    "github>kachick/renovate-config-dprint#1.1.0"
   ],
   "labels": ["dependencies", "renovate"],
   "automerge": true,
