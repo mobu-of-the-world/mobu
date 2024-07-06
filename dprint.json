@@ -10,6 +10,16 @@
   },
   "markdown": {
   },
+  "malva": {
+    "quotes": "preferSingle"
+  },
+  "markup": {
+    "styleIndent": true,
+    "doctypeKeywordCase": "ignore"
+  },
+  "yaml": {
+    "quotes": "preferSingle"
+  },
   "excludes": [
     ".git",
     "**/node_modules",
