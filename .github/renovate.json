@@ -3,7 +3,8 @@
   "dependencyDashboard": true,
   "extends": [
     "config:js-app",
-    "github>kachick/renovate-config-dprint#1.1.0"
+    "github>kachick/renovate-config-dprint#1.1.0",
+    "github>kachick/renovate-config-dprint:self"
   ],
   "labels": ["dependencies", "renovate"],
   "automerge": true,
