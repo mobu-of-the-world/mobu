@@ -23,7 +23,7 @@
     "glob": "11.0.0",
     "tsx": "4.19.2",
     "typescript": "5.7.2",
-    "vite": "6.0.1"
+    "vite": "6.0.6"
   },
   "scripts": {
     "start": "vite",
