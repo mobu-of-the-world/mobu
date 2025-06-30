@@ -20,7 +20,7 @@
     "all-contributors-cli": "6.26.1",
     "dprint": "0.49.1",
     "esbuild": "0.25.5",
-    "glob": "11.0.2",
+    "glob": "11.0.3",
     "tsx": "4.19.4",
     "typescript": "5.7.2",
     "vite": "6.1.6"
