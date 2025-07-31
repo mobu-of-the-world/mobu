@@ -19,7 +19,7 @@
     "@vitejs/plugin-react": "4.7.0",
     "all-contributors-cli": "6.26.1",
     "dprint": "0.50.1",
-    "esbuild": "0.25.5",
+    "esbuild": "0.25.8",
     "glob": "11.0.3",
     "tsx": "4.19.4",
     "typescript": "5.7.2",
