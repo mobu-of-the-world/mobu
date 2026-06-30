@@ -22,15 +22,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.3.1
+      - uses: actions/setup-node@v4.4.0
         with:
           cache: npm
           node-version-file: '.node-version'
       - name: install dependencies
         run: npm ci --ignore-scripts
       - run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@v0.11.0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MOBU_WAIWAI }}'
